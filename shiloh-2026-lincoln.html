@@ -116,7 +116,7 @@ img { max-width: 100%; display: block; }
 .countdown[data-phase="live"] .bigstate, .countdown[data-phase="over"] .bigstate { display: block; }
 
 /* ---- primary actions ---- */
-.primary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.primary { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; padding: 13px 14px; font-family: var(--font-cond); font-weight: 800; font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; min-height: 48px; }
 .btn svg { width: 18px; height: 18px; flex: none; }
 .btn-gold { background: var(--gold); color: var(--ink); border-color: var(--gold-light); }
@@ -270,7 +270,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
     <div class="body">
       <div class="eyebrow">Shiloh 2026 · Theme</div>
       <h1 class="theme">Far Above</h1>
-      <p class="scripture"><b>“Far above all principality, and power, and might, and dominion.”</b> Ephesians 1:21. Six days of the Word, prayer and prophetic encounters, live from Canaanland and right here in Lincoln.</p>
+      <p class="scripture"><b>“And hath raised us up together, and made us sit together in heavenly places in Christ Jesus.”</b> Ephesians 2:6. Six days of the Word, prayer and prophetic encounters, broadcast from Canaanland and gathered right here in Lincoln.</p>
       <div class="facts">
         <span class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Tue 8 – Sun 13 Dec 2026</span>
         <span class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span id="factVenue">Moorland Community Centre, Lincoln</span></span>
@@ -294,8 +294,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
   </section>
 
   <div class="primary">
-    <a class="btn btn-gold" id="liveBtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Watch live</a>
-    <a class="btn btn-outline" id="dirBtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Directions</a>
+    <a class="btn btn-gold" id="dirBtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Directions</a>
   </div>
 
   <section class="quick" aria-label="Quick answers">
@@ -303,13 +302,12 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
     <dl class="qa">
       <div><dt>Do I need a ticket?</dt><dd>No. Shiloh is free and open to everyone.</dd></div>
       <div><dt>Do I need to register?</dt><dd>No. Just come. Book a bus seat below if you need a ride.</dd></div>
-      <div><dt>Is it happening in Nigeria?</dt><dd>It is live from Canaanland, and we gather for every session here in Lincoln.</dd></div>
+      <div><dt>Is it happening in Nigeria?</dt><dd>It is broadcast from Canaanland, and we gather for every session here in Lincoln, in person.</dd></div>
       <div><dt>Do I come every day?</dt><dd>Yes. Six days, every session. Each day builds on the one before.</dd></div>
-      <div><dt>Can I bring my children?</dt><dd>Yes. Winners Kids and Teens Church run during the evening sessions. Details below.</dd></div>
     </dl>
   </section>
 
-  <div class="section-head"><h2>Before you come</h2><p>What it is, when, where, arriving, children</p></div>
+  <div class="section-head"><h2>Before you come</h2><p>What it is, when, where, arriving</p></div>
   <div class="tiles">
     <details class="tile" id="about">
       <summary>
@@ -355,7 +353,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
       <div class="panel">
         <h4>Lincoln viewing centre</h4>
         <div class="copybox"><code id="venueText">Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH</code><button class="btn btn-outline" data-copy-target="venueText">Copy</button></div>
-        <p>Every session is here, live from Canaanland. Parking on site. Please leave the spaces nearest the entrance for the elderly and families with buggies.</p>
+        <p>Every session is here, broadcast from Canaanland, with the whole church together in one room. Parking on site. Please leave the spaces nearest the entrance for the elderly.</p>
         <div class="actions"><a class="btn btn-gold wide" id="dirBtn2" href="#" target="_blank" rel="noopener">Open in Maps</a></div>
       </div>
     </details>
@@ -367,23 +365,13 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <div class="panel">
-        <p>Come to the welcome desk at the entrance if it is your first time, if you have children with you, or if you booked a bus seat and need to find your way back. Someone will show you where to sit and where everything is.</p>
+        <p>Come to the welcome desk at the entrance if it is your first time. Someone will show you where to sit and where everything is.</p>
         <p>Arrive before the session starts and stay to the end. Each session is one piece of the whole.</p>
         <h4>What to bring</h4>
         <p>Bible, notebook and pen, a warm layer for the early-morning sessions, and your offering.</p>
       </div>
     </details>
 
-    <details class="tile" id="children">
-      <summary>
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 20v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2M15 20v-1.5a3.5 3.5 0 0 1 3.5-3.5h.5a3 3 0 0 1 3 3V20"/></svg></span>
-        <span class="t"><b>Can I bring my children?</b><span>Winners Kids and Teens Church</span></span>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-      </summary>
-      <div class="panel">
-        <p>Yes. Winners Kids and Teens Church run during the evening sessions, so the whole family comes together. Check your children in at the welcome desk when you arrive and collect them at the end of the session.</p>
-      </div>
-    </details>
   </div>
 
   <div class="section-head"><h2>Getting there and ready</h2><p>Transport, stay, classes, shirt</p></div>
@@ -457,11 +445,11 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
     <details class="tile" id="classes">
       <summary>
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4-9 4z"/><path d="M7 9.5V15c0 1.5 2.5 3 5 3s5-1.5 5-3V9.5M21 7v6"/></svg></span>
-        <span class="t"><b>Which class should I take?</b><span>Specialised classes, 11:30 AM Wed to Fri</span></span>
+        <span class="t"><b>Which class should I take?</b><span>Specialised classes from 11:30 AM, Wed to Fri</span></span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <div class="panel">
-        <p>Targeted teaching, 11:30 AM to 12:45 PM on Wednesday, Thursday and Friday. Each class takes one area of life, such as health, family, business and career, or academics, and goes deep on what the Word says about it. Pick the class that speaks to your situation.</p>
+        <p>Targeted teaching from 11:30 AM on Wednesday, Thursday and Friday. Each class takes one area of life, such as health, family, business and career, or academics, and goes deep on what the Word says about it. Pick the class that speaks to your situation.</p>
         <ul class="classes" id="classList" hidden></ul>
       </div>
     </details>
@@ -652,7 +640,6 @@ const CONFIG = {
   venue: { name: "Moorland Community Centre", address: "Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH" },
   eventKey: "Shiloh 2026",                       // sent with every booking (used in email alerts)
   sheetUrl: "https://script.google.com/macros/s/AKfycbyaVz2ssEPCLdOksNEKumxVo6UOapD2tq68MbL256ToyMK1KtvtMblmqO6pVSZ2PHCN/exec", // this event's bookings workbook: Apps Script web app URL (see backend/SETUP.md). Empty = WhatsApp only
-  liveStream: "https://faithtabernacle.org.ng",  // official Living Faith Church Worldwide stream
   giveUrl: "",                                   // church online giving page (the Give card stays hidden until this is set)
   tshirtPrice: "",                               // e.g. "£12" (shown on the T-shirt card once set)
   classes: [],                                   // this year's specialised classes, e.g. ["Healing, Health and Wholeness", "Business and Career Breakthrough"]
@@ -673,27 +660,24 @@ const CONFIG = {
   // Lincoln programme, UK time. `block` ties an item to one of the four numbered blocks (prayer, morning, classes, evening).
   days: [
     { key: "tue", label: "Tue", date: "8 Dec", items: [
-      { t: "5:00 PM", what: "Evening Session · Encounter Night", sub: "Opening night, live from Canaanland", block: "evening" } ] },
+      { t: "5:00 PM", what: "Evening Session · Encounter Night", sub: "Opening night", block: "evening" } ] },
     { key: "wed", label: "Wed", date: "9 Dec", items: [
       { t: "5:00 AM", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
-      { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions, to 10:15 AM", block: "morning" },
-      { t: "10:15 AM", what: "Break", sub: "Tea and refreshments", quiet: true },
-      { t: "11:30 AM", what: "Specialised Classes", sub: "To 12:45 PM. Pick one class", block: "classes" },
+      { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
+            { t: "11:30 AM", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
       { t: "5:00 PM", what: "Evening Session · Encounter Night", sub: "Main evening session", block: "evening" } ] },
     { key: "thu", label: "Thu", date: "10 Dec", items: [
       { t: "5:00 AM", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
-      { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions, to 10:15 AM", block: "morning" },
-      { t: "10:15 AM", what: "Break", sub: "Tea and refreshments", quiet: true },
-      { t: "11:30 AM", what: "Specialised Classes", sub: "To 12:45 PM. Pick one class", block: "classes" },
+      { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
+            { t: "11:30 AM", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
       { t: "5:00 PM", what: "Evening Session · Encounter Night", sub: "Main evening session", block: "evening" } ] },
     { key: "fri", label: "Fri", date: "11 Dec", items: [
       { t: "5:00 AM", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
-      { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions, to 10:15 AM", block: "morning" },
-      { t: "10:15 AM", what: "Break", sub: "Tea and refreshments", quiet: true },
-      { t: "11:30 AM", what: "Specialised Classes", sub: "To 12:45 PM. Pick one class", block: "classes" },
+      { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
+            { t: "11:30 AM", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
       { t: "5:00 PM", what: "Victor Celebration Night", sub: "Friday evening session. Come to celebrate", block: "evening" } ] },
     { key: "sat", label: "Sat", date: "12 Dec", items: [
-      { t: "5:00 AM", what: "Impartation Service", sub: "Saturday morning session, live from Canaanland", block: "morning" } ] },
+      { t: "5:00 AM", what: "Impartation Service", sub: "Saturday morning session, 5:00 AM UK time", block: "morning" } ] },
     { key: "sun", label: "Sun", date: "13 Dec", items: [
       { t: "9:20 AM", what: "Shiloh Thanksgiving Service 1", sub: "Bring your invitees and new converts" },
       { t: "11:15 AM", what: "Shiloh Thanksgiving Service 2", sub: "Bring your invitees and new converts" } ] }
@@ -711,9 +695,7 @@ function setLink(el, url, soonText) {
 }
 const mapsUrl = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(CONFIG.venue.address);
 setLink($("#dirBtn"), mapsUrl); setLink($("#dirBtn2"), mapsUrl);
-setLink($("#liveBtn"), CONFIG.liveStream);
 setLink($("#giveBtn"), CONFIG.giveUrl); $("#give").hidden = !CONFIG.giveUrl;
-$("#liveBtn").hidden = !CONFIG.liveStream;
 if (CONFIG.classes.length) { $("#classList").innerHTML = CONFIG.classes.map(c => `<li>${c}</li>`).join(""); $("#classList").hidden = false; }
 if (CONFIG.tshirtPrice) { $("#shirtPrice").textContent = CONFIG.tshirtPrice; $("#shirtPrice").hidden = false; }
 setLink($("#testWatch"), CONFIG.testimoniesUrl);
@@ -755,10 +737,8 @@ function tick() {
     $("#cdLabel").textContent = "Shiloh 2026 is on";
     $("#cdWhen").textContent = "Day " + day + " of 6";
     $("#bigstate").textContent = "Live now · Day " + day;
-    $("#cdState").textContent = "Join us at the venue or tap Watch live. Buses are running.";
+    $("#cdState").textContent = "Come to the venue. Buses are running.";
     chip.classList.add("live"); chipText.textContent = "Live in Lincoln";
-    const df = $("#dockFirst");
-    if (CONFIG.liveStream && !df.dataset.live) { df.dataset.live = "1"; df.href = CONFIG.liveStream; df.target = "_blank"; df.rel = "noopener"; df.removeAttribute("data-open"); df.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Watch live'; }
   } else {
     cd.dataset.phase = "over";
     $("#cdLabel").textContent = "Shiloh 2026";
