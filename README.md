@@ -1,9 +1,22 @@
-# Shiloh 2026 · Winners Chapel International Lincoln
+# Shiloh event app · Winners Chapel International Lincoln
 
-A one-link event hub ("all you need to know about Shiloh 2026") for the Lincoln viewing centre.
-Countdown, programme, specialised classes, venue, bus booking, T-shirts, camping, volunteering,
-testimonies, giving, sharing and a printable QR poster. No backend: bookings open WhatsApp with a
-pre-filled message (or copy the text) so the committee can run everything from their phones.
+The home for WCI Lincoln's Shiloh event pages, one edition per year. Each edition is a single-page
+"all you need to know" hub for the Lincoln viewing centre: countdown, programme, bookings and a
+printable QR poster. The current edition is **Shiloh 2026 · Far Above** (Tue 8 – Sun 13 Dec 2026).
+
+Live address: `https://wci-lincoln.github.io/<repository-name>/shiloh-2026/`
+(with the repository named `shiloh-event-app` that is `…/shiloh-event-app/shiloh-2026/`;
+renaming the repository to `events` gives `…/events/shiloh-2026/`).
+
+## What the page does
+
+- Countdown that switches to "Live now · Day N" during Shiloh week.
+- Programme by day, built on the four daily blocks: 1 Shiloh Prayer Hour, 2 Morning Session
+  (Hour of Visitation), 3 Specialised Classes, 4 Evening Session (Encounter Night). Friday evening
+  is the Victor Celebration Night; Saturday morning is the Impartation Service.
+- Bookings: bus seats (day-by-session grid), T-shirts, stay, volunteering, testimonies.
+  Submissions go to a Google Sheet; WhatsApp is the fallback.
+- Venue and directions, giving, share links and a scan-to-open QR block.
 
 ## Run it locally
 
@@ -11,31 +24,39 @@ pre-filled message (or copy the text) so the committee can run everything from t
 npm run dev
 ```
 
-Then open http://localhost:4173/shiloh-2026/. The QR poster (A4, print from the browser) is at http://localhost:4173/qr.
+Then open http://localhost:4173/shiloh-2026/. The A4 QR poster is at http://localhost:4173/qr.
 
-## Edit content
+## Edit the 2026 edition
 
 Everything the committee changes lives in the `CONFIG` block near the bottom of
-`shiloh-2026-lincoln.html` (page link, dates, venue, WhatsApp numbers, contacts, programme, links).
-Run `npm run build` after editing (or just restart `npm run dev`).
+`shiloh-2026-lincoln.html`: page link, dates, venue, WhatsApp numbers, contacts, programme,
+links, T-shirt price, Sheet URL. Run `node build.js` after editing, then commit and push.
+
+## Bookings backend
+
+Forms post to a Google Sheet through a small Apps Script. Follow `backend/SETUP.md`, then paste
+the web app URL into `sheetUrl` in `CONFIG`. Until it is set, forms open WhatsApp with the
+booking text instead.
 
 ## Files
 
-- `shiloh-2026-lincoln.html` — the page (source of truth; also published as the Claude artifact)
-- `build.js` — wraps the page into `docs/shiloh-2026/index.html` and copies assets
-- `server.js` — tiny static server for `docs/`
-- `backend/Code.gs` + `backend/SETUP.md` — the Google Sheet booking backend and how to deploy it
+- `shiloh-2026-lincoln.html` — the 2026 page (source of truth)
+- `build.js` — wraps the page into `docs/shiloh-2026/index.html` and copies its assets
+- `server.js` — tiny static server for `docs/` (local preview only)
+- `backend/` — the Google Sheet booking script and its setup guide
 - `assets/` — official flyer, cropped hero, QR code (PNG + SVG), A4 QR poster
-- `docs/` — generated; GitHub Pages serves this folder. The repository is named `events`, so the page is at `/events/shiloh-2026/`
+- `docs/` — generated site; GitHub Pages serves this folder
 
-## Going live (GitHub Pages, free)
+## Hosting (GitHub Pages, free)
 
-1. Push this folder to the `wci-lincoln/events` repository.
-2. Repository **Settings → Pages → Build and deployment**: Source "Deploy from a branch", branch `main`, folder `/docs`.
-3. The site appears at `https://wci-lincoln.github.io/events/shiloh-2026/` within a minute or two (the repository must be public and named `events`). A custom domain (for example `shiloh.winnerschapellincoln.org.uk`) can be added on the same settings page.
-4. Set `pageUrl` in `CONFIG` to that URL, run `node build.js`, commit and push, so the in-page QR and share links point there.
-5. Regenerate the printed QR for the same URL (`assets/shiloh-2026-qr.*` currently point at the Claude artifact link).
+Repository **Settings → Pages**: Source "Deploy from a branch", branch `main`, folder `/docs`.
+The repository must be public for Pages on a free account. After any change: `node build.js`,
+commit, push; the site updates within a minute or two.
 
-## Bookings
+## Adding the next edition
 
-Forms post to a Google Sheet through a small Apps Script. Follow `backend/SETUP.md`, then paste the web app URL into `sheetUrl` in `CONFIG`. Until that is set, forms open WhatsApp with the booking text instead.
+1. Copy `shiloh-2026-lincoln.html` to `shiloh-2027-lincoln.html` and update its `CONFIG`
+   (dates, theme, venue, links) and the hero image.
+2. In `build.js`, add the new page with its own output folder (`docs/shiloh-2027/`).
+3. Point the root redirect in `build.js` at the new edition, generate a QR for the new address,
+   and keep the old edition's folder so its printed QR codes keep working.
