@@ -49,6 +49,8 @@
 .band, .dock { --fg: var(--ivory); --hl: var(--gold-light); --muted: rgba(251, 243, 228, 0.72); --line: rgba(243, 210, 122, 0.22); --card: rgba(24, 3, 6, 0.42); --surface: rgba(0, 0, 0, 0.25); --row: rgba(0, 0, 0, 0.22); color: var(--fg); color-scheme: dark; }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
+html { scroll-behavior: smooth; }
+.tile { scroll-margin-top: 12px; }
 body {
   background: var(--bg);
   background-image: radial-gradient(700px 300px at 50% 0, rgba(217, 166, 58, 0.18), transparent 70%);
@@ -267,7 +269,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
 .dock a svg { width: 20px; height: 20px; color: var(--gold); }
 .dock a:hover { background: rgba(243,210,122,.08); }
 
-@media (prefers-reduced-motion: reduce) { .tile .chev { transition: none; } .chip.live .dot { animation: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .tile .chev { transition: none; } .chip.live .dot { animation: none; } }
 </style>
 
 <div class="band"><div class="col">
@@ -925,7 +927,10 @@ document.addEventListener("click", async e => {
   const sz = e.target.closest(".size");
   if (sz) { $$(".size").forEach(b => b.setAttribute("aria-pressed", "false")); sz.setAttribute("aria-pressed", "true"); return; }
   const dock = e.target.closest("[data-open]");
-  if (dock) { const d = document.getElementById(dock.dataset.open); if (d) d.open = true; }
+  if (dock) {
+    const d = document.getElementById(dock.dataset.open);
+    if (d) { e.preventDefault(); d.open = true; d.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }); history.replaceState(null, "", "#" + dock.dataset.open); }
+  }
 });
 
 /* open the tile named in the link's #hash */
