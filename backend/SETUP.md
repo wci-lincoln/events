@@ -1,11 +1,12 @@
-# Bookings backend: Google Sheet + Apps Script (free)
+# Bookings backend: one Google Sheet workbook per event (free)
 
-Every form on the page (bus seats, T-shirts, stay, volunteers, testimonies) posts to a small
-script that lives inside a Google Sheet. Each submission becomes one row on its own tab.
-Takes about ten minutes, needs only a Google account.
+Each event gets its own workbook. Inside it, each form gets its own sheet: **Bus seats**,
+**T-shirts**, **Stay**, **Volunteers**, **Testimonies**. A small script inside the workbook receives
+the page's forms and appends one row per submission. Takes about ten minutes, needs only a
+Google account. Repeat for each new event.
 
-## 1. Create the sheet
-1. Go to https://sheets.new and name it **WCI Lincoln event bookings**.
+## 1. Create the workbook
+1. Go to https://sheets.new and name it after the event, for example **Shiloh 2026 · Bookings**.
 2. Share it with the committee members who need to see bookings (Viewer is enough).
 
 ## 2. Add the script
@@ -23,13 +24,12 @@ Takes about ten minutes, needs only a Google account.
    `{"ok":true,"service":"Shiloh 2026 Lincoln bookings"}`.
 
 ## 4. Connect the page
-1. Open `shiloh-2026-lincoln.html`, find `sheetUrl: ""` in the `CONFIG` block, and paste the URL between the quotes.
+1. Open the event's page file (for 2026, `shiloh-2026-lincoln.html`), find `sheetUrl: ""` in the `CONFIG` block, and paste the URL between the quotes.
 2. Rebuild and deploy the site (`node build.js`, then push).
 
-Tabs are created automatically on the first submission of each form, named after the event the
-page sends, for example **Shiloh 2026 · Bus seats**. So one sheet can hold every event (each
-event's page carries its own `eventKey` and `sheetUrl` in `CONFIG`), or you can repeat these steps
-for a fresh sheet per event. Either way, each event page has its own `sheetUrl` entry.
+The five sheets are created automatically, each on the first submission of its form, with bold
+frozen headers. Each event page carries its own `sheetUrl` in `CONFIG`, so every event points at
+its own workbook.
 
 ## Changing the script later
 Edit the code, then **Deploy → Manage deployments → pencil icon → Version: New version → Deploy**.

@@ -40,7 +40,7 @@ minute or two.
 
 Forms post to a Google Sheet through a small Apps Script. Follow `backend/SETUP.md`, then paste
 the web app URL into `sheetUrl` in that event's `CONFIG`. Until it is set, forms open WhatsApp
-with the booking text instead. One sheet per event keeps bookings separate.
+with the booking text instead. One workbook per event, with a sheet per form inside it.
 
 ## Files
 

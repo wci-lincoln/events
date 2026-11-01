@@ -1,9 +1,8 @@
 /**
  * Shiloh 2026 Lincoln — bookings backend.
  * Lives inside the Google Sheet (Extensions → Apps Script). Receives the page's forms and
- * appends one row per submission to a tab per form. Tabs are prefixed with the event name the
- * page sends (for example "Shiloh 2026 · Bus seats"), so one sheet can hold every event, or you can
- * deploy a fresh copy per event. Optional email alert per form.
+ * One workbook per event. Inside it, one sheet per form: Bus seats, T-shirts, Stay, Volunteers,
+ * Testimonies. Each submission appends one row. Optional email alert per form.
  */
 
 // Columns per form. The page sends fields with exactly these names.
@@ -15,7 +14,7 @@ const FORMS = {
   test:  ["Name", "OK to share", "Testimony"]
 };
 
-// Tab names in the sheet.
+// Sheet (tab) names inside the event's workbook.
 const TABS = { bus: "Bus seats", shirt: "T-shirts", camp: "Stay", vol: "Volunteers", test: "Testimonies" };
 
 // Optional: an email address per form to alert on every new entry. Leave "" for none.
@@ -27,8 +26,8 @@ function doPost(e) {
     if (data.website) return out({ ok: true });            // honeypot field filled: a bot, ignore quietly
     const cols = FORMS[data.form];
     if (!cols) return out({ ok: false, error: "Unknown form" });
-    const event = String(data.event || "Event").replace(/[\[\]\*\/\\\?:]/g, "").trim().slice(0, 40);
-    const tabName = event + " · " + TABS[data.form];
+    const tabName = TABS[data.form];
+    const event = String(data.event || "Event").slice(0, 40);
 
     const lock = LockService.getScriptLock();
     lock.waitLock(10000);
