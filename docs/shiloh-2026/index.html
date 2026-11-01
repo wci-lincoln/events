@@ -912,7 +912,7 @@ async function sendToSheet(k) {
     msg.className = "msg ok"; msg.textContent = DONE[k];
     return true;
   } catch (err) {
-    msg.className = "msg"; msg.textContent = "Could not reach the booking sheet, so WhatsApp is opening instead.";
+    msg.className = "msg"; msg.textContent = "Could not save just now. Check your connection and tap again.";
     return false;
   } finally { btn.disabled = false; }
 }
@@ -921,13 +921,13 @@ Object.keys(forms).forEach(k => {
   // honeypot: invisible field that only bots fill in
   const hp = document.createElement("input"); hp.type = "text"; hp.className = "hp"; hp.name = "website"; hp.tabIndex = -1; hp.autocomplete = "off"; hp.setAttribute("aria-hidden", "true"); hp.style.cssText = "position:absolute;left:-9999px;width:1px;height:1px;opacity:0"; form.appendChild(hp);
   if (CONFIG.sheetUrl) {
-    form.querySelector("button[type=submit]").textContent = PRIMARY[k];
-    const alt = $("#" + k + "Alt"); alt.textContent = "WhatsApp instead"; alt.removeAttribute("data-copy-form"); alt.dataset.wa = k;
+    const primary = form.querySelector("button[type=submit]"); primary.textContent = PRIMARY[k]; primary.classList.add("wide");
+    $("#" + k + "Alt").hidden = true;   // WhatsApp is offered only when there is no bookings sheet
   }
   form.addEventListener("submit", async e => {
     e.preventDefault();
     if (!form.reportValidity()) return;
-    if (CONFIG.sheetUrl && await sendToSheet(k)) return;
+    if (CONFIG.sheetUrl) { await sendToSheet(k); return; }
     sendWhatsApp(k);
   });
 });
