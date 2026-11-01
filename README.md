@@ -11,7 +11,7 @@ pre-filled message (or copy the text) so the committee can run everything from t
 npm run dev
 ```
 
-Then open http://localhost:4173. The QR poster (A4, print from the browser) is at http://localhost:4173/qr.
+Then open http://localhost:4173/shiloh-2026/. The QR poster (A4, print from the browser) is at http://localhost:4173/qr.
 
 ## Edit content
 
@@ -22,17 +22,17 @@ Run `npm run build` after editing (or just restart `npm run dev`).
 ## Files
 
 - `shiloh-2026-lincoln.html` — the page (source of truth; also published as the Claude artifact)
-- `build.js` — wraps the page into `docs/index.html` and copies assets
+- `build.js` — wraps the page into `docs/shiloh-2026/index.html` and copies assets
 - `server.js` — tiny static server for `docs/`
 - `backend/Code.gs` + `backend/SETUP.md` — the Google Sheet booking backend and how to deploy it
 - `assets/` — official flyer, cropped hero, QR code (PNG + SVG), A4 QR poster
-- `docs/` — generated; GitHub Pages serves this folder (also fine for Netlify or the church site)
+- `docs/` — generated; GitHub Pages serves this folder. The repository is named `events`, so the page is at `/events/shiloh-2026/`
 
 ## Going live (GitHub Pages, free)
 
-1. Push this folder to a GitHub repository.
+1. Push this folder to the `wci-lincoln/events` repository.
 2. Repository **Settings → Pages → Build and deployment**: Source "Deploy from a branch", branch `main`, folder `/docs`.
-3. The site appears at `https://<account>.github.io/<repo>/` within a minute or two. A custom domain (for example `shiloh.winnerschapellincoln.org.uk`) can be added on the same settings page.
+3. The site appears at `https://wci-lincoln.github.io/events/shiloh-2026/` within a minute or two (the repository must be public and named `events`). A custom domain (for example `shiloh.winnerschapellincoln.org.uk`) can be added on the same settings page.
 4. Set `pageUrl` in `CONFIG` to that URL, run `node build.js`, commit and push, so the in-page QR and share links point there.
 5. Regenerate the printed QR for the same URL (`assets/shiloh-2026-qr.*` currently point at the Claude artifact link).
 

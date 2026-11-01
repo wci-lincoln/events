@@ -14,8 +14,9 @@ const TYPES = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": 
 
 http.createServer((req, res) => {
   let p = decodeURIComponent(new URL(req.url, "http://x").pathname);
-  if (p === "/" || p === "") p = "/index.html";
-  if (p === "/qr" || p === "/qr/") p = "/shiloh-2026-qr-poster-a4.html";
+  if (p === "/" || p === "" || p === "/index.html") { res.writeHead(302, { Location: "/shiloh-2026/" }); return res.end(); }
+  if (p.endsWith("/")) p += "index.html";
+  if (p === "/qr") p = "/shiloh-2026/shiloh-2026-qr-poster-a4.html";
   const file = path.normalize(path.join(PUBLIC, p));
   if (!file.startsWith(PUBLIC)) { res.writeHead(403); return res.end("Forbidden"); }
   fs.readFile(file, (err, data) => {
@@ -24,5 +25,5 @@ http.createServer((req, res) => {
     res.end(data);
   });
 }).listen(PORT, () => {
-  console.log(`Shiloh 2026 Lincoln hub running at http://localhost:${PORT}  (QR poster: http://localhost:${PORT}/qr)`);
+  console.log(`Shiloh 2026 Lincoln hub running at http://localhost:${PORT}  (page: http://localhost:${PORT}/shiloh-2026/  QR poster: http://localhost:${PORT}/qr)`);
 });

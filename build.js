@@ -5,7 +5,8 @@ const path = require("path");
 
 const root = __dirname;
 const src = fs.readFileSync(path.join(root, "shiloh-2026-lincoln.html"), "utf8");
-const out = path.join(root, "docs");   // GitHub Pages serves this folder
+const site = path.join(root, "docs");                 // GitHub Pages serves this folder (repo "events")
+const out = path.join(site, "shiloh-2026");            // ...so the page lives at /events/shiloh-2026/
 fs.mkdirSync(out, { recursive: true });
 
 // The source file is written as page content (title + style + body + script) so it can also be
@@ -34,4 +35,6 @@ for (const f of ["shiloh-2026-flyer.webp", "shiloh-2026-qr.png", "shiloh-2026-qr
   const from = path.join(root, "assets", f);
   if (fs.existsSync(from)) fs.copyFileSync(from, path.join(out, f));
 }
-console.log("Built docs/index.html (" + (doc.length / 1024).toFixed(0) + " KB) and copied assets.");
+fs.writeFileSync(path.join(site, ".nojekyll"), "");
+fs.writeFileSync(path.join(site, "index.html"), `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>Winners Chapel International Lincoln · Events</title><meta http-equiv="refresh" content="0; url=shiloh-2026/"><link rel="canonical" href="shiloh-2026/"></head><body><p>Redirecting to <a href="shiloh-2026/">Shiloh 2026</a>…</p></body></html>\n`);
+console.log("Built docs/shiloh-2026/index.html (" + (doc.length / 1024).toFixed(0) + " KB) and copied assets.");
