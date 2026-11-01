@@ -7,10 +7,10 @@
 
 // Columns per form. The page sends fields with exactly these names.
 const FORMS = {
-  bus:   ["Name", "Phone", "Pickup", "Seats", "Tue", "Wed", "Thu", "Fri", "Sat", "Code", "Suggested pickup"],
+  bus:   ["Name", "Phone", "Pickup", "Seats", "Tue", "Wed", "Thu", "Fri", "Sat", "Summary", "Suggested pickup"],
   shirt: ["Name", "Phone", "Size", "Qty", "Fit"],
   camp:  ["Name", "Phone", "People", "Nights", "Notes"],
-  vol:   ["Name", "Phone", "Units", "Tue", "Wed", "Thu", "Fri", "Sat", "Code", "Sunday Thanksgiving"],
+  vol:   ["Name", "Phone", "Units", "Tue", "Wed", "Thu", "Fri", "Sat", "Summary", "Sunday Thanksgiving"],
   test:  ["Name", "OK to share", "Testimony"]
 };
 

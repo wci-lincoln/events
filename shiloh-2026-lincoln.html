@@ -202,7 +202,7 @@ label.f input::placeholder, label.f textarea::placeholder { color: var(--muted);
 .blocks li .bn { margin: 0; flex: none; }
 .blocks li small { color: var(--muted); font-size: 12px; }
 .blocks li span { color: var(--muted); font-size: 12.5px; margin-left: auto; white-space: nowrap; font-family: var(--font-cond); font-weight: 700; letter-spacing: .04em; }
-.grid { display: grid; grid-template-columns: minmax(92px, 1.4fr) repeat(5, 1fr); gap: 4px; margin-top: 6px; }
+.grid { display: grid; grid-template-columns: minmax(96px, 1.5fr) repeat(5, 1fr); gap: 4px; margin-top: 6px; }
 .grid .gh { font-family: var(--font-cond); font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--hl); text-align: center; padding: 2px 0; line-height: 1.1; }
 .grid .gh small { display: block; font-weight: 600; opacity: .7; letter-spacing: .04em; }
 .grid .gl { font-family: var(--font-cond); font-weight: 700; font-size: 13px; line-height: 1.05; display: flex; align-items: center; gap: 6px; padding: 2px 2px; min-width: 0; }
@@ -214,7 +214,10 @@ label.f input::placeholder, label.f textarea::placeholder { color: var(--muted);
 .grid .gc:has(input:checked) { background: rgba(217,166,58,.35); border-color: var(--gold-deep); }
 .presets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .presets .tag { font-size: 13px; padding: 5px 8px; }
-.plan { margin-top: 8px; font-family: var(--font-cond); font-weight: 700; font-size: 14px; letter-spacing: .03em; color: var(--hl); min-height: 1.2em; }
+.plan { margin-top: 8px; font-family: var(--font-cond); font-weight: 600; font-size: 14px; letter-spacing: .02em; color: var(--fg); display: grid; gap: 2px; }
+.plan div { display: flex; gap: 8px; align-items: baseline; }
+.plan b { color: var(--hl); font-weight: 800; min-width: 32px; }
+.plan span { color: var(--muted); }
 .classes { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 6px; }
 .classes li { padding: 9px 11px; background: var(--row); border-radius: 10px; border: 1px solid var(--line); font-size: 14.5px; display: flex; justify-content: space-between; gap: 10px; align-items: center; }
 .classes li span { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
@@ -319,10 +322,10 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <p>Shiloh 2026 runs <b>Tuesday 8 to Sunday 13 December</b> under the theme <b>Far Above</b>. Winners Chapel Lincoln will carry every session live, so you do not need to travel to Nigeria to have your encounter.</p>
         <h4>A full day at Shiloh</h4>
         <ul class="blocks">
-          <li><i class="bn">1</i>Shiloh Prayer Hour<span>5:00 AM</span></li>
-          <li><i class="bn">2</i>Morning Session · Hour of Visitation <small>(Sat: Impartation Service, 5:00 AM)</small><span>6:15 AM</span></li>
-          <li><i class="bn">3</i>Specialised Classes<span>11:30 AM</span></li>
-          <li><i class="bn">4</i>Evening Session · Encounter Night <small>(Fri: Victor Celebration Night)</small><span>5:00 PM</span></li>
+          <li>Shiloh Prayer Hour<span>5:00 AM</span></li>
+          <li>Morning Session · Hour of Visitation <small>(Saturday: Impartation Service, 5:00 AM)</small><span>6:15 AM</span></li>
+          <li>Specialised Classes<span>11:30 AM</span></li>
+          <li>Evening Session · Encounter Night <small>(Friday: Victor Celebration Night)</small><span>5:00 PM</span></li>
         </ul>
         <h4>Come for all of it</h4>
         <p>Six days, every session. The Word at Shiloh builds from the Prayer Hour through the Morning Session and the classes into the Encounter Night, and each day builds on the one before. Plan your week around it: book your seat for every session, clear the diary, and come expecting.</p>
@@ -616,9 +619,9 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
 
 <div class="dock">
   <nav aria-label="Quick links">
-    <a href="#programme" data-open="programme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Times</a>
+    <a href="#programme" data-open="programme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Schedule</a>
     <a href="#transport" data-open="transport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v10M5 17h14M5 11h14"/></svg>Bus</a>
-    <a href="#volunteer" data-open="volunteer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 11V7a5 5 0 0 1 10 0v4M5 11h14l-1 9H6z"/></svg>Serve</a>
+    <a href="#volunteer" data-open="volunteer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 11V7a5 5 0 0 1 10 0v4M5 11h14l-1 9H6z"/></svg>Volunteer</a>
   </nav>
 </div>
 
@@ -751,12 +754,17 @@ tick(); setInterval(tick, 1000);
 
 /* ---------- programme ---------- */
 const SESSIONS = [
-  { n: 1, key: "prayer",  name: "Prayer Hour",     time: "5:00 AM" },
-  { n: 2, key: "morning", name: "Morning Session", time: "6:15 AM" },
-  { n: 3, key: "classes", name: "Classes",         time: "11:30 AM" },
-  { n: 4, key: "evening", name: "Evening Session", time: "5:00 PM" }
+  { n: 1, key: "prayer",  name: "Prayer Hour",     short: "Prayer Hour", time: "5:00 AM" },
+  { n: 2, key: "morning", name: "Morning Session", short: "Morning",     time: "6:15 AM" },
+  { n: 3, key: "classes", name: "Classes",         short: "Classes",     time: "11:30 AM" },
+  { n: 4, key: "evening", name: "Evening Session", short: "Evening",     time: "5:00 PM" }
 ];
-const BLOCK_N = Object.fromEntries(SESSIONS.map(x => [x.key, x.n]));
+// Some sessions have their own name on a given day.
+function sessionName(d, sn, short) {
+  if (d.key === "fri" && sn.key === "evening") return short ? "Victor Celebration Night" : "Victor Celebration Night";
+  if (d.key === "sat" && sn.key === "morning") return short ? "Impartation Service" : "Impartation Service";
+  return short ? sn.short : sn.name;
+}
 const GRID_DAYS = CONFIG.days.filter(d => d.key !== "sun");
 const daysEl = $("#days"), schedEl = $("#sched");
 function pickDefaultDay() {
@@ -767,7 +775,7 @@ function pickDefaultDay() {
 }
 function renderDay(i) {
   $$(".day", daysEl).forEach((b, j) => b.setAttribute("aria-selected", String(i === j)));
-  schedEl.innerHTML = CONFIG.days[i].items.map(it => `<li class="${it.quiet ? "quiet" : ""}"><time>${it.t}</time><div class="what"><b>${it.block ? `<i class="bn">${BLOCK_N[it.block]}</i>` : ""}${it.what}</b><span>${it.sub}</span></div></li>`).join("");
+  schedEl.innerHTML = CONFIG.days[i].items.map(it => `<li class="${it.quiet ? "quiet" : ""}"><time>${it.t}</time><div class="what"><b>${it.what}</b><span>${it.sub}</span></div></li>`).join("");
 }
 daysEl.innerHTML = CONFIG.days.map((d, i) => `<button class="day" role="tab" type="button" data-i="${i}">${d.label}<small>${d.date}</small></button>`).join("");
 daysEl.addEventListener("click", e => { const b = e.target.closest(".day"); if (b) renderDay(+b.dataset.i); });
@@ -778,11 +786,11 @@ function buildGrid(id, defaults) {
   const g = document.getElementById(id);
   let html = `<div class="gh"></div>` + GRID_DAYS.map(d => `<div class="gh">${d.label}<small>${d.date.split(" ")[0]}</small></div>`).join("");
   SESSIONS.forEach(sn => {
-    html += `<div class="gl"><i class="bn">${sn.n}</i><span>${sn.name}<small>${sn.time}</small></span></div>`;
+    html += `<div class="gl"><span>${sn.name}<small>${sn.time}</small></span></div>`;
     GRID_DAYS.forEach(d => {
       const has = d.items.some(it => it.block === sn.key);
       html += has
-        ? `<label class="gc"><input type="checkbox" data-day="${d.key}" data-n="${sn.n}" aria-label="${d.label} ${sn.name}" ${defaults.includes(String(sn.n)) ? "checked" : ""}></label>`
+        ? `<label class="gc" title="${d.label} ${d.date}: ${sessionName(d, sn)}"><input type="checkbox" data-day="${d.key}" data-n="${sn.n}" aria-label="${d.label} ${sessionName(d, sn)}" ${defaults.includes(String(sn.n)) ? "checked" : ""}></label>`
         : `<div class="gc none" aria-hidden="true"></div>`;
     });
   });
@@ -790,24 +798,20 @@ function buildGrid(id, defaults) {
   g.addEventListener("change", () => showPlan(id));
   showPlan(id);
 }
+function pickedNames(id, d, short) {
+  return $$(`#${id} input[data-day="${d.key}"]:checked`).map(i => sessionName(d, SESSIONS[i.dataset.n - 1], short));
+}
 function gridCompact(id) {
-  return GRID_DAYS.map(d => {
-    const ns = $$(`#${id} input[data-day="${d.key}"]:checked`).map(i => i.dataset.n);
-    return ns.length ? `${d.label} ${ns.join("·")}` : null;
-  }).filter(Boolean).join("  |  ");
+  return GRID_DAYS.map(d => { const ns = pickedNames(id, d, true); return ns.length ? `${d.label}: ${ns.join(", ")}` : null; }).filter(Boolean).join(" | ");
 }
 function gridSummary(id) {
-  const lines = GRID_DAYS.map(d => {
-    const ns = $$(`#${id} input[data-day="${d.key}"]:checked`).map(i => i.dataset.n);
-    return ns.length ? `  ${d.label} ${d.date}: ${ns.map(n => n + " " + SESSIONS[n - 1].name).join(", ")}` : null;
-  }).filter(Boolean);
-  if (!lines.length) return "  none chosen";
-  return lines.join("\n") + "\n  Code: " + gridCompact(id) + "\n  (1 Prayer 5AM · 2 Morning 6:15AM · 3 Classes 11:30AM · 4 Encounter Night 5PM; Fri 4 = Victor Celebration Night, Sat 2 = Impartation Service)";
+  const lines = GRID_DAYS.map(d => { const ns = pickedNames(id, d, false); return ns.length ? `  ${d.label} ${d.date}: ${ns.join(", ")}` : null; }).filter(Boolean);
+  return lines.length ? lines.join("\n") : "  none chosen";
 }
 function showPlan(id) {
   const el = document.getElementById(id.replace("Grid", "Plan"));
-  const c = gridCompact(id);
-  el.textContent = c ? "Your plan: " + c : "Nothing picked yet. Tap Every session, or the boxes.";
+  const rows = GRID_DAYS.map(d => { const ns = pickedNames(id, d, true); return ns.length ? `<div><b>${d.label}</b><span>${ns.join(" · ")}</span></div>` : ""; }).join("");
+  el.innerHTML = rows || "<span>Nothing picked yet. Tap Every session, or the boxes.</span>";
 }
 buildGrid("busGrid", ["1", "2", "3", "4"]);
 buildGrid("volGrid", []);
@@ -823,14 +827,14 @@ const builders = {
 };
 function gridDays(id) {
   const o = {};
-  GRID_DAYS.forEach(d => { o[d.label] = $$(`#${id} input[data-day="${d.key}"]:checked`).map(i => i.dataset.n).join("·"); });
+  GRID_DAYS.forEach(d => { o[d.label] = pickedNames(id, d, true).join(", "); });
   return o;
 }
 const records = {
-  bus:   () => ({ form: "bus",   fields: { Name: $("#busName").value, Phone: $("#busPhone").value, Pickup: $("#busRoute").value, Seats: $("#busSeats").value, ...gridDays("busGrid"), Code: gridCompact("busGrid"), "Suggested pickup": $("#busSuggest").value } }),
+  bus:   () => ({ form: "bus",   fields: { Name: $("#busName").value, Phone: $("#busPhone").value, Pickup: $("#busRoute").value, Seats: $("#busSeats").value, ...gridDays("busGrid"), Summary: gridCompact("busGrid"), "Suggested pickup": $("#busSuggest").value } }),
   shirt: () => ({ form: "shirt", fields: { Name: $("#shirtName").value, Phone: $("#shirtPhone").value, Size: $("#sizes [aria-pressed=true]").textContent, Qty: $("#shirtQty").value, Fit: $("#shirtFit").value } }),
   camp:  () => ({ form: "camp",  fields: { Name: $("#campName").value, Phone: $("#campPhone").value, People: $("#campPeople").value, Nights: $("#campNights").value, Notes: $("#campNote").value } }),
-  vol:   () => ({ form: "vol",   fields: { Name: $("#volName").value, Phone: $("#volPhone").value, Units: checked("#volForm .units input").join(", "), ...gridDays("volGrid"), Code: gridCompact("volGrid"), "Sunday Thanksgiving": $("#volSun").checked ? "yes" : "no" } }),
+  vol:   () => ({ form: "vol",   fields: { Name: $("#volName").value, Phone: $("#volPhone").value, Units: checked("#volForm .units input").join(", "), ...gridDays("volGrid"), Summary: gridCompact("volGrid"), "Sunday Thanksgiving": $("#volSun").checked ? "yes" : "no" } }),
   test:  () => ({ form: "test",  fields: { Name: $("#testName").value, "OK to share": $("#testShare").checked ? "yes" : "no", Testimony: $("#testBody").value } })
 };
 const DONE = {

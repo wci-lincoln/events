@@ -21,7 +21,9 @@ const doc = `<!doctype html>
 <meta property="og:title" content="Shiloh 2026 · Winners Chapel Lincoln">
 <meta property="og:description" content="Tue 8 – Sun 13 Dec 2026. Times, bookings, directions. One link for everything.">
 <meta property="og:image" content="shiloh-2026-flyer.webp">
-<link rel="icon" href="shiloh-2026-qr.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -31,7 +33,7 @@ ${src}
 `;
 fs.writeFileSync(path.join(out, "index.html"), doc);
 
-for (const f of ["shiloh-2026-flyer.webp", "shiloh-2026-qr.png", "shiloh-2026-qr.svg", "shiloh-2026-qr-poster-a4.html"]) {
+for (const f of ["shiloh-2026-flyer.webp", "shiloh-2026-qr.png", "shiloh-2026-qr.svg", "shiloh-2026-qr-poster-a4.html", "favicon-32.png", "icon-192.png", "icon-512.png", "apple-touch-icon.png"]) {
   const from = path.join(root, "assets", f);
   if (fs.existsSync(from)) fs.copyFileSync(from, path.join(out, f));
 }
