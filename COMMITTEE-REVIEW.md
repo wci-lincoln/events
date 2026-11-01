@@ -18,7 +18,7 @@ Each area owner, please reply with corrections to your card and your form.
 
 ## Programme (When do I need to be there?)
 - Start times as shown: Prayer Hour 5:00 AM, Morning Session 6:15 AM, Classes 11:30 AM, Evening Session 5:00 PM, Saturday Impartation Service 5:00 AM UK time, Sunday 9:20 and 11:15 AM. Correct?
-- The 2026 specialised classes (the list is hidden until we have it)
+- Specialised classes: the seven shown are the ones UK viewing centres ran last Shiloh. Correct any that change for 2026.
 
 ## Finance / Welfare
 - T-shirt price, sizes and fits offered, collection arrangement
