@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "shiloh-hub",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.js"],
+      "port": 4173
+    },
+    {
+      "name": "shiloh-hub-attach",
+      "url": "http://localhost:4173"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "shiloh-2026-lincoln",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shiloh 2026 (Far Above) event hub for Winners Chapel International Lincoln",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && node server.js",
+    "start": "node server.js"
+  }
+}
