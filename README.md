@@ -1,61 +1,66 @@
-# Shiloh events · Winners Chapel International Lincoln
+# Events · Winners Chapel International Lincoln
 
-The home for WCI Lincoln's Shiloh event pages, one edition per year. Each edition is a single-page
-"all you need to know" hub for the Lincoln viewing centre: countdown, programme, bookings and a
-printable QR poster. The current edition is **Shiloh 2026 · Far Above** (Tue 8 – Sun 13 Dec 2026).
+Event pages for WCI Lincoln, served free from GitHub Pages. Each event gets a single-page
+"all you need to know" hub at its own address under `https://wci-lincoln.github.io/events/`,
+so a printed QR code for one event never breaks when the next one is added.
 
-Live address: https://wci-lincoln.github.io/events/shiloh-2026/
-(the repository is named `events`, which GitHub Pages uses as the first part of the path).
+| Event | Address | Source |
+|---|---|---|
+| Shiloh 2026 · Far Above (8–13 Dec 2026) | https://wci-lincoln.github.io/events/shiloh-2026/ | `shiloh-2026-lincoln.html` |
 
-## What the page does
+The root address redirects to the current event.
 
-- Countdown that switches to "Live now · Day N" during Shiloh week.
-- Programme by day, built on the four daily blocks: 1 Shiloh Prayer Hour, 2 Morning Session
-  (Hour of Visitation), 3 Specialised Classes, 4 Evening Session (Encounter Night). Friday evening
-  is the Victor Celebration Night; Saturday morning is the Impartation Service.
+## What an event page does
+
+- Countdown that switches to "Live now · Day N" while the event is on.
+- Programme by day. For Shiloh, the four daily blocks: 1 Shiloh Prayer Hour, 2 Morning Session
+  (Hour of Visitation), 3 Specialised Classes, 4 Evening Session (Encounter Night); Friday evening
+  is the Victor Celebration Night and Saturday morning the Impartation Service.
 - Bookings: bus seats (day-by-session grid), T-shirts, stay, volunteering, testimonies.
   Submissions go to a Google Sheet; WhatsApp is the fallback.
 - Venue and directions, giving, share links and a scan-to-open QR block.
 
-## Run it locally
+## Run locally
 
 ```bash
 npm run dev
 ```
 
-Then open http://localhost:4173/shiloh-2026/. The A4 QR poster is at http://localhost:4173/qr.
+Then open http://localhost:4173/ (it redirects to the current event). The A4 QR poster for the
+current event is at http://localhost:4173/qr.
 
-## Edit the 2026 edition
+## Edit an event
 
-Everything the committee changes lives in the `CONFIG` block near the bottom of
-`shiloh-2026-lincoln.html`: page link, dates, venue, WhatsApp numbers, contacts, programme,
-links, T-shirt price, Sheet URL. Run `node build.js` after editing, then commit and push.
+Everything the committee changes lives in the `CONFIG` block near the bottom of the event's page
+file: page link, dates, venue, WhatsApp numbers, contacts, programme, links, T-shirt price,
+Sheet URL. Run `node build.js` after editing, then commit and push. The site updates within a
+minute or two.
 
 ## Bookings backend
 
 Forms post to a Google Sheet through a small Apps Script. Follow `backend/SETUP.md`, then paste
-the web app URL into `sheetUrl` in `CONFIG`. Until it is set, forms open WhatsApp with the
-booking text instead.
+the web app URL into `sheetUrl` in that event's `CONFIG`. Until it is set, forms open WhatsApp
+with the booking text instead. One sheet per event keeps bookings separate.
 
 ## Files
 
-- `shiloh-2026-lincoln.html` — the 2026 page (source of truth)
-- `build.js` — wraps the page into `docs/shiloh-2026/index.html` and copies its assets
+- `<event>-lincoln.html` — one page file per event (source of truth)
+- `build.js` — wraps each page into `docs/<event>/index.html`, copies its assets, writes the root redirect
 - `server.js` — tiny static server for `docs/` (local preview only)
 - `backend/` — the Google Sheet booking script and its setup guide
-- `assets/` — official flyer, cropped hero, QR code (PNG + SVG), A4 QR poster
+- `assets/` — flyers, cropped hero images, QR codes (PNG + SVG), A4 QR posters
 - `docs/` — generated site; GitHub Pages serves this folder
 
 ## Hosting (GitHub Pages, free)
 
 Repository **Settings → Pages**: Source "Deploy from a branch", branch `main`, folder `/docs`.
-The repository must be public for Pages on a free account. After any change: `node build.js`,
-commit, push; the site updates within a minute or two.
+The repository must be public for Pages on a free account.
 
-## Adding the next edition
+## Adding an event
 
-1. Copy `shiloh-2026-lincoln.html` to `shiloh-2027-lincoln.html` and update its `CONFIG`
-   (dates, theme, venue, links) and the hero image.
-2. In `build.js`, add the new page with its own output folder (`docs/shiloh-2027/`).
-3. Point the root redirect in `build.js` at the new edition, generate a QR for the new address,
-   and keep the old edition's folder so its printed QR codes keep working.
+1. Copy the closest existing page file (for example `shiloh-2026-lincoln.html`) to
+   `<event>-lincoln.html` and update its `CONFIG`, copy and hero image.
+2. In `build.js`, add the new page with its own output folder (`docs/<event>/`) and point the
+   root redirect at it if it is now the current event.
+3. Generate a QR code and poster for `https://wci-lincoln.github.io/events/<event>/`.
+4. Keep earlier events' folders in `docs/` so their printed QR codes keep working.
