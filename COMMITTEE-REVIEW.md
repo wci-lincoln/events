@@ -17,21 +17,12 @@ Each area owner, please reply with corrections to your card and your form.
 - Which phone number is the hospitality line?
 
 ## Programme (When do I need to be there?)
-- End time of each session (people plan buses, work and childcare around them)
-- Tuesday opening time, Saturday Impartation time, Sunday service times
+- Start times as shown: Prayer Hour 5:00 AM, Morning Session 6:15 AM, Classes 11:30 AM, Evening Session 5:00 PM, Saturday Impartation Service 5:00 AM UK time, Sunday 9:20 and 11:15 AM. Correct?
 - The 2026 specialised classes (the list is hidden until we have it)
-
-## Children (Can I bring my children?)
-- Arrangements during morning sessions and classes, not just evenings
-- Check-in details and age groups
-
-## Media
-- The live-stream link to use (currently the Living Faith Church site)
-- During Shiloh week the bottom menu switches "Schedule" to "Watch live". Keep?
 
 ## Finance / Welfare
 - T-shirt price, sizes and fits offered, collection arrangement
-- Online giving link, and any reference people should use
+- Do we want to take any giving through the page at all? If yes, the online giving link
 
 ## Publicity
 - Role for each phone number shown (currently three numbers with no roles)
@@ -39,5 +30,6 @@ Each area owner, please reply with corrections to your card and your form.
 - Where the QR posters go; the A4 poster is at the live address + shiloh-2026-qr-poster-a4.html
 
 ## Everyone
-- Theme scripture to quote under "Far Above" (currently Ephesians 1:21)
+- Theme scripture now shows Ephesians 2:6 (Youth Alive Fellowship lists the theme as Ephesians 2:6-8). Confirm against the official announcement.
+- The page does not mention streaming or children's church, so that we promise nothing we have not planned.
 - Anything on the page that is not how we say it at WCI Lincoln
