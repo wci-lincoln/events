@@ -18,7 +18,7 @@ const doc = `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#3a0309">
 <meta name="description" content="Shiloh 2026 — Far Above. Everything about Shiloh at Winners Chapel International Lincoln: programme, bus seats, T-shirts, camping, volunteering, testimonies.">
-<meta property="og:title" content="Shiloh 2026 · Winners Chapel Lincoln">
+<meta property="og:title" content="Shiloh 2026 - WCI Lincoln">
 <meta property="og:description" content="Tue 8 – Sun 13 Dec 2026. Times, bookings, directions. One link for everything.">
 <meta property="og:image" content="shiloh-2026-flyer.webp">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
