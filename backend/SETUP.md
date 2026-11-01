@@ -5,7 +5,7 @@ script that lives inside a Google Sheet. Each submission becomes one row on its 
 Takes about ten minutes, needs only a Google account.
 
 ## 1. Create the sheet
-1. Go to https://sheets.new and name it **Shiloh 2026 Lincoln bookings**.
+1. Go to https://sheets.new and name it **WCI Lincoln event bookings**.
 2. Share it with the committee members who need to see bookings (Viewer is enough).
 
 ## 2. Add the script
@@ -26,7 +26,10 @@ Takes about ten minutes, needs only a Google account.
 1. Open `shiloh-2026-lincoln.html`, find `sheetUrl: ""` in the `CONFIG` block, and paste the URL between the quotes.
 2. Rebuild and deploy the site (`node build.js`, then push).
 
-Tabs are created automatically on the first submission of each form.
+Tabs are created automatically on the first submission of each form, named after the event the
+page sends, for example **Shiloh 2026 · Bus seats**. So one sheet can hold every event (each
+event's page carries its own `eventKey` and `sheetUrl` in `CONFIG`), or you can repeat these steps
+for a fresh sheet per event. Either way, each event page has its own `sheetUrl` entry.
 
 ## Changing the script later
 Edit the code, then **Deploy → Manage deployments → pencil icon → Version: New version → Deploy**.

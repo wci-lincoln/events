@@ -1,7 +1,9 @@
 /**
  * Shiloh 2026 Lincoln — bookings backend.
  * Lives inside the Google Sheet (Extensions → Apps Script). Receives the page's forms and
- * appends one row per submission to a tab per form. Optional email alert per form.
+ * appends one row per submission to a tab per form. Tabs are prefixed with the event name the
+ * page sends (for example "Shiloh 2026 · Bus seats"), so one sheet can hold every event, or you can
+ * deploy a fresh copy per event. Optional email alert per form.
  */
 
 // Columns per form. The page sends fields with exactly these names.
@@ -25,14 +27,16 @@ function doPost(e) {
     if (data.website) return out({ ok: true });            // honeypot field filled: a bot, ignore quietly
     const cols = FORMS[data.form];
     if (!cols) return out({ ok: false, error: "Unknown form" });
+    const event = String(data.event || "Event").replace(/[\[\]\*\/\\\?:]/g, "").trim().slice(0, 40);
+    const tabName = event + " · " + TABS[data.form];
 
     const lock = LockService.getScriptLock();
     lock.waitLock(10000);
     try {
       const ss = SpreadsheetApp.getActiveSpreadsheet();
-      let sh = ss.getSheetByName(TABS[data.form]);
+      let sh = ss.getSheetByName(tabName);
       if (!sh) {
-        sh = ss.insertSheet(TABS[data.form]);
+        sh = ss.insertSheet(tabName);
         sh.appendRow(["Submitted"].concat(cols));
         sh.setFrozenRows(1);
         sh.getRange(1, 1, 1, cols.length + 1).setFontWeight("bold");
@@ -47,7 +51,7 @@ function doPost(e) {
       const fields = data.fields || {};
       MailApp.sendEmail(
         NOTIFY[data.form],
-        "Shiloh 2026: new " + TABS[data.form] + " entry",
+        event + ": new " + TABS[data.form] + " entry",
         cols.map(c => c + ": " + (fields[c] || "")).join("\n")
       );
     }

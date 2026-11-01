@@ -647,6 +647,7 @@ const CONFIG = {
   start: "2026-12-08T17:00:00Z",                 // Opening Encounter Night, Lincoln (UK time is GMT in December)
   end:   "2026-12-13T14:00:00Z",                 // after the Sunday Thanksgiving services
   venue: { name: "Moorland Community Centre", address: "Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH" },
+  eventKey: "Shiloh 2026",                       // names this event's tabs in the bookings sheet
   sheetUrl: "",                                  // Google Apps Script web app URL (see backend/SETUP.md). Empty = WhatsApp only
   liveStream: "https://faithtabernacle.org.ng",  // official Living Faith Church Worldwide stream
   giveUrl: "",                                   // church online giving page (the Give card stays hidden until this is set)
@@ -879,7 +880,7 @@ async function sendToSheet(k) {
   btn.disabled = true; msg.className = "msg"; msg.textContent = "Sending…";
   try {
     const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 12000);
-    const rec = records[k](); rec.website = form.querySelector(".hp").value; rec.submittedFrom = location.hostname;
+    const rec = records[k](); rec.event = CONFIG.eventKey; rec.website = form.querySelector(".hp").value; rec.submittedFrom = location.hostname;
     const r = await fetch(CONFIG.sheetUrl, { method: "POST", body: JSON.stringify(rec), headers: { "Content-Type": "text/plain;charset=utf-8" }, signal: ctrl.signal });
     clearTimeout(timer);
     const j = await r.json().catch(() => ({ ok: r.ok }));
