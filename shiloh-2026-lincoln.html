@@ -338,7 +338,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
           <li>Shiloh Prayer Hour<span>5:00 AM</span></li>
           <li>Morning Session · Hour of Visitation <small>(Saturday: Impartation Service, 5:00 AM)</small><span>6:15 AM</span></li>
           <li>Specialised Classes<span>11:30 AM</span></li>
-          <li>Evening Session · Encounter Night <small>(Friday: Victor Celebration Night)</small><span>5:00 PM</span></li>
+          <li>Evening Session · Encounter Night <small>(Friday: Victory Celebration Night)</small><span>5:00 PM</span></li>
         </ul>
         <h4>Day by day</h4>
         <div class="days" id="days" role="tablist"></div>
@@ -679,7 +679,7 @@ const CONFIG = {
       { t: "5:00 AM", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
       { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
             { t: "11:30 AM", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
-      { t: "5:00 PM", what: "Victor Celebration Night", sub: "Friday evening session. Come to celebrate", block: "evening" } ] },
+      { t: "5:00 PM", what: "Victory Celebration Night", sub: "Friday evening session. Come to celebrate", block: "evening" } ] },
     { key: "sat", label: "Sat", date: "12 Dec", items: [
       { t: "5:00 AM", what: "Impartation Service", sub: "Saturday morning session, 5:00 AM UK time", block: "morning" } ] },
     { key: "sun", label: "Sun", date: "13 Dec", items: [
@@ -763,7 +763,7 @@ const SESSIONS = [
 ];
 // Some sessions have their own name on a given day.
 function sessionName(d, sn, short) {
-  if (d.key === "fri" && sn.key === "evening") return short ? "Victor Celebration Night" : "Victor Celebration Night";
+  if (d.key === "fri" && sn.key === "evening") return short ? "Victory Celebration Night" : "Victory Celebration Night";
   if (d.key === "sat" && sn.key === "morning") return short ? "Impartation Service" : "Impartation Service";
   return short ? sn.short : sn.name;
 }
