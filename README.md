@@ -1,12 +1,11 @@
-# Shiloh event app · Winners Chapel International Lincoln
+# Shiloh events · Winners Chapel International Lincoln
 
 The home for WCI Lincoln's Shiloh event pages, one edition per year. Each edition is a single-page
 "all you need to know" hub for the Lincoln viewing centre: countdown, programme, bookings and a
 printable QR poster. The current edition is **Shiloh 2026 · Far Above** (Tue 8 – Sun 13 Dec 2026).
 
-Live address: `https://wci-lincoln.github.io/<repository-name>/shiloh-2026/`
-(with the repository named `shiloh-event-app` that is `…/shiloh-event-app/shiloh-2026/`;
-renaming the repository to `events` gives `…/events/shiloh-2026/`).
+Live address: https://wci-lincoln.github.io/events/shiloh-2026/
+(the repository is named `events`, which GitHub Pages uses as the first part of the path).
 
 ## What the page does
 
