@@ -30,6 +30,6 @@ Each area owner, please reply with corrections to your card and your form.
 - Where the QR posters go; the A4 poster is at the live address + shiloh-2026-qr-poster-a4.html
 
 ## Everyone
-- Theme scripture now shows Ephesians 2:6 (Youth Alive Fellowship lists the theme as Ephesians 2:6-8). Confirm against the official announcement.
+- Theme text is Ephesians 1:17-21 (confirmed by Ibukunoluwa); the hero quotes verse 21.
 - The page does not mention streaming or children's church, so that we promise nothing we have not planned.
 - Anything on the page that is not how we say it at WCI Lincoln
