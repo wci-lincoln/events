@@ -13,8 +13,8 @@ The root address redirects to the current event.
 ## What an event page does
 
 - Countdown that switches to "Live now · Day N" while the event is on.
-- Programme by day. For Shiloh, the four daily blocks: 1 Shiloh Prayer Hour, 2 Morning Session
-  (Hour of Visitation), 3 Specialised Classes, 4 Evening Session (Encounter Night); Friday evening
+- Programme by day. For Shiloh, the four daily blocks: Shiloh Prayer Hour, Morning Session
+  (Hour of Visitation), Specialised Classes and Evening Session (Encounter Night); Friday evening
   is the Victor Celebration Night and Saturday morning the Impartation Service.
 - Bookings: bus seats (day-by-session grid), T-shirts, stay, volunteering, testimonies.
   Submissions go to a Google Sheet; WhatsApp is the fallback.
