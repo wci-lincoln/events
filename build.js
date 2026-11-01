@@ -5,6 +5,7 @@ const path = require("path");
 
 const root = __dirname;
 const src = fs.readFileSync(path.join(root, "shiloh-2026-lincoln.html"), "utf8");
+const pageUrl = (src.match(/pageUrl:\s*"([^"]*)"/) || [])[1] || "";   // absolute links for share previews
 const site = path.join(root, "docs");                 // GitHub Pages serves this folder (repo "events")
 const out = path.join(site, "shiloh-2026");            // ...so the page lives at /events/shiloh-2026/
 fs.mkdirSync(out, { recursive: true });
@@ -18,9 +19,21 @@ const doc = `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#3a0309">
 <meta name="description" content="Shiloh 2026 — Far Above. Everything about Shiloh at Winners Chapel International Lincoln: programme, bus seats, T-shirts, camping, volunteering, testimonies.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Winners Chapel International Lincoln">
+<meta property="og:url" content="${pageUrl}">
 <meta property="og:title" content="Shiloh 2026 - WCI Lincoln">
-<meta property="og:description" content="Tue 8 – Sun 13 Dec 2026. Times, bookings, directions. One link for everything.">
-<meta property="og:image" content="shiloh-2026-flyer.webp">
+<meta property="og:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, T-shirts and more. One link for everything.">
+<meta property="og:image" content="${pageUrl}og-image.jpg">
+<meta property="og:image:secure_url" content="${pageUrl}og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shiloh 2026 poster: Bishop David Oyedepo beside the gold Shiloh lettering">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shiloh 2026 - WCI Lincoln">
+<meta name="twitter:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, T-shirts and more.">
+<meta name="twitter:image" content="${pageUrl}og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -33,7 +46,7 @@ ${src}
 `;
 fs.writeFileSync(path.join(out, "index.html"), doc);
 
-for (const f of ["shiloh-2026-flyer.webp", "shiloh-2026-qr.png", "shiloh-2026-qr.svg", "shiloh-2026-qr-poster-a4.html", "favicon-32.png", "icon-192.png", "icon-512.png", "apple-touch-icon.png"]) {
+for (const f of ["shiloh-2026-flyer.webp", "shiloh-2026-qr.png", "shiloh-2026-qr.svg", "shiloh-2026-qr-poster-a4.html", "favicon-32.png", "icon-192.png", "icon-512.png", "apple-touch-icon.png", "og-image.jpg"]) {
   const from = path.join(root, "assets", f);
   if (fs.existsSync(from)) fs.copyFileSync(from, path.join(out, f));
 }
