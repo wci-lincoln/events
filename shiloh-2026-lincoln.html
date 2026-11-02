@@ -397,8 +397,8 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <h4>Book your seat</h4>
         <form class="form" id="busForm" autocomplete="on">
           <div class="row2">
-            <label class="f">Name<input id="busName" name="name" required placeholder="Your full name"></label>
-            <label class="f">Phone<input id="busPhone" name="phone" type="tel" inputmode="tel" placeholder="Mobile, e.g. 07700 900123"></label>
+            <label class="f">Name<input id="busName" name="name" required minlength="2" placeholder="Your full name"></label>
+            <label class="f">Phone<input id="busPhone" name="phone" type="tel" inputmode="tel" required pattern="\s*(\+44\s?7\d{3}|07\d{3})\s?\d{3}\s?\d{3}\s*" title="A UK mobile number, e.g. 07700 900123" placeholder="Mobile, e.g. 07700 900123"></label>
           </div>
           <div class="row2">
             <label class="f">Pickup<select id="busRoute"><option>University of Lincoln</option><option>Newark</option><option>Gainsborough</option><option>Grimsby</option><option>Somewhere else (suggest below)</option></select></label>
@@ -430,8 +430,8 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <p>Coming in from outside Lincoln, or want to be close for every 5:00 AM session? Tell us who is coming and for how long, and the hospitality team will come back to you with options.</p>
         <form class="form" id="campForm">
           <div class="row2">
-            <label class="f">Name<input id="campName" required placeholder="Your full name"></label>
-            <label class="f">Phone<input id="campPhone" type="tel" inputmode="tel" placeholder="Mobile, e.g. 07700 900123"></label>
+            <label class="f">Name<input id="campName" required minlength="2" placeholder="Your full name"></label>
+            <label class="f">Phone<input id="campPhone" type="tel" inputmode="tel" required pattern="\s*(\+44\s?7\d{3}|07\d{3})\s?\d{3}\s?\d{3}\s*" title="A UK mobile number, e.g. 07700 900123" placeholder="Mobile, e.g. 07700 900123"></label>
           </div>
           <div class="row2">
             <label class="f">People<select id="campPeople"><option>1</option><option>2</option><option>3</option><option>4</option><option>Family (5+)</option></select></label>
@@ -449,12 +449,31 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
     <details class="tile" id="classes">
       <summary>
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4-9 4z"/><path d="M7 9.5V15c0 1.5 2.5 3 5 3s5-1.5 5-3V9.5M21 7v6"/></svg></span>
-        <span class="t"><b>Which class should I take?</b><span>Specialised classes from 11:30 AM, Wed to Fri</span></span>
+        <span class="t"><b>Which class should I take?</b><span>Specialised classes from 11:30 AM, Wed to Fri. Book yours</span></span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <div class="panel">
         <p>Targeted teaching from 11:30 AM on Wednesday, Thursday and Friday. Each class takes one area of life, such as health, family, business and career, or academics, and goes deep on what the Word says about it. Pick the class that speaks to your situation.</p>
         <ul class="classes" id="classList" hidden></ul>
+        <div id="classBook" hidden>
+          <h4>Book your class</h4>
+          <p>Book your place so we know how many to expect in each class. Pick once and it fills all three days, or choose a different class for any day.</p>
+          <form class="form" id="classForm" autocomplete="on">
+            <div class="row2">
+              <label class="f">Name<input id="clsName" name="name" required minlength="2" placeholder="Your full name"></label>
+              <label class="f">Phone<input id="clsPhone" name="phone" type="tel" inputmode="tel" required pattern="\s*(\+44\s?7\d{3}|07\d{3})\s?\d{3}\s?\d{3}\s*" title="A UK mobile number, e.g. 07700 900123" placeholder="Mobile, e.g. 07700 900123"></label>
+            </div>
+            <label class="f">Wednesday<select id="clsWed"></select></label>
+            <label class="f">Thursday<select id="clsThu"></select></label>
+            <label class="f">Friday<select id="clsFri"></select></label>
+            <div class="plan" id="clsPlan"></div>
+            <div class="actions">
+              <button class="btn btn-gold" type="submit">Send via WhatsApp</button>
+              <button class="btn btn-outline" type="button" data-copy-form="cls" id="clsAlt">Copy booking</button>
+            </div>
+            <div class="msg" id="clsMsg"></div>
+          </form>
+        </div>
       </div>
     </details>
     <details class="tile" id="tshirt">
@@ -467,8 +486,8 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <p>Wear the theme. Reserve yours and the team will message you about payment and collection. <span class="badge" id="shirtPrice" hidden></span></p>
         <form class="form" id="shirtForm">
           <div class="row2">
-            <label class="f">Name<input id="shirtName" required placeholder="Your full name"></label>
-            <label class="f">Phone<input id="shirtPhone" type="tel" inputmode="tel" placeholder="Mobile, e.g. 07700 900123"></label>
+            <label class="f">Name<input id="shirtName" required minlength="2" placeholder="Your full name"></label>
+            <label class="f">Phone<input id="shirtPhone" type="tel" inputmode="tel" required pattern="\s*(\+44\s?7\d{3}|07\d{3})\s?\d{3}\s?\d{3}\s*" title="A UK mobile number, e.g. 07700 900123" placeholder="Mobile, e.g. 07700 900123"></label>
           </div>
           <label class="f">Size</label>
           <div class="sizes" id="sizes">
@@ -505,8 +524,8 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <p>Shiloh in Lincoln runs on volunteers. Six days, up to four sessions a day. Tick where you can help and we will put you on a rota that fits your week.</p>
         <form class="form" id="volForm">
           <div class="row2">
-            <label class="f">Name<input id="volName" required placeholder="Your full name"></label>
-            <label class="f">Phone<input id="volPhone" type="tel" inputmode="tel" placeholder="Mobile, e.g. 07700 900123"></label>
+            <label class="f">Name<input id="volName" required minlength="2" placeholder="Your full name"></label>
+            <label class="f">Phone<input id="volPhone" type="tel" inputmode="tel" required pattern="\s*(\+44\s?7\d{3}|07\d{3})\s?\d{3}\s?\d{3}\s*" title="A UK mobile number, e.g. 07700 900123" placeholder="Mobile, e.g. 07700 900123"></label>
           </div>
           <label class="f">I can help with</label>
           <div class="units">
@@ -578,8 +597,8 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
       <div class="panel">
         <p>“They overcame him by the blood of the Lamb, and by the word of their testimony.” Shiloh testimonies are read at Canaanland and shared in Lincoln. Yours could be next.</p>
         <form class="form" id="testForm">
-          <label class="f">Name (or “anonymous”)<input id="testName" required placeholder="Your name"></label>
-          <label class="f">Your testimony<textarea id="testBody" required placeholder="What happened, and when"></textarea></label>
+          <label class="f">Name (or “anonymous”)<input id="testName" required minlength="2" placeholder="Your name"></label>
+          <label class="f">Your testimony<textarea id="testBody" required minlength="10" placeholder="What happened, and when"></textarea></label>
           <label class="check"><input type="checkbox" id="testShare" checked>Happy for this to be shared in church and online</label>
           <div class="actions">
             <button class="btn btn-gold" type="submit">Send via WhatsApp</button>
@@ -662,7 +681,7 @@ const CONFIG = {
   website: "https://winnerschapellincoln.org.uk",
   email: "lincoln@winners-chapel.org.uk",
   // WhatsApp numbers that receive the booking messages (international format, digits only).
-  whatsapp: { transport: "447732200430", tshirt: "447732200430", camping: "447732200430", volunteer: "447732200430", testimony: "447732200430" },
+  whatsapp: { transport: "447732200430", tshirt: "447732200430", camping: "447732200430", volunteer: "447732200430", testimony: "447732200430", classes: "447732200430" },
   contacts: [
     { role: "Transport · call or text", value: "07732 200430" },      // bus seats, pickups, lifts
     { role: "Hospitality · call or text", value: "07732 200430" },    // stay, first-timers, arriving
@@ -708,7 +727,25 @@ function setLink(el, url, soonText) {
 const mapsUrl = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(CONFIG.venue.address);
 setLink($("#dirBtn"), mapsUrl); setLink($("#dirBtn2"), mapsUrl);
 setLink($("#giveBtn"), CONFIG.giveUrl); $("#give").hidden = !CONFIG.giveUrl;
-if (CONFIG.classes.length) { $("#classList").innerHTML = CONFIG.classes.map(c => `<li>${c}</li>`).join(""); $("#classList").hidden = false; }
+/* ---------- specialised class choice, one per class day ---------- */
+const CLASS_DAYS = [{ key: "Wed", label: "Wednesday" }, { key: "Thu", label: "Thursday" }, { key: "Fri", label: "Friday" }];
+function classPicks() { return CLASS_DAYS.map(d => ({ ...d, cls: $("#cls" + d.key).value })); }
+function classSummary() {
+  const p = classPicks();
+  return p.every(x => x.cls === p[0].cls) ? `All three days: ${p[0].cls}` : p.map(x => `${x.key}: ${x.cls}`).join(" | ");
+}
+function showClassPlan() {
+  $("#clsPlan").innerHTML = classPicks().map(x => `<div><b>${x.key}</b><span>${x.cls}</span></div>`).join("");
+}
+
+if (CONFIG.classes.length) {
+  $("#classList").innerHTML = CONFIG.classes.map(c => `<li>${c}</li>`).join(""); $("#classList").hidden = false;
+  const opts = CONFIG.classes.map(c => `<option>${c}</option>`).join("");
+  CLASS_DAYS.forEach(d => $("#cls" + d.key).innerHTML = opts);
+  $("#clsWed").addEventListener("change", () => { $("#clsThu").value = $("#clsFri").value = $("#clsWed").value; showClassPlan(); });
+  $("#clsThu").addEventListener("change", showClassPlan); $("#clsFri").addEventListener("change", showClassPlan);
+  $("#classBook").hidden = false; showClassPlan();
+}
 if (CONFIG.tshirtPrice) { $("#shirtPrice").textContent = CONFIG.tshirtPrice; $("#shirtPrice").hidden = false; }
 setLink($("#testWatch"), CONFIG.testimoniesUrl);
 setLink($("#shareIg"), CONFIG.instagram);
@@ -833,7 +870,8 @@ const builders = {
   shirt: () => `SHILOH 2026 T-SHIRT ORDER\nName: ${$("#shirtName").value}\nPhone: ${$("#shirtPhone").value}\nSize: ${$("#sizes [aria-pressed=true]").textContent}\nQty: ${$("#shirtQty").value}\nFit: ${$("#shirtFit").value}`,
   camp: () => `SHILOH 2026 STAY REQUEST\nName: ${$("#campName").value}\nPhone: ${$("#campPhone").value}\nPeople: ${$("#campPeople").value}\nNights: ${$("#campNights").value}\nNotes: ${$("#campNote").value || "none"}`,
   vol: () => `SHILOH 2026 VOLUNTEER\nName: ${$("#volName").value}\nPhone: ${$("#volPhone").value}\nUnits: ${checked("#volForm .units input").join(", ") || "anywhere needed"}\nAvailable:\n${gridSummary("volGrid")}\nSunday Thanksgiving: ${$("#volSun").checked ? "yes" : "no"}`,
-  test: () => `SHILOH TESTIMONY\nFrom: ${$("#testName").value}\nOK to share: ${$("#testShare").checked ? "yes" : "no"}\n\n${$("#testBody").value}`
+  test: () => `SHILOH TESTIMONY\nFrom: ${$("#testName").value}\nOK to share: ${$("#testShare").checked ? "yes" : "no"}\n\n${$("#testBody").value}`,
+  cls: () => `SHILOH 2026 CLASS BOOKING\nName: ${$("#clsName").value}\nPhone: ${$("#clsPhone").value}\n` + classPicks().map(x => `${x.label}: ${x.cls}`).join("\n")
 };
 function gridDays(id) {
   const o = {};
@@ -845,19 +883,21 @@ const records = {
   shirt: () => ({ form: "shirt", fields: { Name: $("#shirtName").value, Phone: $("#shirtPhone").value, Size: $("#sizes [aria-pressed=true]").textContent, Qty: $("#shirtQty").value, Fit: $("#shirtFit").value } }),
   camp:  () => ({ form: "camp",  fields: { Name: $("#campName").value, Phone: $("#campPhone").value, People: $("#campPeople").value, Nights: $("#campNights").value, Notes: $("#campNote").value } }),
   vol:   () => ({ form: "vol",   fields: { Name: $("#volName").value, Phone: $("#volPhone").value, Units: checked("#volForm .units input").join(", "), ...gridDays("volGrid"), Summary: gridCompact("volGrid"), "Sunday Thanksgiving": $("#volSun").checked ? "yes" : "no" } }),
-  test:  () => ({ form: "test",  fields: { Name: $("#testName").value, "OK to share": $("#testShare").checked ? "yes" : "no", Testimony: $("#testBody").value } })
+  test:  () => ({ form: "test",  fields: { Name: $("#testName").value, "OK to share": $("#testShare").checked ? "yes" : "no", Testimony: $("#testBody").value } }),
+  cls:   () => ({ form: "cls",   fields: { Name: $("#clsName").value, Phone: $("#clsPhone").value, ...Object.fromEntries(classPicks().map(x => [x.key, x.cls])), Summary: classSummary() } })
 };
 const DONE = {
   bus: "Seat booked. The transport team will message you with pickup times.",
   shirt: "Reserved. The team will message you about payment and collection.",
   camp: "Request received. The hospitality team will come back to you.",
   vol: "Thank you. The team will put you on the rota and message you.",
-  test: "Thank you. Your testimony has been received."
+  test: "Thank you. Your testimony has been received.",
+  cls: "Booked. Your class starts at 11:30 AM on Wednesday."
 };
-const PRIMARY = { bus: "Book my seat", shirt: "Reserve my shirt", camp: "Send request", vol: "Sign me up", test: "Share testimony" };
-const targets = { bus: "transport", shirt: "tshirt", camp: "camping", vol: "volunteer", test: "testimony" };
-const forms = { bus: "#busForm", shirt: "#shirtForm", camp: "#campForm", vol: "#volForm", test: "#testForm" };
-const msgs = { bus: "#busMsg", shirt: "#shirtMsg", camp: "#campMsg", vol: "#volMsg", test: "#testMsg" };
+const PRIMARY = { bus: "Book my seat", shirt: "Reserve my shirt", camp: "Send request", vol: "Sign me up", test: "Share testimony", cls: "Book my class" };
+const targets = { bus: "transport", shirt: "tshirt", camp: "camping", vol: "volunteer", test: "testimony", cls: "classes" };
+const forms = { bus: "#busForm", shirt: "#shirtForm", camp: "#campForm", vol: "#volForm", test: "#testForm", cls: "#classForm" };
+const msgs = { bus: "#busMsg", shirt: "#shirtMsg", camp: "#campMsg", vol: "#volMsg", test: "#testMsg", cls: "#clsMsg" };
 
 async function copyText(text) {
   try { await navigator.clipboard.writeText(text); return true; }
@@ -902,16 +942,34 @@ Object.keys(forms).forEach(k => {
   }
   form.addEventListener("submit", async e => {
     e.preventDefault();
-    if (!form.reportValidity()) return;
+    if (!validate(k)) return;
     if (CONFIG.sheetUrl) { await sendToSheet(k); return; }
     sendWhatsApp(k);
   });
 });
+// Rules the browser cannot check on its own. Each returns a message, or nothing when the form is fine.
+const RULES = {
+  bus: () => {
+    if (!$$("#busGrid input:checked").length) return "Pick at least one session for your seat.";
+    if ($("#busRoute").value.startsWith("Somewhere else") && !$("#busSuggest").value.trim()) return "Tell us where you would like to be picked up.";
+  },
+  vol: () => { if (!$$("#volGrid input:checked").length && !$("#volSun").checked) return "Pick at least one session you can serve."; },
+  test: () => { if ($("#testBody").value.trim().length < 10) return "Tell us a little more about what happened."; }
+};
+function validate(k) {
+  const form = $(forms[k]), msg = $(msgs[k]);
+  $$("input[type=text], input:not([type]), input[type=tel], textarea", form).forEach(i => { if (i.className !== "hp") i.value = i.value.trim(); });
+  msg.className = "msg"; msg.textContent = "";
+  if (!form.reportValidity()) return false;
+  const err = RULES[k] && RULES[k]();
+  if (err) { msg.textContent = err; return false; }
+  return true;
+}
 document.addEventListener("click", async e => {
   const wa = e.target.closest("[data-wa]");
-  if (wa) { const form = $(forms[wa.dataset.wa]); if (form.reportValidity()) sendWhatsApp(wa.dataset.wa); return; }
+  if (wa) { if (validate(wa.dataset.wa)) sendWhatsApp(wa.dataset.wa); return; }
   const cf = e.target.closest("[data-copy-form]");
-  if (cf) { const k = cf.dataset.copyForm; const ok = await copyText(builders[k]()); const msg = $(msgs[k]); msg.className = ok ? "msg ok" : "msg"; msg.textContent = ok ? "Copied. Paste it into WhatsApp, a text, or an email to the Shiloh desk." : "Could not copy on this device. Select the text and copy manually."; return; }
+  if (cf) { const k = cf.dataset.copyForm; if (!validate(k)) return; const ok = await copyText(builders[k]()); const msg = $(msgs[k]); msg.className = ok ? "msg ok" : "msg"; msg.textContent = ok ? "Copied. Paste it into WhatsApp, a text, or an email to the Shiloh desk." : "Could not copy on this device. Select the text and copy manually."; return; }
   const ct = e.target.closest("[data-copy-target]");
   if (ct) { const ok = await copyText($("#" + ct.dataset.copyTarget).textContent); const old = ct.textContent; ct.textContent = ok ? "Copied" : "Select"; setTimeout(() => ct.textContent = old, 1400); return; }
   const tag = e.target.closest("[data-copy]");
