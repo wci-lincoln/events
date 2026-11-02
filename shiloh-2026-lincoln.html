@@ -458,7 +458,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <ul class="classes" id="classList" hidden></ul>
         <div id="classBook" hidden>
           <h4>Book your class</h4>
-          <p>Book your place so we know how many to expect in each class. Choose a class for each day. Your Wednesday pick fills the other days until you change them.</p>
+          <p>Book your place so we know how many to expect in each class. Choose a class for each day: the same one all three days, or a different one on any day.</p>
           <form class="form" id="classForm" autocomplete="on">
             <div class="row2">
               <label class="f">Name<input id="clsName" name="name" required minlength="2" placeholder="Your full name"></label>
@@ -743,8 +743,7 @@ if (CONFIG.classes.length) {
   $("#classList").innerHTML = CONFIG.classes.map(c => `<li><b>${c.name}</b><span>${c.about || ""}</span></li>`).join(""); $("#classList").hidden = false;
   const opts = `<option value="" disabled selected>Select a class</option>` + CONFIG.classes.map(c => `<option>${c.name}</option>`).join("");
   CLASS_DAYS.forEach(d => $("#cls" + d.key).innerHTML = opts);
-  $("#clsWed").addEventListener("change", () => { ["#clsThu", "#clsFri"].forEach(id => { if (!$(id).value) $(id).value = $("#clsWed").value; }); showClassPlan(); });
-  $("#clsThu").addEventListener("change", showClassPlan); $("#clsFri").addEventListener("change", showClassPlan);
+  CLASS_DAYS.forEach(d => $("#cls" + d.key).addEventListener("change", showClassPlan));
   $("#classBook").hidden = false; showClassPlan();
 }
 if (CONFIG.tshirtPrice) { $("#shirtPrice").textContent = CONFIG.tshirtPrice; $("#shirtPrice").hidden = false; }
