@@ -249,8 +249,9 @@ label.f input::placeholder, label.f textarea::placeholder { color: var(--muted);
 .plan b { color: var(--hl); font-weight: 800; min-width: 32px; }
 .plan span { color: var(--muted); }
 .classes { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 6px; }
-.classes li { padding: 9px 11px; background: var(--row); border-radius: 10px; border: 1px solid var(--line); font-size: 15px; display: flex; justify-content: space-between; gap: 10px; align-items: center; }
-.classes li span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.classes li { padding: 9px 11px; background: var(--row); border-radius: 10px; border: 1px solid var(--line); font-size: 15px; display: grid; gap: 2px; }
+.classes li b { font-weight: 700; }
+.classes li span { color: var(--muted); font-size: 13px; line-height: 1.35; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .tag { font-family: var(--font-cond); font-weight: 700; font-size: 14px; letter-spacing: .06em; border: 1px solid var(--line); border-radius: 8px; padding: 5px 9px; color: var(--hl); background: var(--surface); cursor: pointer; }
@@ -485,15 +486,15 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <ul class="classes" id="classList" hidden></ul>
         <div id="classBook" hidden>
           <h4>Book your class</h4>
-          <p>Book your place so we know how many to expect in each class. Pick once and it fills all three days, or choose a different class for any day.</p>
+          <p>Book your place so we know how many to expect in each class. Choose a class for each day. Your Wednesday pick fills the other days until you change them.</p>
           <form class="form" id="classForm" autocomplete="on">
             <div class="row2">
               <label class="f">Name<input id="clsName" name="name" required minlength="2" placeholder="Your full name"></label>
               <label class="f">Phone<input id="clsPhone" name="phone" type="tel" inputmode="tel" required pattern="\s*(\+44\s?7\d{3}|07\d{3})\s?\d{3}\s?\d{3}\s*" title="A UK mobile number, e.g. 07700 900123" placeholder="Mobile, e.g. 07700 900123"></label>
             </div>
-            <label class="f">Wednesday<select id="clsWed"></select></label>
-            <label class="f">Thursday<select id="clsThu"></select></label>
-            <label class="f">Friday<select id="clsFri"></select></label>
+            <label class="f">Wednesday<select id="clsWed" required></select></label>
+            <label class="f">Thursday<select id="clsThu" required></select></label>
+            <label class="f">Friday<select id="clsFri" required></select></label>
             <div class="plan" id="clsPlan"></div>
             <div class="actions">
               <button class="btn btn-gold" type="submit">Send via WhatsApp</button>
@@ -693,14 +694,14 @@ const CONFIG = {
   sheetUrl: "https://script.google.com/macros/s/AKfycbyaVz2ssEPCLdOksNEKumxVo6UOapD2tq68MbL256ToyMK1KtvtMblmqO6pVSZ2PHCN/exec", // this event's bookings workbook: Apps Script web app URL (see backend/SETUP.md). Empty = WhatsApp only
   giveUrl: "",                                   // church online giving page (the Give card stays hidden until this is set)
   tshirtPrice: "",                               // e.g. "£12" (shown on the T-shirt card once set)
-  classes: [                                      // this year's specialised classes, shown in the "Which class should I take?" card
-    "Healing, Health and Wholeness",
-    "Breaking Generational Curses",
-    "Breaking Marital Siege",
-    "Successful Christian Family",
-    "Business and Career Breakthrough",
-    "Keys to Academic Success",
-    "Fathers and Mothers of Nations"
+  classes: [                                      // this year's specialised classes: name, and one line on who it is for
+    { name: "Healing, Health and Wholeness", about: "The Word on divine health, healing and living whole." },
+    { name: "Breaking Generational Curses", about: "Breaking free from patterns that have followed your family line." },
+    { name: "Breaking Marital Siege", about: "For those believing God for marriage, and for marriages under pressure." },
+    { name: "Successful Christian Family", about: "Building a home that works: marriage, parenting and family life by the Word." },
+    { name: "Business and Career Breakthrough", about: "For entrepreneurs, professionals and job seekers believing God for a turnaround." },
+    { name: "Keys to Academic Success", about: "For students at every level, and the parents behind them." },
+    { name: "Fathers and Mothers of Nations", about: "For those trusting God for the fruit of the womb, and all who stand in the gap for others." }
   ],
   testimoniesUrl: "https://www.tiktok.com/@wcilincoln",
   instagram: "https://www.instagram.com/wcilincoln",
@@ -760,17 +761,17 @@ const CLASS_DAYS = [{ key: "Wed", label: "Wednesday" }, { key: "Thu", label: "Th
 function classPicks() { return CLASS_DAYS.map(d => ({ ...d, cls: $("#cls" + d.key).value })); }
 function classSummary() {
   const p = classPicks();
-  return p.every(x => x.cls === p[0].cls) ? `All three days: ${p[0].cls}` : p.map(x => `${x.key}: ${x.cls}`).join(" | ");
+  return p.every(x => x.cls && x.cls === p[0].cls) ? `All three days: ${p[0].cls}` : p.map(x => `${x.key}: ${x.cls || "not chosen"}`).join(" | ");
 }
 function showClassPlan() {
-  $("#clsPlan").innerHTML = classPicks().map(x => `<div><b>${x.key}</b><span>${x.cls}</span></div>`).join("");
+  $("#clsPlan").innerHTML = classPicks().map(x => `<div><b>${x.key}</b><span>${x.cls || "not chosen yet"}</span></div>`).join("");
 }
 
 if (CONFIG.classes.length) {
-  $("#classList").innerHTML = CONFIG.classes.map(c => `<li>${c}</li>`).join(""); $("#classList").hidden = false;
-  const opts = CONFIG.classes.map(c => `<option>${c}</option>`).join("");
+  $("#classList").innerHTML = CONFIG.classes.map(c => `<li><b>${c.name}</b><span>${c.about || ""}</span></li>`).join(""); $("#classList").hidden = false;
+  const opts = `<option value="" disabled selected>Select a class</option>` + CONFIG.classes.map(c => `<option>${c.name}</option>`).join("");
   CLASS_DAYS.forEach(d => $("#cls" + d.key).innerHTML = opts);
-  $("#clsWed").addEventListener("change", () => { $("#clsThu").value = $("#clsFri").value = $("#clsWed").value; showClassPlan(); });
+  $("#clsWed").addEventListener("change", () => { ["#clsThu", "#clsFri"].forEach(id => { if (!$(id).value) $(id).value = $("#clsWed").value; }); showClassPlan(); });
   $("#clsThu").addEventListener("change", showClassPlan); $("#clsFri").addEventListener("change", showClassPlan);
   $("#classBook").hidden = false; showClassPlan();
 }
@@ -899,7 +900,7 @@ const builders = {
   camp: () => `SHILOH 2026 STAY REQUEST\nName: ${$("#campName").value}\nPhone: ${$("#campPhone").value}\nPeople: ${$("#campPeople").value}\nNights: ${$("#campNights").value}\nNotes: ${$("#campNote").value || "none"}`,
   vol: () => `SHILOH 2026 VOLUNTEER\nName: ${$("#volName").value}\nPhone: ${$("#volPhone").value}\nUnits: ${checked("#volForm .units input").join(", ") || "anywhere needed"}\nAvailable:\n${gridSummary("volGrid")}\nSunday Thanksgiving: ${$("#volSun").checked ? "yes" : "no"}`,
   test: () => `SHILOH TESTIMONY\nFrom: ${$("#testName").value}\nOK to share: ${$("#testShare").checked ? "yes" : "no"}\n\n${$("#testBody").value}`,
-  cls: () => `SHILOH 2026 CLASS BOOKING\nName: ${$("#clsName").value}\nPhone: ${$("#clsPhone").value}\n` + classPicks().map(x => `${x.label}: ${x.cls}`).join("\n")
+  cls: () => `SHILOH 2026 CLASS BOOKING\nName: ${$("#clsName").value}\nPhone: ${$("#clsPhone").value}\n` + classPicks().map(x => `${x.label}: ${x.cls || "not chosen"}`).join("\n")
 };
 function gridDays(id) {
   const o = {};
