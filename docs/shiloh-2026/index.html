@@ -782,7 +782,20 @@ $("#venueText").textContent = CONFIG.venue.address;
 const calUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent("Shiloh 2026 — Far Above (WCI Lincoln)") + "&dates=20261208T170000Z/20261213T140000Z&location=" + encodeURIComponent(CONFIG.venue.address) + "&details=" + encodeURIComponent("Shiloh 2026, Lincoln viewing centre. Programme and bookings: " + (CONFIG.pageUrl || CONFIG.website));
 setLink($("#calBtn"), calUrl);
 
-const shareText = "Shiloh 2026 — Far Above. Tue 8 to Sun 13 Dec at Winners Chapel Lincoln. Times, bus seats, T-shirts and more: " + (CONFIG.pageUrl || CONFIG.website);
+const shareText = [
+  "Hello! I would love you to join me at Shiloh 2026. 🙏",
+  "",
+  "Shiloh is the biggest week of our year at Winners Chapel Lincoln: six days of prayer, the Word and real encounters with God, broadcast from Canaanland and gathered here in Lincoln.",
+  "",
+  "🗓 Tuesday 8 to Sunday 13 December 2026",
+  "📍 " + CONFIG.venue.address,
+  "✨ Theme: Far Above (Ephesians 1:21)",
+  "",
+  "Everything you need is on one page: the programme and times, free transport, specialised classes, T-shirts and more:",
+  (CONFIG.pageUrl || CONFIG.website),
+  "",
+  "Come expecting. I will save you a seat."
+].join("\n");
 setLink($("#shareWa"), "https://wa.me/?text=" + encodeURIComponent(shareText));
 if (CONFIG.pageUrl) {
   $("#pageLink").textContent = CONFIG.pageUrl.replace(/^https?:\/\//, "");
