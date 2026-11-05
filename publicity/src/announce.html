@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+/* story: crimson upper block with Papa, ivory lower block with theme + details */
+body[data-size=story] .frame { width:1080px; height:1920px; }
+body[data-size=square] .frame { width:1080px; height:1080px; }
+body[data-size=cover] .frame { width:1640px; height:924px; }
+.top { position:relative; padding:80px 80px 0; height:1160px; }
+.glow { width:1100px; height:1100px; right:-350px; top:150px; }
+.kicker { margin-top:120px; font-size:30px; color:var(--gold-l); }
+.t1 { font-size:250px; margin-top:16px; color:var(--cream); position:relative; z-index:3; }
+.t1 span { color:var(--gold-l); }
+.scr { font-size:34px; line-height:1.3; max-width:430px; position:relative; z-index:3; margin-top:34px; color:var(--cream); }
+.scr small { display:block; font-family:"Barlow Condensed"; font-style:normal; font-weight:600; letter-spacing:.22em; text-transform:uppercase; font-size:20px; margin-top:14px; color:var(--gold-l); }
+.papa { right:-150px; bottom:0; width:720px; height:860px; background-size:1880px auto; background-position:-1184px -226px;
+  -webkit-mask-image:radial-gradient(ellipse 46% 125% at 50% 100%, #000 45%, transparent 96%); mask-image:radial-gradient(ellipse 46% 125% at 50% 100%, #000 45%, transparent 96%); }
+.bottom { position:absolute; left:0; right:0; bottom:0; height:760px; padding:70px 80px 80px; display:flex; flex-direction:column; }
+.t2 { font-size:236px; color:var(--crimson); }
+.t2 span { color:var(--red); }
+.details { margin-top:auto; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }
+.dates { font-size:54px; color:var(--crimson); }
+.venue { font-size:26px; margin-top:12px; color:var(--ink); font-weight:500; line-height:1.3; }
+.scan { font-size:20px; color:var(--red); margin-bottom:18px; }
+.qr { width:300px; height:300px; flex:none; }
+.seal { right:70px; top:50px; }
+.rule { position:absolute; left:80px; right:80px; top:0; }
+/* square */
+body[data-size=square] .top { height:560px; padding:60px 70px 0; }
+body[data-size=square] .glow { width:800px; height:800px; right:-300px; top:-50px; }
+body[data-size=square] .kicker { margin-top:46px; font-size:24px; }
+body[data-size=square] .t1 { font-size:150px; }
+body[data-size=square] .scr { display:none; }
+body[data-size=square] .papa { right:-130px; bottom:0; width:560px; height:560px; background-size:1500px auto; background-position:-950px -170px; }
+body[data-size=square] .bottom { height:520px; padding:50px 70px 60px; }
+body[data-size=square] .t2 { font-size:120px; }
+body[data-size=square] .dates { font-size:40px; } body[data-size=square] .venue { font-size:21px; margin-top:8px; } body[data-size=square] .scan { font-size:17px; margin-bottom:12px; }
+body[data-size=square] .qr { width:270px; height:270px; } body[data-size=square] .seal { right:60px; top:36px; transform:scale(.75); transform-origin:top right; }
+/* cover: side by side */
+body[data-size=cover] .top { position:absolute; left:0; top:0; bottom:0; width:1000px; height:auto; padding:60px 70px; }
+body[data-size=cover] .glow { width:900px; height:900px; right:-200px; top:0; }
+body[data-size=cover] .kicker { margin-top:40px; font-size:24px; }
+body[data-size=cover] .t1 { font-size:180px; }
+body[data-size=cover] .scr { font-size:28px; max-width:480px; margin-top:30px; }
+body[data-size=cover] .papa { right:-40px; bottom:0; width:560px; height:640px; background-size:1560px auto; background-position:-985px -180px; }
+body[data-size=cover] .bottom { left:1000px; top:0; height:auto; padding:70px 70px 60px; }
+body[data-size=cover] .t2 { font-size:170px; }
+body[data-size=cover] .details { flex-direction:column; align-items:flex-start; gap:30px; }
+body[data-size=cover] .dates { font-size:38px; } body[data-size=cover] .venue { font-size:22px; } body[data-size=cover] .scan { display:none; }
+body[data-size=cover] .qr { display:none; } body[data-size=cover] .seal { display:none; }
+body[data-size=cover] .rule { display:none; }
+</style></head><body>
+<div class="frame">
+  <div class="grain"></div>
+  <div class="top">
+    <div class="glow"></div>
+    <div class="bar"><div class="emblem"><img src="emblem.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><span class="tag">Viewing centre</span></div>
+    <div class="label kicker">Shiloh comes to Lincoln · 8 to 13 December</div>
+    <h1 class="display t1">Shiloh<br><span>2026</span></h1>
+    <div class="serif scr">“Far above all principality, and power, and might, and dominion, and every name that is named.”<small>Ephesians 1:21</small></div>
+    <div class="papa"></div>
+  </div>
+  <div class="panel bottom">
+    <hr class="rule">
+    <div class="seal" data-seal="220"></div>
+    <h2 class="display t2">Far<br><span>Above</span></h2>
+    <div class="details">
+      <div><div class="label scan">Scan for everything you need to know</div><div class="cond dates">Tue 8 – Sun 13 Dec 2026</div><div class="venue">Moorland Community Centre<br>Moorland Avenue, Lincoln LN6 7NH</div></div>
+      <div class="qr"><img src="qr.svg" alt="QR code"></div>
+    </div>
+  </div>
+</div>
+<script>document.body.dataset.size = P("size", "story");</script>
+</body></html>

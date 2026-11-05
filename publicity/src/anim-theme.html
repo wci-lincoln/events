@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+.grain { display:none; }
+.frame { width:720px; height:720px; }
+.top { position:relative; height:440px; padding:44px 48px 0; }
+.glow { width:700px; height:700px; right:-250px; top:-150px; animation: breathe 5s ease-in-out both; }
+@keyframes breathe { from { transform:scale(.9); opacity:.6; } to { transform:scale(1.1); opacity:1; } }
+.emblem { animation: fade .6s ease-out both; } .emblem img { width:48px; height:48px; } .emblem b { font-size:18px; } .emblem span { font-size:14px; margin-top:3px; }
+.t1 { font-size:190px; margin-top:30px; color:var(--cream); animation: up .9s cubic-bezier(.2,.8,.2,1) .3s both; }
+.t1 span { color:var(--gold-l); }
+.bottom { position:absolute; left:0; right:0; bottom:0; height:280px; padding:36px 48px; animation: rise .8s cubic-bezier(.2,.8,.2,1) 1.2s both; }
+.t2 { font-size:120px; color:var(--crimson); animation: zoom .9s cubic-bezier(.2,.8,.2,1) 1.7s both; } .t2 span { color:var(--red); }
+.scr { font-size:19px; line-height:1.3; color:var(--ink); margin-top:14px; max-width:600px; animation: fade .8s ease-out 2.8s both; }
+.dates { margin-top:14px; font-size:30px; color:var(--crimson); animation: up .7s cubic-bezier(.2,.8,.2,1) 3.6s both; }
+.dates span { color:var(--red); font-weight:600; letter-spacing:.2em; font-size:16px; margin-left:14px; }
+@keyframes fade { from { opacity:0; } to { opacity:1; } }
+@keyframes up { from { opacity:0; transform:translateY(50px); } to { opacity:1; transform:none; } }
+@keyframes rise { from { transform:translateY(100%); } to { transform:none; } }
+@keyframes zoom { from { opacity:0; transform:scale(1.7); filter:blur(10px); } 60% { filter:blur(0); } to { opacity:1; transform:scale(1); filter:blur(0); } }
+</style></head><body>
+<div class="frame"><div class="grain"></div>
+  <div class="top"><div class="glow"></div><div class="emblem"><img src="emblem.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><h1 class="display t1">Shiloh<br><span>2026</span></h1></div>
+  <div class="panel bottom"><h2 class="display t2">Far <span>Above</span></h2><div class="serif scr">“Far above all principality, and power, and might, and dominion, and every name that is named.” Ephesians 1:21</div><div class="cond dates">Tue 8 – Sun 13 Dec<span class="label">Live in Lincoln</span></div></div>
+</div>
+</body></html>

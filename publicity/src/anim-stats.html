@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+.grain { display:none; }
+.frame { width:720px; height:720px; padding:48px 52px; }
+.emblem img { width:48px; height:48px; } .emblem b { font-size:18px; } .emblem span { font-size:14px; margin-top:3px; }
+.kick { font-size:18px; color:var(--red); margin-top:30px; }
+.lines { margin-top:10px; }
+.l { display:grid; grid-template-columns:150px 1fr; align-items:center; gap:16px; padding:6px 0; border-bottom:1px solid rgba(27,6,8,.15); animation: slide .7s cubic-bezier(.2,.8,.2,1) both; }
+.l .n { font-family:"Anton"; font-size:88px; line-height:1; color:var(--crimson); text-align:right; }
+.l .w { font-family:"Barlow Condensed"; font-weight:800; font-size:36px; letter-spacing:.03em; text-transform:uppercase; color:var(--ink); line-height:1; }
+.l:nth-child(1) { animation-delay:.3s; } .l:nth-child(2) { animation-delay:1.2s; } .l:nth-child(3) { animation-delay:2.1s; } .l:nth-child(4) { animation-delay:3s; }
+.l:nth-child(4) .n { color:var(--red); text-shadow:5px 5px 0 var(--gold); } .l:nth-child(4) .w { color:var(--red); }
+@keyframes slide { from { opacity:0; transform:translateX(-50px); } to { opacity:1; transform:none; } }
+.end { margin-top:auto; display:flex; justify-content:space-between; align-items:flex-end; animation: fade .8s ease-out 4.3s both; }
+.end .d { font-size:34px; color:var(--crimson); } .end .v { font-size:16px; margin-top:6px; color:var(--red); }
+.end .seal { position:static; }
+@keyframes fade { from { opacity:0; } to { opacity:1; } }
+</style></head><body>
+<div class="frame ivory"><div class="grain"></div>
+  <div class="content">
+    <div class="emblem"><img src="emblem.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div>
+    <div class="label kick">Shiloh 2026 in Lincoln, by the numbers</div>
+    <div class="lines">
+      <div class="l"><div class="n">6</div><div class="w">days</div></div>
+      <div class="l"><div class="n">4</div><div class="w">sessions a day</div></div>
+      <div class="l"><div class="n">7</div><div class="w">specialised classes</div></div>
+      <div class="l"><div class="n">1</div><div class="w">encounter that<br>changes everything</div></div>
+    </div>
+    <div class="end"><div><div class="cond d">Tue 8 – Sun 13 December</div><div class="label v">Far Above · Moorland Community Centre</div></div><div class="seal" data-seal="104"></div></div>
+  </div>
+</div>
+</body></html>
