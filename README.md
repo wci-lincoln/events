@@ -16,7 +16,8 @@ The root address redirects to the current event.
 - Programme by day. For Shiloh, the four daily blocks: Shiloh Prayer Hour, Morning Session
   (Hour of Visitation), Specialised Classes and Evening Session (Encounter Night); Friday evening
   is the Victory Celebration Night and Saturday morning the Impartation Service.
-- Bookings: bus seats (day-by-session grid), specialised class per day, T-shirts, stay, volunteering, testimonies.
+- Bookings: bus seats (day-by-session grid), specialised class per day, T-shirts, stay, volunteering,
+  testimonies, UK Foreign Delegate interest.
   Submissions go to a Google Sheet; WhatsApp is the fallback.
 - Venue and directions, giving, share links and a scan-to-open QR block.
 

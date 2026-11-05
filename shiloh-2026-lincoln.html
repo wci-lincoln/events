@@ -570,6 +570,28 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <div class="actions"><a class="btn btn-gold wide" id="giveBtn" href="#" target="_blank" rel="noopener">Give online</a></div>
       </div>
     </details>
+    <details class="tile" id="delegate">
+      <summary>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 19h19"/><path d="M3.5 13.5 9 15l4.5-4.5 6.5 1.5a1.6 1.6 0 0 0 .6-3.1L15 7l-6-3.5-2 1 4 4-5.5 2-2.5-1.5-1.5.8z"/></svg></span>
+        <span class="t"><b>Go to Canaanland</b><span>Attend Shiloh on the ground as a UK Foreign Delegate</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <div class="panel">
+        <p>Every year a delegation from the UK attends Shiloh in person at Canaanland, Ota. If you would like to be part of the UK Foreign Delegates for Shiloh 2026, register your interest here and the team will be in touch with everything you need to know.</p>
+        <form class="form" id="delForm" autocomplete="on">
+          <div class="row2">
+            <label class="f">Name<input id="delName" name="name" required minlength="2" placeholder="Your full name"></label>
+            <label class="f">Phone<input id="delPhone" name="phone" type="tel" inputmode="tel" required pattern="\s*(\+44\s?7\d{3}|07\d{3})\s?\d{3}\s?\d{3}\s*" title="A UK mobile number, e.g. 07700 900123" placeholder="Mobile, e.g. 07700 900123"></label>
+          </div>
+          <label class="f">Any question for the team?<textarea id="delQuestion" placeholder="Anything you would like to ask before the details come through"></textarea></label>
+          <div class="actions">
+            <button class="btn btn-gold" type="submit">Send via WhatsApp</button>
+            <button class="btn btn-outline" type="button" data-copy-form="del" id="delAlt">Copy details</button>
+          </div>
+          <div class="msg" id="delMsg"></div>
+        </form>
+      </div>
+    </details>
     <details class="tile" id="invite">
       <summary>
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg></span>
@@ -682,7 +704,7 @@ const CONFIG = {
   website: "https://winnerschapellincoln.org.uk",
   email: "lincoln@winners-chapel.org.uk",
   // WhatsApp numbers that receive the booking messages (international format, digits only).
-  whatsapp: { transport: "447732200430", tshirt: "447732200430", camping: "447732200430", volunteer: "447732200430", testimony: "447732200430", classes: "447732200430" },
+  whatsapp: { transport: "447732200430", tshirt: "447732200430", camping: "447732200430", volunteer: "447732200430", testimony: "447732200430", classes: "447732200430", delegates: "447732200430" },
   contacts: [
     { role: "Transport · call or text", value: "07732 200430" },      // bus seats, pickups, lifts
     { role: "Hospitality · call or text", value: "07732 200430" },    // stay, first-timers, arriving
@@ -884,7 +906,8 @@ const builders = {
   camp: () => `SHILOH 2026 STAY REQUEST\nName: ${$("#campName").value}\nPhone: ${$("#campPhone").value}\nPeople: ${$("#campPeople").value}\nNights: ${$("#campNights").value}\nNotes: ${$("#campNote").value || "none"}`,
   vol: () => `SHILOH 2026 VOLUNTEER\nName: ${$("#volName").value}\nPhone: ${$("#volPhone").value}\nUnits: ${checked("#volForm .units input").join(", ") || "anywhere needed"}\nAvailable:\n${gridSummary("volGrid")}\nSunday Thanksgiving: ${$("#volSun").checked ? "yes" : "no"}`,
   test: () => `SHILOH TESTIMONY\nFrom: ${$("#testName").value}\nOK to share: ${$("#testShare").checked ? "yes" : "no"}\n\n${$("#testBody").value}`,
-  cls: () => `SHILOH 2026 CLASS BOOKING\nName: ${$("#clsName").value}\nPhone: ${$("#clsPhone").value}\n` + classPicks().map(x => `${x.label}: ${x.cls || "not chosen"}`).join("\n")
+  cls: () => `SHILOH 2026 CLASS BOOKING\nName: ${$("#clsName").value}\nPhone: ${$("#clsPhone").value}\n` + classPicks().map(x => `${x.label}: ${x.cls || "not chosen"}`).join("\n"),
+  del: () => `SHILOH 2026 UK FOREIGN DELEGATE\nName: ${$("#delName").value}\nPhone: ${$("#delPhone").value}\nQuestion: ${$("#delQuestion").value || "none"}`
 };
 function gridDays(id) {
   const o = {};
@@ -897,7 +920,8 @@ const records = {
   camp:  () => ({ form: "camp",  fields: { Name: $("#campName").value, Phone: $("#campPhone").value, People: $("#campPeople").value, Nights: $("#campNights").value, Notes: $("#campNote").value } }),
   vol:   () => ({ form: "vol",   fields: { Name: $("#volName").value, Phone: $("#volPhone").value, Units: checked("#volForm .units input").join(", "), ...gridDays("volGrid"), Summary: gridCompact("volGrid"), "Sunday Thanksgiving": $("#volSun").checked ? "yes" : "no" } }),
   test:  () => ({ form: "test",  fields: { Name: $("#testName").value, "OK to share": $("#testShare").checked ? "yes" : "no", Testimony: $("#testBody").value } }),
-  cls:   () => ({ form: "cls",   fields: { Name: $("#clsName").value, Phone: $("#clsPhone").value, ...Object.fromEntries(classPicks().map(x => [x.key, x.cls])), Summary: classSummary() } })
+  cls:   () => ({ form: "cls",   fields: { Name: $("#clsName").value, Phone: $("#clsPhone").value, ...Object.fromEntries(classPicks().map(x => [x.key, x.cls])), Summary: classSummary() } }),
+  del:   () => ({ form: "del",   fields: { Name: $("#delName").value, Phone: $("#delPhone").value, Question: $("#delQuestion").value } })
 };
 const DONE = {
   bus: "Seat booked. The transport team will message you with pickup times.",
@@ -905,12 +929,13 @@ const DONE = {
   camp: "Request received. The hospitality team will come back to you.",
   vol: "Thank you. The team will put you on the rota and message you.",
   test: "Thank you. Your testimony has been received.",
-  cls: "Booked. Your class starts at 11:30 AM on Wednesday."
+  cls: "Booked. Your class starts at 11:30 AM on Wednesday.",
+  del: "Thank you. More details will be communicated to you soon."
 };
-const PRIMARY = { bus: "Book my seat", shirt: "Reserve my shirt", camp: "Send request", vol: "Sign me up", test: "Share testimony", cls: "Book my class" };
-const targets = { bus: "transport", shirt: "tshirt", camp: "camping", vol: "volunteer", test: "testimony", cls: "classes" };
-const forms = { bus: "#busForm", shirt: "#shirtForm", camp: "#campForm", vol: "#volForm", test: "#testForm", cls: "#classForm" };
-const msgs = { bus: "#busMsg", shirt: "#shirtMsg", camp: "#campMsg", vol: "#volMsg", test: "#testMsg", cls: "#clsMsg" };
+const PRIMARY = { bus: "Book my seat", shirt: "Reserve my shirt", camp: "Send request", vol: "Sign me up", test: "Share testimony", cls: "Book my class", del: "Register my interest" };
+const targets = { bus: "transport", shirt: "tshirt", camp: "camping", vol: "volunteer", test: "testimony", cls: "classes", del: "delegates" };
+const forms = { bus: "#busForm", shirt: "#shirtForm", camp: "#campForm", vol: "#volForm", test: "#testForm", cls: "#classForm", del: "#delForm" };
+const msgs = { bus: "#busMsg", shirt: "#shirtMsg", camp: "#campMsg", vol: "#volMsg", test: "#testMsg", cls: "#clsMsg", del: "#delMsg" };
 
 async function copyText(text) {
   try { await navigator.clipboard.writeText(text); return true; }

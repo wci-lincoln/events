@@ -2,7 +2,7 @@
  * Shiloh 2026 Lincoln — bookings backend.
  * Lives inside the Google Sheet (Extensions → Apps Script). Receives the page's forms and
  * One workbook per event. Inside it, one sheet per form: Bus seats, T-shirts, Stay, Volunteers,
- * Testimonies, Classes. Each submission appends one row. Optional email alert per form.
+ * Testimonies, Classes, Delegates. Each submission appends one row. Optional email alert per form.
  */
 
 // Columns per form. The page sends fields with exactly these names.
@@ -12,14 +12,15 @@ const FORMS = {
   camp:  ["Name", "Phone", "People", "Nights", "Notes"],
   vol:   ["Name", "Phone", "Units", "Tue", "Wed", "Thu", "Fri", "Sat", "Summary", "Sunday Thanksgiving"],
   test:  ["Name", "OK to share", "Testimony"],
-  cls:   ["Name", "Phone", "Wed", "Thu", "Fri", "Summary"]
+  cls:   ["Name", "Phone", "Wed", "Thu", "Fri", "Summary"],
+  del:   ["Name", "Phone", "Question"]
 };
 
 // Sheet (tab) names inside the event's workbook.
-const TABS = { bus: "Bus seats", shirt: "T-shirts", camp: "Stay", vol: "Volunteers", test: "Testimonies", cls: "Classes" };
+const TABS = { bus: "Bus seats", shirt: "T-shirts", camp: "Stay", vol: "Volunteers", test: "Testimonies", cls: "Classes", del: "Delegates" };
 
 // Optional: an email address per form to alert on every new entry. Leave "" for none.
-const NOTIFY = { bus: "", shirt: "", camp: "", vol: "", test: "", cls: "" };
+const NOTIFY = { bus: "", shirt: "", camp: "", vol: "", test: "", cls: "", del: "" };
 
 function doPost(e) {
   try {

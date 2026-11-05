@@ -20,6 +20,7 @@ Each area owner, please reply with corrections to your card and your form.
 - Start times as shown: Prayer Hour 5:00 AM, Morning Session 6:15 AM, Classes 11:30 AM, Evening Session 5:00 PM, Saturday Impartation Service 5:00 AM UK time, Sunday 9:20 and 11:15 AM. Correct?
 - Specialised classes: the seven shown are the ones UK viewing centres ran last Shiloh. Correct any that change for 2026.
 - Class booking: people pick a class for Wednesday, Thursday and Friday; bookings land in the Classes tab of the workbook.
+- UK Foreign Delegates: "Go to Canaanland" collects name, phone and an optional question into the Delegates tab; the page promises only that details will follow. Send the dates, cost and deadline when fixed.
 
 ## Finance / Welfare
 - T-shirt price, sizes and fits offered, collection arrangement
