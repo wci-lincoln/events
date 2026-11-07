@@ -50,6 +50,7 @@ with the booking text instead. One workbook per event, with a sheet per form ins
 - `server.js` — tiny static server for `docs/` (local preview only)
 - `backend/` — the Google Sheet booking script and its setup guide
 - `assets/` — flyers, cropped hero images, QR codes (PNG + SVG), A4 QR posters
+- `publicity/` — social media and projector kit: HTML templates, `build.js` renders PNG, GIF and MP4 into `publicity/out` (see `publicity/README.md`)
 - `docs/` — generated site; GitHub Pages serves this folder
 
 ## Hosting (GitHub Pages, free)

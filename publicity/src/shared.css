@@ -13,7 +13,8 @@ body { font-family:"Barlow", Arial, sans-serif; color:var(--cream); -webkit-font
 .content { position:relative; z-index:3; height:100%; display:flex; flex-direction:column; }
 .bar { display:flex; align-items:center; justify-content:space-between; }
 .emblem { display:flex; align-items:center; gap:16px; }
-.emblem img { width:64px; height:64px; border-radius:50%; background:#fff; padding:3px; }
+.emblem img { width:72px; height:72px; object-fit:contain; display:block; }
+.frame:not(.ivory):not(.gold) .emblem img { background:#fff; border-radius:50%; padding:6px; }
 .emblem b { display:block; font-family:"Barlow Condensed"; font-weight:800; font-size:24px; letter-spacing:.12em; text-transform:uppercase; line-height:1; }
 .emblem span { display:block; font-family:"Barlow Condensed"; font-weight:600; font-size:18px; letter-spacing:.3em; text-transform:uppercase; margin-top:5px; color:var(--gold-l); }
 .ivory .emblem span, .gold .emblem span { color:var(--red); }

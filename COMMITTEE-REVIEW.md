@@ -30,6 +30,8 @@ Each area owner, please reply with corrections to your card and your form.
 - Role for each phone number shown (currently three numbers with no roles)
 - Hashtags: #Shiloh2026 #FarAbove #WCILincoln
 - Where the QR posters go; the A4 poster is at the live address + shiloh-2026-qr-poster-a4.html
+- The publicity kit in `publicity/out` (cards, GIFs, MP4s, the 54-second projector film and a countdown for every Sunday and Wednesday service): who posts what, per the schedule in `publicity/README.md`
+- Confirm the midweek service is Wednesday and the countdown dates match the church calendar (8, 11, 15, 18, 22, 25, 29 November; 2 and 6 December)
 
 ## Everyone
 - Theme text is Ephesians 1:17-21 (confirmed by Ibukunoluwa); the hero quotes verse 21.
