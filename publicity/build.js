@@ -44,6 +44,7 @@ for (const [iso, d, svc, n, v] of SERVICES) {
   const base = `countdown/${iso}-${String(n).padStart(2, "0")}-days`, q = `n=${n}&d=${encodeURIComponent(d)}&s=${encodeURIComponent(svc)}&v=${v}`;
   ANIMS.push({ out: base + "-wide.gif",   file: "countdown-anim.html", q, w: 1280, h: 720, fps: 12, seconds: 4, mp4: true, scale: 1.5, loops: 2, paletteAt: 3.9 });
   ANIMS.push({ out: base + "-square.gif", file: "countdown-anim.html", q, w: 720,  h: 720, fps: 12, seconds: 4, paletteAt: 3.9 });
+  ANIMS.push({ out: base + "-story.gif",  file: "countdown-anim.html", q, w: 540,  h: 960, fps: 12, seconds: 4, mp4: true, scale: 2, loops: 2, paletteAt: 3.9 });
 }
 // Video only: the projector film shown in church while announcements are read.
 const VIDEOS = [{ out: "30-projector-announcement.mp4", file: "projector.html", w: 1920, h: 1080, seconds: 54, scale: 1, loops: 1 }];

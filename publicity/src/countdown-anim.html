@@ -115,15 +115,47 @@
 .v5.sq .rule { left:40px; right:40px; bottom:110px; }
 .v5.sq .note { display:none; }
 .v5.sq .when { left:40px; bottom:28px; }
+
+/* Story (9:16) for WhatsApp status and Instagram stories: 540×960, rendered at 2× for the MP4. The bar stacks
+   so the lockup and the service tag each get a full line; everything else re-flows into one column. */
+.st .bar { left:32px; right:32px; top:30px; flex-direction:column; align-items:flex-start; gap:14px; }
+.st .emblem img { width:46px; height:46px; } .st .emblem b { font-size:17px; } .st .emblem span { font-size:12px; margin-top:3px; }
+.st .tag { font-size:14px; padding:8px 12px; }
+.st .when { left:32px; right:32px; bottom:30px; font-size:18px; } .st .when b { font-size:22px; }
+.v1.st .big { left:32px; right:32px; top:200px; bottom:auto; flex-direction:column; align-items:flex-start; gap:6px; }
+.v1.st .n { font-size:440px; text-shadow:12px 12px 0 var(--gold); }
+.v1.st .togo { flex-direction:column; gap:0; padding-bottom:0; } .v1.st .togo .display { font-size:120px; }
+.v1.st .when { left:32px; right:32px; bottom:88px; text-align:left; }
+.v1.st .strip { height:64px; } .v1.st .m span { font-size:22px; }
+.v2.st .grid { left:40px; top:160px; grid-template-columns:repeat(6, 70px); gap:8px; }
+.v2.st .c { width:70px; height:70px; font-size:26px; } .v2.st .c small { font-size:10px; left:5px; top:3px; }
+.v2.st .cap { left:40px; top:556px; font-size:13px; letter-spacing:.16em; }
+.v2.st .side { left:32px; right:32px; top:600px; width:auto; display:flex; align-items:flex-end; gap:20px; }
+.v2.st .n { font-size:230px; } .v2.st .left { font-size:60px; margin-top:0; margin-bottom:16px; }
+.v2.st .when { left:32px; right:32px; bottom:30px; }
+.v3.st .clock { top:330px; gap:16px; } .v3.st .card { width:214px; height:290px; } .v3.st .half span { height:290px; font-size:260px; line-height:290px; } .v3.st .half.bot span { top:-145px; }
+.v3.st .dots { gap:26px; } .v3.st .dots i { width:16px; height:16px; }
+.v3.st .lbl { top:655px; font-size:22px; } .v3.st .when { left:32px; right:32px; text-align:left; bottom:30px; }
+.v4.st .sealwrap { left:155px; right:auto; top:135px; width:230px; height:230px; } .v4.st .mid .n { font-size:104px; } .v4.st .mid .label { font-size:15px; margin-top:4px; }
+.v4.st .head { left:32px; right:32px; top:388px; text-align:center; }
+.v4.st h2 { font-size:21px; } .v4.st .h2b { font-size:30px; margin-top:8px; }
+.v4.st .papa { left:50px; width:440px; height:390px; bottom:84px; background-size:1300px auto; background-position:-800px -290px; }
+.v4.st .when { left:0; right:0; bottom:0; padding:16px 32px; background:var(--crimson2); color:var(--cream); text-align:left; } .v4.st .when b { color:var(--gold-l); }
+.v5.st .stack { left:32px; top:160px; } .v5.st .w1 { font-size:150px; } .v5.st.long .w1 { font-size:112px; } .v5.st .w2 { font-size:112px; } .v5.st .w3 { font-size:84px; }
+.v5.st .num { right:32px; top:auto; bottom:150px; width:190px; height:190px; font-size:120px; } .v5.st .num small { bottom:24px; font-size:15px; }
+.v5.st .rule { left:32px; right:32px; bottom:118px; }
+.v5.st .note { display:block; left:32px; right:240px; bottom:150px; text-align:left; font-size:22px; max-width:none; }
+.v5.st .when { left:32px; right:32px; bottom:30px; }
 </style></head><body>
 <div id="root" class="frame"></div>
 <script>
 const n = +P("n", "7"), date = P("d", "8 November"), svc = P("s", "Sunday Service"), v = +P("v", "1"), W = +P("w", "1280"), H = +P("h", "720");
 document.documentElement.style.setProperty("--w", W + "px"); document.documentElement.style.setProperty("--h", H + "px");
 const root = document.getElementById("root");
-root.className = "frame v" + v + (W > H ? " wide" : " sq") + (v === 1 ? " ivory" : v === 4 ? " gold" : v === 5 ? " red" : "");
+root.className = "frame v" + v + (W > H ? " wide" : W === H ? " sq" : " st") + (v === 1 ? " ivory" : v === 4 ? " gold" : v === 5 ? " red" : "");
 const WORDS = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty"];
 const words = k => k <= 20 ? WORDS[k] : "twenty" + (k % 10 ? " " + WORDS[k % 10] : "");
+if (Math.max(...words(n).split(" ").map(w => w.length)) >= 7) root.classList.add("long"); // "thirteen" needs a smaller size in the story column
 const bar = `<div class="bar"><div class="emblem"><img src="logo.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><span class="tag">${svc} · ${date}</span></div>`;
 const when = `<div class="when"><b>Shiloh 2026 · Far Above</b>Opens Tuesday 8 December, 5:00 PM · Moorland Community Centre</div>`;
 const days = n === 1 ? "day" : "days";

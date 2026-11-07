@@ -68,12 +68,16 @@ words (red).
 | Wed 2 Dec | 6 | Flip clock | `2026-12-02-06-days-*` |
 | Sun 6 Dec | 2 | Number in words | `2026-12-06-02-days-*` |
 
-Each date has three files: `-wide.gif` (1280×720, for the projector slide and Facebook),
-`-wide.mp4` (1920×1080, for the projector when a GIF stutters, and for Reels), and `-square.gif`
-(720×720, for the WhatsApp groups and Instagram feed on the day). Each one loops every four seconds.
+Each date has five files: `-wide.gif` (1280×720, for the projector slide and Facebook),
+`-wide.mp4` (1920×1080, for the projector when a GIF stutters, and for Reels), `-square.gif`
+(720×720, for the WhatsApp groups and Instagram feed on the day), `-story.gif` (540×960) and
+`-story.mp4` (1080×1920, for WhatsApp status and Instagram or Facebook stories). Each one loops
+every four seconds; the MP4s play the loop twice.
 
-How to use them on the day: drop the wide GIF or MP4 on the announcement slide, and send the
-square GIF to the groups that morning with the caption below.
+How to use them on the day: drop the wide GIF or MP4 on the announcement slide, send the square
+GIF to the groups that morning with the caption below, and put the story MP4 on the church status.
+The story layout stacks everything in one column: the same five designs, with Papa in a
+crimson-footed portrait for the gold one.
 
 ## Posting schedule
 
@@ -83,7 +87,7 @@ Dates work back from the opening Encounter Night on Tuesday 8 December 2026.
 | --- | --- | --- |
 | As soon as the committee signs off | `20-theme-reveal`, then `01` / `02` | Church WhatsApp groups, status, Instagram, Facebook. Set `03` as the Facebook cover. Start `30-projector-announcement.mp4` on the screen. |
 | Same week | `08-delegates-square.png` | Groups and feed. Delegates need the most notice. |
-| Every Sunday and Wednesday | That day's countdown from `out/countdown/` | Projector slide and the groups, morning of the service. |
+| Every Sunday and Wednesday | That day's countdown from `out/countdown/` | Projector slide (wide), the groups (square) and the church status (story), morning of the service. |
 | Week of 10 Nov | Classes carousel `06-*` | Instagram and Facebook carousel; one slide a day on status. |
 | Week of 17 Nov | `05-bus-square.png`, `09-volunteer-square.png` | Feed and groups. |
 | Tue 24 Nov | `11-countdown-14.png`, then `07-invite-story.png` with the caption below | Status. Ask members to repost the invite. |
@@ -125,6 +129,7 @@ npm install
 node build.js               # everything
 node build.js 05-bus        # just the files whose name contains this
 node build.js countdown     # the service-day countdowns
+node build.js story         # just the story-size files
 node build.js projector     # the projector film
 node verify-qr.js           # decode the QR in every card and check it opens the Shiloh page
 ```
