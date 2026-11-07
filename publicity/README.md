@@ -34,6 +34,7 @@ roundel on dark ones (`00-logo-colour.png`, `00-logo-white.png`).
 | `06-classes-00-cover.png` … `06-classes-07.png` | Classes carousel: cover plus one card per class. |
 | `07-invite-story.png` | First-person invite for members to repost. |
 | `10-profile-badge.png` | Profile picture for Shiloh week. |
+| `40-poster-a4.pdf`, `40-poster-a4.png` | A4 "Scan me" wall poster: vector PDF for printing (sharp at A3 too), 2480×3508 PNG for sharing. |
 | `20-theme-reveal`, `21-scan-me-story`, `22-by-the-numbers` (`.gif` + `.mp4`) | Short animations. |
 | `30-projector-announcement.mp4` | 54-second announcement film for the screen, built to loop. |
 | `slides/*.png` | The film's eight scenes as 1920×1080 stills. |

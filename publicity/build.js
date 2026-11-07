@@ -23,6 +23,7 @@ const STILLS = [
   { out: "08-delegates-square.png",    file: "delegates.html", q: "",            w: 1080, h: 1080 },
   { out: "09-volunteer-square.png",    file: "volunteer.html", q: "",            w: 1080, h: 1080 },
   { out: "10-profile-badge.png",       file: "dp.html",        q: "",            w: 1080, h: 1080 },
+  { out: "40-poster-a4.png",           file: "poster.html",    q: "",            w: 1240, h: 1754, scale: 2 },
   // Shiloh week: one "Today at Shiloh" card per day, for the groups (square), status (story) and the screen (wide).
   ...[1, 2, 3, 4, 5, 6].flatMap(d => [["square", 1080, 1080], ["story", 1080, 1920], ["wide", 1920, 1080]].map(([size, w, h]) => ({ out: `today/2026-12-${String(7 + d).padStart(2, "0")}-day-${d}-${size}.png`, file: "today.html", q: `day=${d}&size=${size}`, w, h }))),
   // Projector slides: each scene of the announcement film, frozen once it has fully arrived, as a 1920×1080 PNG.
@@ -53,6 +54,8 @@ const ANIMS = [
   { out: "21-scan-me-story.gif", file: "anim-scan.html",  w: 540, h: 960,  fps: 12, seconds: 3, paletteAt: 0.4, mp4: true, scale: 2, loops: 3 },
   { out: "22-by-the-numbers.gif",file: "anim-stats.html", w: 720, h: 720,  fps: 12, seconds: 6, mp4: true, scale: 1.5, loops: 2 },
 ];
+// Print: the A4 wall poster as a vector PDF, the frame scaled to the paper (print=1).
+const PDFS = [{ out: "40-poster-a4.pdf", file: "poster.html", q: "print=1", w: 1240, h: 1754 }];
 // Video only: the projector film shown in church while announcements are read.
 const VIDEOS = [{ out: "30-projector-announcement.mp4", file: "projector.html", w: 1920, h: 1080, seconds: 54, scale: 1, loops: 1 }];
 // The giant-number design loops over 8 seconds so its strip scrolls at a readable pace; the others loop every 4.
@@ -93,6 +96,12 @@ if (require.main === module) (async () => {
     if (a.at != null) await freeze(page, a.at * 1000);
     await page.screenshot({ path: path.join(OUT, a.out), type: "png" });
     console.log("png ", a.out);
+  }
+  for (const a of PDFS.filter(a => a.out.includes(filter))) {
+    await page.setViewport({ width: a.w, height: a.h, deviceScaleFactor: 1 });
+    await page.goto(url(a.file, a.q), { waitUntil: "load" }); await ready(page);
+    await page.pdf({ path: path.join(OUT, a.out), width: "210mm", height: "297mm", printBackground: true, preferCSSPageSize: true, pageRanges: "1", margin: { top: 0, right: 0, bottom: 0, left: 0 } });
+    console.log("pdf ", a.out, (fs.statSync(path.join(OUT, a.out)).size / 1e6).toFixed(1) + " MB");
   }
   for (const a of ANIMS.filter(a => a.out.includes(filter))) {
     fs.mkdirSync(path.dirname(path.join(OUT, a.out)), { recursive: true });

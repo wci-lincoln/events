@@ -74,6 +74,7 @@ for (let i = 0; i <= 7; i++) copy(`06-classes-${pad(i)}${i === 0 ? "-cover" : ""
 const TODAY = [["Tue 8 Dec", "Opening Encounter Night, 5:00 PM"], ["Wed 9 Dec", "full day"], ["Thu 10 Dec", "full day"], ["Fri 11 Dec", "Victory Celebration Night"], ["Sat 12 Dec", "Impartation Service, 5:00 AM"], ["Sun 13 Dec", "Thanksgiving Services"]];
 for (let d = 1; d <= 6; d++) for (const size of ["square", "story"]) copy(`today/2026-12-${pad(7 + d)}-day-${d}-${size}.png`, S("06 Shiloh week - Today at Shiloh"));
 copy("10-profile-badge.png", S("07 Profile badge"));
+for (const f of ["40-poster-a4.pdf", "40-poster-a4.png"]) copy(f, S("08 Wall poster - A4"));
 
 write(SOCIAL, "READ ME FIRST.md", `
 # Shiloh 2026 social media kit · for the publicity team
@@ -107,6 +108,7 @@ ${DAYS.map(d => `| ${d.wd.slice(0, 3)} ${d.d} | ${d.n === 0 ? "Opening night" : 
 - **05 Classes carousel**: cover plus one card per class. Post as a carousel on 11 November, then one class a day on status from 12 to 18 November.
 - **06 Shiloh week**: a "Today at Shiloh" card for each of the six days (square for the groups, story for status). Post each morning from 8 to 13 December, and keep the scan-me story in circulation for latecomers.
 - **07 Profile badge**: for members' WhatsApp and Instagram profile pictures during Shiloh week.
+- **08 Wall poster**: the A4 "Scan me" poster for noticeboards and walls at church, the hall and anywhere members can put one up. Print the PDF at actual size (or "fit to page"); it also prints sharp at A3. The PNG is the same poster for sending by WhatsApp or email.
 
 ## Captions
 
@@ -145,6 +147,7 @@ for (const d of SERVICE_DAYS) {
 }
 for (let d = 1; d <= 6; d++) copy(`today/2026-12-${pad(7 + d)}-day-${d}-wide.png`, C("03 Shiloh week - Today at Shiloh"));
 for (const f of ["00-logo-colour.png", "00-logo-white.png"]) copy(f, C("04 Logo"));
+for (const f of ["40-poster-a4.pdf", "40-poster-a4.png"]) copy(f, C("05 Wall poster - A4"));
 
 write(SCREEN, "READ ME FIRST.md", `
 # Shiloh 2026 projection kit · for the media team
@@ -189,6 +192,12 @@ sessions and times. Put it up before each session and between sessions.
 
 The church emblem in full colour and in white, on transparent backgrounds, for anything the
 media team builds itself.
+
+## 05 Wall poster · A4
+
+The "Scan me" poster for the hall walls and noticeboards. Print the PDF at actual size (or
+"fit to page"); it prints sharp at A3 too. Put one up at the entrance, by the tea point and on
+the way out, so people can scan it after the service.
 `);
 
 // Zips, one per team, plus the full kit.
