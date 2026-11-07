@@ -46,8 +46,9 @@ Five designs rotate day by day so the feed never repeats two days running: giant
 running strip (ivory), calendar grid filling gold (crimson), flip clock (crimson), Papa with a
 swaying seal (gold), and the number in words (red). The opening day uses the words design with
 "It starts tonight". The design for a given date is the same in every shape, so the projector
-slide and the social post match on service days. Animations loop every four seconds; MP4s play
-the loop twice.
+slide and the social post match on service days. Animations loop every four seconds and the MP4s
+play the loop twice, except the giant-number design, which runs an eight-second loop so its strip
+scrolls at a readable pace.
 
 The screensaver is a slow 32-second loop of three scenes (theme with Papa, the day's countdown
 with the venue, the QR) for when the screen is idle in church.

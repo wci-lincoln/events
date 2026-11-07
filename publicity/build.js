@@ -55,12 +55,14 @@ const ANIMS = [
 ];
 // Video only: the projector film shown in church while announcements are read.
 const VIDEOS = [{ out: "30-projector-announcement.mp4", file: "projector.html", w: 1920, h: 1080, seconds: 54, scale: 1, loops: 1 }];
+// The giant-number design loops over 8 seconds so its strip scrolls at a readable pace; the others loop every 4.
+const loop = d => d.v === 1 && d.n > 0 ? { seconds: 8, loops: 1 } : { seconds: 4, loops: 2 };
 for (const d of DAYS) {
-  ANIMS.push({ out: d.base + "-square.gif", file: "countdown-anim.html", q: d.q, w: 720, h: 720, fps: 12, seconds: 4, paletteAt: 3.9 });
-  VIDEOS.push({ out: d.base + "-story.mp4", file: "countdown-anim.html", q: d.q, w: 540, h: 960, seconds: 4, scale: 2, loops: 2 });
+  ANIMS.push({ out: d.base + "-square.gif", file: "countdown-anim.html", q: d.q, w: 720, h: 720, fps: 12, seconds: loop(d).seconds, paletteAt: 3.9 });
+  VIDEOS.push({ out: d.base + "-story.mp4", file: "countdown-anim.html", q: d.q, w: 540, h: 960, scale: 2, ...loop(d) });
 }
 for (const d of SERVICE_DAYS) {
-  ANIMS.push({ out: d.base + "-wide.gif", file: "countdown-anim.html", q: d.q, w: 1280, h: 720, fps: 12, seconds: 4, mp4: true, scale: 1.5, loops: 2, paletteAt: 3.9 });
+  ANIMS.push({ out: d.base + "-wide.gif", file: "countdown-anim.html", q: d.q, w: 1280, h: 720, fps: 12, mp4: true, scale: 1.5, paletteAt: 3.9, ...loop(d) });
   VIDEOS.push({ out: d.base + "-screensaver.mp4", file: "ambient.html", q: d.q, w: 1920, h: 1080, seconds: 32, scale: 1, loops: 1, vfps: 24 });
 }
 const MP4_FPS = 30;

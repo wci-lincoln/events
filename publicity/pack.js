@@ -132,7 +132,7 @@ Hashtags for Instagram and TikTok: \`${HASH}\`
 
 **Countdown.** ${CAPTIONS.countdown(16)} (Change the number to the day.)
 
-**Shiloh week.** Today at Shiloh: ${TODAY.map(t => `${t[0]}, ${t[1]}`).join("; ")}. Every session at Moorland Community Centre. Be in all of them.
+**Shiloh week (morning post).** Today at Shiloh: ${TODAY.map(t => `${t[0]}, ${t[1]}`).join("; ")}. Every session at Moorland Community Centre. Be in all of them, and bring someone.
 `);
 
 /* ---------- Church projection ---------- */

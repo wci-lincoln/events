@@ -47,17 +47,17 @@ body[data-size=wide] .seal { right:-60px; top:200px; bottom:auto; }
   <div class="head"><div class="bar"><div class="emblem"><img src="logo.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><span class="tag">Viewing centre</span></div>
     <div class="label kick" id="kick"></div><h1 class="display">Today at <span>Shiloh</span></h1><div class="cond date" id="date"></div><div class="seal" data-seal="200"></div></div>
   <div class="body"><div id="rows"></div><div class="serif note" id="note"></div>
-    <div class="foot"><div class="qr"><img src="qr.svg" alt=""></div><div><div class="cond cta">Be in every session</div><div class="sub">Free transport, classes and everything else on the Shiloh page. Moorland Community Centre, Lincoln LN6 7NH.</div></div></div></div>
+    <div class="foot"><div class="qr"><img src="qr.svg" alt=""></div><div><div class="cond cta">Everything on one page</div><div class="sub">Programme, classes, testimonies and what to bring. Moorland Community Centre, Lincoln LN6 7NH.</div></div></div></div>
 </div>
 <script>
 const FULL = [["5:00","AM","Shiloh Prayer Hour","Intercession, one hour"],["6:15","AM","Morning Session","Hour of Visitation, four teaching sessions"],["11:30","AM","Specialised Classes","Pick your class"]];
 const DAYS = [
-  ["Tuesday 8 December", [["5:00","PM","Opening Encounter Night","The first evening session of Shiloh 2026"]], "The opening night. Come expecting, and bring someone with you."],
-  ["Wednesday 9 December", [...FULL, ["5:00","PM","Encounter Night","Evening session"]], "Every session builds on the one before. Be in all of them."],
-  ["Thursday 10 December", [...FULL, ["5:00","PM","Encounter Night","Evening session"]], "Halfway through. Keep coming, and keep bringing people."],
-  ["Friday 11 December", [...FULL, ["5:00","PM","Victory Celebration Night","Friday evening session. Come to celebrate"]], "Tonight is Victory Celebration Night. Bring someone."],
-  ["Saturday 12 December", [["5:00","AM","Impartation Service","Saturday morning session, 5:00 AM UK time"]], "5:00 AM, UK time. The free bus runs for it too."],
-  ["Sunday 13 December", [["9:20","AM","Shiloh Thanksgiving Service","Bring your invitees and new converts"],["11:15","AM","Shiloh Thanksgiving Service","Bring your invitees and new converts"]], "Thanksgiving Sunday. Come with your invitees and new converts."],
+  ["Tuesday 8 December", [["5:00","PM","Opening Encounter Night","The first evening session"]], "Opening night. Six days of Shiloh in Lincoln begin at 5:00 PM."],
+  ["Wednesday 9 December", [...FULL, ["5:00","PM","Encounter Night","Evening session"]], "Every session builds on the one before."],
+  ["Thursday 10 December", [...FULL, ["5:00","PM","Encounter Night","Evening session"]], "Halfway through. Every session counts."],
+  ["Friday 11 December", [...FULL, ["5:00","PM","Victory Celebration Night","Friday evening session. Come to celebrate"]], "Victory Celebration Night tonight, 5:00 PM."],
+  ["Saturday 12 December", [["5:00","AM","Impartation Service","Saturday morning session, 5:00 AM UK time"]], "One session today: the Impartation Service, 5:00 AM UK time."],
+  ["Sunday 13 December", [["9:20","AM","Shiloh Thanksgiving Service","First service"],["11:15","AM","Shiloh Thanksgiving Service","Second service"]], "Thanksgiving Sunday. A warm welcome to everyone here for the first time."],
 ];
 const day = Math.min(6, Math.max(1, +P("day", "1"))), [date, rows, note] = DAYS[day - 1];
 document.body.dataset.size = P("size", "square");

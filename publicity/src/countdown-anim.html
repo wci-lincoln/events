@@ -2,7 +2,8 @@
 <style>
 /* Animated countdown for a service day. Five designs (v=1..5) so the run-up never looks the same twice.
    Params: n (days left), d (date, "8 November"), s (service name), v (design), w, h (frame size). Every design
-   loops cleanly at 4 seconds: entrances finish by ~2s and anything that keeps moving has a period that divides 4. */
+   loops cleanly at 4 seconds (8 for the giant number, whose strip needs the time to scroll at a readable pace):
+   entrances finish by ~2s and anything that keeps moving has a period that divides the loop. */
 .grain { display:none; }
 .frame { width:var(--w); height:var(--h); }
 .emblem img { width:56px; height:56px; } .emblem b { font-size:20px; } .emblem span { font-size:14px; margin-top:3px; }
@@ -18,7 +19,7 @@
 @keyframes inL { from { opacity:0; transform:translateX(-120px); } to { opacity:1; transform:none; } }
 @keyframes up { from { opacity:0; transform:translateY(60px); } to { opacity:1; transform:none; } }
 @keyframes pop { from { opacity:0; transform:scale(.5); } to { opacity:1; transform:none; } }
-@keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-25%); } } /* four copies, one copy per 8 s loop: about 125 px/s */
 @keyframes draw { from { transform:scaleX(0); } to { transform:scaleX(1); } }
 @keyframes blink { 0%, 49% { opacity:1; } 50%, 100% { opacity:.15; } }
 @keyframes sway { from { transform:rotate(-6deg); } to { transform:rotate(6deg); } }
@@ -33,7 +34,7 @@
 .v1 .togo { display:flex; flex-direction:column; padding-bottom:12px; animation: inR .7s cubic-bezier(.2,.8,.2,1) .9s both; }
 .v1 .togo .display { font-size:150px; line-height:.86; color:var(--red); } .v1 .togo .display + .display { color:var(--crimson); }
 .v1 .strip { position:absolute; left:0; right:0; bottom:0; height:84px; background:var(--crimson); color:var(--cream); overflow:hidden; display:flex; align-items:center; }
-.v1 .m { display:flex; white-space:nowrap; animation: marquee 4s linear infinite; }
+.v1 .m { display:flex; white-space:nowrap; animation: marquee 8s linear infinite; }
 .v1 .m span { font-family:"Barlow Condensed"; font-weight:600; font-size:30px; letter-spacing:.22em; text-transform:uppercase; padding-right:1em; }
 .v1 .m span i { color:var(--gold-l); font-style:normal; padding:0 .7em; }
 .v1 .when { bottom:104px; left:auto; right:48px; text-align:right; color:var(--ink); animation: fade .6s ease-out 1.5s both; } .v1 .when b { color:var(--red); }
@@ -164,7 +165,7 @@ const when = `<div class="when"><b>Shiloh 2026 · Far Above</b>Opens Tuesday 8 D
 const days = n === 1 ? "day" : "days";
 const V = {
   1: () => `${bar}<div class="big"><div class="display n">${n}</div><div class="togo"><div class="display">${days}</div><div class="display">to go</div></div></div>${when}
-    <div class="strip"><div class="m">${"<span>Shiloh 2026<i>·</i>Far Above<i>·</i>Tue 8 to Sun 13 December<i>·</i>Live in Lincoln<i>·</i>Every session, all six days<i>·</i></span>".repeat(2)}</div></div>`,
+    <div class="strip"><div class="m">${"<span>Shiloh 2026<i>·</i>8 to 13 December<i>·</i>Live in Lincoln<i>·</i></span>".repeat(4)}</div></div>`,
   2: () => {
     const gone = 30 - n, cells = [];
     for (let i = 0; i < 30; i++) { const day = i < 23 ? 8 + i : i - 22; const cls = i < gone ? "gone" : i === gone ? "next" : "";
