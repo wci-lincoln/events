@@ -11,7 +11,7 @@
       <defs><path id="sp" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/><clipPath id="cp"><circle cx="100" cy="100" r="46"/></clipPath></defs>
       <text font-family="Barlow Condensed" font-weight="800" font-size="17.5" letter-spacing="2.6" fill="${col}"><textPath href="#sp">${t}</textPath></text>
       <circle cx="100" cy="100" r="50" fill="#fff"/>
-      <image href="logo.png" x="54" y="54" width="92" height="92" clip-path="url(#cp)"/>
+      <image href="logo.png" x="65" y="65" width="70" height="70" clip-path="url(#cp)"/>
     </svg>`;
   };
   document.addEventListener("DOMContentLoaded", () => {

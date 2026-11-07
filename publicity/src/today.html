@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+/* "Today at Shiloh": one card per day of Shiloh week, in the same grammar as the programme card.
+   Params: day (1-6), size (square | story | wide). */
+body[data-size=square] .frame { width:1080px; height:1080px; }
+body[data-size=story] .frame { width:1080px; height:1920px; }
+body[data-size=wide] .frame { width:1920px; height:1080px; }
+.frame { display:flex; flex-direction:column; }
+.head { background:linear-gradient(180deg, var(--crimson), var(--crimson2)); color:var(--cream); padding:70px 70px 54px; position:relative; z-index:4; }
+.head .kick { color:var(--gold-l); font-size:24px; margin-top:44px; }
+.head h1 { font-size:110px; margin-top:10px; color:var(--cream); } .head h1 span { color:var(--gold-l); }
+.head .date { font-size:40px; color:var(--cream); margin-top:16px; }
+.body { padding:40px 70px 60px; display:flex; flex-direction:column; flex:1; position:relative; z-index:3; }
+.row { display:grid; grid-template-columns:230px 1fr; align-items:center; gap:30px; padding:22px 0; border-bottom:1px solid rgba(27,6,8,.18); }
+.row:first-child { border-top:3px solid var(--gold); }
+.row .t { font-family:"Anton"; font-size:60px; color:var(--red); line-height:1; } .row .t small { font-size:.42em; letter-spacing:.06em; margin-left:4px; }
+.row b { display:block; font-family:"Barlow Condensed"; font-weight:800; font-size:38px; letter-spacing:.02em; text-transform:uppercase; color:var(--ink); line-height:1; }
+.row span { display:block; font-size:22px; color:rgba(27,6,8,.7); margin-top:8px; }
+.note { font-size:34px; color:var(--red); margin-top:34px; line-height:1.3; max-width:820px; }
+.foot { margin-top:auto; padding-top:30px; display:flex; align-items:center; gap:30px; }
+.qr { width:240px; height:240px; flex:none; }
+.foot .cta { font-size:34px; color:var(--crimson); } .foot .sub { font-size:22px; color:rgba(27,6,8,.75); margin-top:8px; line-height:1.3; max-width:640px; }
+.seal { right:70px; bottom:-80px; }
+/* square: four sessions have to fit above the QR */
+body[data-size=square] .head { padding:60px 70px 44px; } body[data-size=square] .head .kick { margin-top:24px; font-size:22px; }
+body[data-size=square] .head h1 { font-size:84px; } body[data-size=square] .head .date { font-size:30px; margin-top:12px; }
+body[data-size=square] .body { padding:30px 70px 50px; } body[data-size=square] .row { padding:12px 0; grid-template-columns:200px 1fr; }
+body[data-size=square] .row .t { font-size:52px; } body[data-size=square] .row b { font-size:34px; } body[data-size=square] .row span { font-size:20px; margin-top:6px; }
+body[data-size=square] .note { font-size:26px; margin-top:20px; } body[data-size=square] .foot { padding-top:20px; } body[data-size=square] .qr { width:200px; height:200px; }
+body[data-size=square] .seal { bottom:-70px; transform:scale(.8); transform-origin:bottom right; }
+/* story */
+body[data-size=story] .head { padding:80px 80px 70px; } body[data-size=story] .head .kick { margin-top:90px; font-size:26px; }
+body[data-size=story] .head h1 { font-size:140px; } body[data-size=story] .head .date { font-size:48px; }
+body[data-size=story] .body { padding:70px 80px 80px; } body[data-size=story] .row { padding:30px 0; grid-template-columns:260px 1fr; }
+body[data-size=story] .row .t { font-size:70px; } body[data-size=story] .row b { font-size:44px; } body[data-size=story] .row span { font-size:25px; }
+body[data-size=story] .note { font-size:40px; margin-top:50px; } body[data-size=story] .qr { width:240px; height:240px; }
+body[data-size=story] .foot .cta { font-size:40px; } body[data-size=story] .foot .sub { font-size:25px; }
+/* wide: the head is a left column, the day runs down the right */
+body[data-size=wide] .frame { flex-direction:row; }
+body[data-size=wide] .head { width:860px; padding:60px 80px 70px; display:flex; flex-direction:column; }
+body[data-size=wide] .head .kick { margin-top:auto; font-size:26px; } body[data-size=wide] .head h1 { font-size:150px; } body[data-size=wide] .head .date { font-size:46px; }
+body[data-size=wide] .body { flex:1; padding:70px 80px 60px; }
+body[data-size=wide] .row { grid-template-columns:260px 1fr; } body[data-size=wide] .row .t { font-size:68px; } body[data-size=wide] .row b { font-size:42px; } body[data-size=wide] .row span { font-size:24px; }
+body[data-size=wide] .seal { right:-60px; top:200px; bottom:auto; }
+</style></head><body>
+<div class="frame ivory" id="f"><div class="grain"></div>
+  <div class="head"><div class="bar"><div class="emblem"><img src="logo.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><span class="tag">Viewing centre</span></div>
+    <div class="label kick" id="kick"></div><h1 class="display">Today at <span>Shiloh</span></h1><div class="cond date" id="date"></div><div class="seal" data-seal="200"></div></div>
+  <div class="body"><div id="rows"></div><div class="serif note" id="note"></div>
+    <div class="foot"><div class="qr"><img src="qr.svg" alt=""></div><div><div class="cond cta">Be in every session</div><div class="sub">Free transport, classes and everything else on the Shiloh page. Moorland Community Centre, Lincoln LN6 7NH.</div></div></div></div>
+</div>
+<script>
+const FULL = [["5:00","AM","Shiloh Prayer Hour","Intercession, one hour"],["6:15","AM","Morning Session","Hour of Visitation, four teaching sessions"],["11:30","AM","Specialised Classes","Pick your class"]];
+const DAYS = [
+  ["Tuesday 8 December", [["5:00","PM","Opening Encounter Night","The first evening session of Shiloh 2026"]], "The opening night. Come expecting, and bring someone with you."],
+  ["Wednesday 9 December", [...FULL, ["5:00","PM","Encounter Night","Evening session"]], "Every session builds on the one before. Be in all of them."],
+  ["Thursday 10 December", [...FULL, ["5:00","PM","Encounter Night","Evening session"]], "Halfway through. Keep coming, and keep bringing people."],
+  ["Friday 11 December", [...FULL, ["5:00","PM","Victory Celebration Night","Friday evening session. Come to celebrate"]], "Tonight is Victory Celebration Night. Bring someone."],
+  ["Saturday 12 December", [["5:00","AM","Impartation Service","Saturday morning session, 5:00 AM UK time"]], "5:00 AM, UK time. The free bus runs for it too."],
+  ["Sunday 13 December", [["9:20","AM","Shiloh Thanksgiving Service","Bring your invitees and new converts"],["11:15","AM","Shiloh Thanksgiving Service","Bring your invitees and new converts"]], "Thanksgiving Sunday. Come with your invitees and new converts."],
+];
+const day = Math.min(6, Math.max(1, +P("day", "1"))), [date, rows, note] = DAYS[day - 1];
+document.body.dataset.size = P("size", "square");
+document.getElementById("kick").textContent = `Shiloh 2026 · Far Above · Day ${day} of 6`;
+document.getElementById("date").textContent = date;
+document.getElementById("rows").innerHTML = rows.map(([t, ap, name, sub]) => `<div class="row"><div class="t">${t}<small>${ap}</small></div><div><b>${name}</b><span>${sub}</span></div></div>`).join("");
+document.getElementById("note").textContent = note;
+</script>
+</body></html>

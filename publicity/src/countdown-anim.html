@@ -37,10 +37,10 @@
 .v1 .m span { font-family:"Barlow Condensed"; font-weight:600; font-size:30px; letter-spacing:.22em; text-transform:uppercase; padding-right:1em; }
 .v1 .m span i { color:var(--gold-l); font-style:normal; padding:0 .7em; }
 .v1 .when { bottom:104px; left:auto; right:48px; text-align:right; color:var(--ink); animation: fade .6s ease-out 1.5s both; } .v1 .when b { color:var(--red); }
-.v1.sq .big { left:40px; bottom:150px; flex-direction:column; align-items:flex-start; gap:10px; }
-.v1.sq .n { font-size:330px; }
+.v1.sq .big { left:40px; bottom:180px; flex-direction:column; align-items:flex-start; gap:8px; }
+.v1.sq .n { font-size:300px; }
 .v1.sq .togo { flex-direction:row; gap:24px; } .v1.sq .togo .display { font-size:96px; }
-.v1.sq .when { left:40px; right:40px; bottom:104px; text-align:left; }
+.v1.sq .when { left:40px; right:40px; bottom:100px; text-align:left; }
 
 /* 2 · Calendar grid on crimson: a square a day, gold for the days already gone. */
 .v2 .tag { color:var(--gold-l); } .v2 .emblem span { color:var(--gold-l); }
@@ -146,17 +146,20 @@
 .v5.st .rule { left:32px; right:32px; bottom:118px; }
 .v5.st .note { display:block; left:32px; right:240px; bottom:150px; text-align:left; font-size:22px; max-width:none; }
 .v5.st .when { left:32px; right:32px; bottom:30px; }
+.v5.sq.zero .w3, .v5.st.zero .w3 { font-size:56px; }
 </style></head><body>
 <div id="root" class="frame"></div>
 <script>
-const n = +P("n", "7"), date = P("d", "8 November"), svc = P("s", "Sunday Service"), v = +P("v", "1"), W = +P("w", "1280"), H = +P("h", "720");
+const n = +P("n", "7"), date = P("d", "8 November"), svc = P("s", ""), W = +P("w", "1280"), H = +P("h", "720");
+const v = n === 0 ? 5 : +P("v", "1"); // the opening day always uses the words design, which carries "It starts tonight"
 document.documentElement.style.setProperty("--w", W + "px"); document.documentElement.style.setProperty("--h", H + "px");
 const root = document.getElementById("root");
 root.className = "frame v" + v + (W > H ? " wide" : W === H ? " sq" : " st") + (v === 1 ? " ivory" : v === 4 ? " gold" : v === 5 ? " red" : "");
 const WORDS = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty"];
 const words = k => k <= 20 ? WORDS[k] : "twenty" + (k % 10 ? " " + WORDS[k % 10] : "");
-if (Math.max(...words(n).split(" ").map(w => w.length)) >= 7) root.classList.add("long"); // "thirteen" needs a smaller size in the story column
-const bar = `<div class="bar"><div class="emblem"><img src="logo.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><span class="tag">${svc} · ${date}</span></div>`;
+if (n === 0) root.classList.add("zero");
+if (n === 0 || Math.max(...words(n).split(" ").map(w => w.length)) >= 7) root.classList.add("long"); // "thirteen" needs a smaller size in the story column
+const bar = `<div class="bar"><div class="emblem"><img src="logo.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><span class="tag">${svc ? svc + " · " : ""}${date}</span></div>`;
 const when = `<div class="when"><b>Shiloh 2026 · Far Above</b>Opens Tuesday 8 December, 5:00 PM · Moorland Community Centre</div>`;
 const days = n === 1 ? "day" : "days";
 const V = {
@@ -177,7 +180,9 @@ const V = {
   },
   4: () => `${bar}<div class="papa"></div><div class="sealwrap"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="#F6EBD6" stroke="#5B0B13" stroke-width="3"/><circle cx="100" cy="100" r="72" fill="none" stroke="#B3141E" stroke-width="1.5" stroke-dasharray="2 3"/><defs><path id="sp" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0"/></defs><text font-family="Barlow Condensed" font-weight="800" font-size="16.5" letter-spacing="2.4" fill="#5B0B13"><textPath href="#sp">${days.toUpperCase()} TO SHILOH 2026 · LIVE IN LINCOLN · FAR ABOVE · </textPath></text></svg><div class="mid"><div class="display n">${n}</div><div class="label">${days} to go</div></div></div>
     <div class="head"><h2 class="serif">“Far above all principality, and power, and might, and dominion.”</h2><div class="cond h2b">Shiloh is coming to Lincoln.</div></div>${when}`,
-  5: () => { const w = words(n).split(" "); return `${bar}<div class="stack"><div class="display w1">${w.join("<br>")}</div><div class="serif w2">${days}</div><div class="cond w3">to go</div></div><div class="rule"></div>
+  5: () => { if (n === 0) return `${bar}<div class="stack"><div class="display w1">It starts<br>tonight</div><div class="serif w2">5:00 PM</div><div class="cond w3">Encounter Night</div></div><div class="rule"></div>
+    <div class="display num">8<small>Dec</small></div><div class="serif note">Opening night. Come expecting, and bring someone with you.</div>${when}`;
+    const w = words(n).split(" "); return `${bar}<div class="stack"><div class="display w1">${w.join("<br>")}</div><div class="serif w2">${days}</div><div class="cond w3">to go</div></div><div class="rule"></div>
     <div class="display num">${n}<small>${days}</small></div><div class="serif note">${n <= 2 ? "Tuesday, 5:00 PM. Be there, and bring someone." : "Clear the week. Every session, all six days."}</div>${when}`; },
 };
 root.innerHTML = V[v]();

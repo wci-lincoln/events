@@ -2,4 +2,7 @@ node_modules/
 preview/
 sheet.png
 sheet.html
-shiloh-2026-publicity-kit.zip
+*.zip
+kit/
+render.log
+rv/

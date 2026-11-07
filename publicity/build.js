@@ -1,5 +1,5 @@
 // Renders the publicity kit: PNG cards, GIF animations and MP4 videos from the HTML templates in src/.
-// Usage: node build.js [name-filter]
+// Usage: node build.js [name-filter]      then node pack.js to build the two team folders and zips
 // MP4s use the ffmpeg bundled by the ffmpeg-static package (npm install), falling back to one on the PATH.
 const fs = require("fs"), path = require("path"), os = require("os");
 const { execFileSync, spawnSync } = require("child_process");
@@ -23,8 +23,29 @@ const STILLS = [
   { out: "08-delegates-square.png",    file: "delegates.html", q: "",            w: 1080, h: 1080 },
   { out: "09-volunteer-square.png",    file: "volunteer.html", q: "",            w: 1080, h: 1080 },
   { out: "10-profile-badge.png",       file: "dp.html",        q: "",            w: 1080, h: 1080 },
-  ...[30, 14, 7, 3, 1, 0].map(n => ({ out: `11-countdown-${String(n).padStart(2, "0")}.png`, file: "countdown.html", q: "n=" + n, w: 1080, h: 1920 })),
+  // Shiloh week: one "Today at Shiloh" card per day, for the groups (square), status (story) and the screen (wide).
+  ...[1, 2, 3, 4, 5, 6].flatMap(d => [["square", 1080, 1080], ["story", 1080, 1920], ["wide", 1920, 1080]].map(([size, w, h]) => ({ out: `today/2026-12-${String(7 + d).padStart(2, "0")}-day-${d}-${size}.png`, file: "today.html", q: `day=${d}&size=${size}`, w, h }))),
+  // Projector slides: each scene of the announcement film, frozen once it has fully arrived, as a 1920×1080 PNG.
+  ...[["01-lockup", 5], ["02-theme", 12.5], ["03-dates-venue", 19], ["04-a-day-at-shiloh", 27.5], ["05-free-bus", 33.5], ["06-classes", 40.5], ["07-also-on-the-page", 45.5], ["08-scan", 52.5]]
+    .map(([name, at]) => ({ out: `slides/${name}.png`, file: "projector.html", q: "", w: 1920, h: 1080, at })),
 ];
+// Every day from tomorrow to the opening night: days left, date label, weekday, and the service if it is a Sunday or Wednesday.
+// The five countdown designs rotate day by day, so the social post and the projector slide for one day always match.
+const OPEN = Date.UTC(2026, 11, 8);
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const DAYS = Array.from({ length: 31 }, (_, i) => {
+  const n = 30 - i, dt = new Date(OPEN - n * 864e5), wd = dt.getUTCDay();
+  const svc = n > 0 && wd === 0 ? "Sunday Service" : n > 0 && wd === 3 ? "Midweek Service" : "";
+  return { n, iso: dt.toISOString().slice(0, 10), d: `${dt.getUTCDate()} ${MONTHS[dt.getUTCMonth()]}`, wd: WEEKDAYS[wd], svc, v: (i % 5) + 1,
+    base: `countdown/${dt.toISOString().slice(0, 10)}-${String(n).padStart(2, "0")}-days`, q: `n=${n}&d=${encodeURIComponent(`${dt.getUTCDate()} ${MONTHS[dt.getUTCMonth()]}`)}&s=${encodeURIComponent(svc)}&v=${(i % 5) + 1}` };
+});
+const SERVICE_DAYS = DAYS.filter(d => d.svc);
+for (const d of DAYS) {
+  // Stills of the animation at its final frame: the still countdown cards for status and the feed.
+  STILLS.push({ out: d.base + "-square.png", file: "countdown-anim.html", q: d.q, w: 720, h: 720, scale: 1.5, at: 3.9 });
+  STILLS.push({ out: d.base + "-story.png",  file: "countdown-anim.html", q: d.q, w: 540, h: 960, scale: 2, at: 3.9 });
+}
 // GIFs render at the template's native size for a small file. Entries with `mp4` also render the same template at
 // `scale` for a 1080px video at 30 fps, repeating the animation `loops` times, since Reels and Status like a few seconds of play.
 const ANIMS = [
@@ -32,22 +53,16 @@ const ANIMS = [
   { out: "21-scan-me-story.gif", file: "anim-scan.html",  w: 540, h: 960,  fps: 12, seconds: 3, paletteAt: 0.4, mp4: true, scale: 2, loops: 3 },
   { out: "22-by-the-numbers.gif",file: "anim-stats.html", w: 720, h: 720,  fps: 12, seconds: 6, mp4: true, scale: 1.5, loops: 2 },
 ];
-// One countdown per service day between now and the opening night: [date, label, service, days left, design 1-5].
-const SERVICES = [
-  ["2026-11-08", "8 November",  "Sunday Service", 30, 1], ["2026-11-11", "11 November", "Midweek Service", 27, 2],
-  ["2026-11-15", "15 November", "Sunday Service", 23, 3], ["2026-11-18", "18 November", "Midweek Service", 20, 5],
-  ["2026-11-22", "22 November", "Sunday Service", 16, 4], ["2026-11-25", "25 November", "Midweek Service", 13, 2],
-  ["2026-11-29", "29 November", "Sunday Service",  9, 1], ["2026-12-02", "2 December",  "Midweek Service",  6, 3],
-  ["2026-12-06", "6 December",  "Sunday Service",  2, 5],
-];
-for (const [iso, d, svc, n, v] of SERVICES) {
-  const base = `countdown/${iso}-${String(n).padStart(2, "0")}-days`, q = `n=${n}&d=${encodeURIComponent(d)}&s=${encodeURIComponent(svc)}&v=${v}`;
-  ANIMS.push({ out: base + "-wide.gif",   file: "countdown-anim.html", q, w: 1280, h: 720, fps: 12, seconds: 4, mp4: true, scale: 1.5, loops: 2, paletteAt: 3.9 });
-  ANIMS.push({ out: base + "-square.gif", file: "countdown-anim.html", q, w: 720,  h: 720, fps: 12, seconds: 4, paletteAt: 3.9 });
-  ANIMS.push({ out: base + "-story.gif",  file: "countdown-anim.html", q, w: 540,  h: 960, fps: 12, seconds: 4, mp4: true, scale: 2, loops: 2, paletteAt: 3.9 });
-}
 // Video only: the projector film shown in church while announcements are read.
 const VIDEOS = [{ out: "30-projector-announcement.mp4", file: "projector.html", w: 1920, h: 1080, seconds: 54, scale: 1, loops: 1 }];
+for (const d of DAYS) {
+  ANIMS.push({ out: d.base + "-square.gif", file: "countdown-anim.html", q: d.q, w: 720, h: 720, fps: 12, seconds: 4, paletteAt: 3.9 });
+  VIDEOS.push({ out: d.base + "-story.mp4", file: "countdown-anim.html", q: d.q, w: 540, h: 960, seconds: 4, scale: 2, loops: 2 });
+}
+for (const d of SERVICE_DAYS) {
+  ANIMS.push({ out: d.base + "-wide.gif", file: "countdown-anim.html", q: d.q, w: 1280, h: 720, fps: 12, seconds: 4, mp4: true, scale: 1.5, loops: 2, paletteAt: 3.9 });
+  VIDEOS.push({ out: d.base + "-screensaver.mp4", file: "ambient.html", q: d.q, w: 1920, h: 1080, seconds: 32, scale: 1, loops: 1, vfps: 24 });
+}
 const MP4_FPS = 30;
 const FFMPEG = (() => { try { return require("ffmpeg-static"); } catch { return "ffmpeg"; } })();
 const hasFfmpeg = () => spawnSync(FFMPEG, ["-version"], { stdio: "ignore" }).status === 0;
@@ -61,20 +76,22 @@ async function ready(page) {
 async function freeze(page, t) {
   await page.evaluate(t => { document.getAnimations().forEach(a => { a.pause(); a.currentTime = t; }); }, t);
 }
-(async () => {
+if (require.main === module) (async () => {
   const filter = process.argv[2] || "";
   fs.mkdirSync(OUT, { recursive: true });
   // The church logo as kit assets: full colour and a white knockout for dark grounds, both on transparent backgrounds.
   for (const [from, to] of [["logo.png", "00-logo-colour.png"], ["logo-white.png", "00-logo-white.png"]]) if (to.includes(filter)) { fs.copyFileSync(path.join(SRC, from), path.join(OUT, to)); console.log("copy", to); }
   const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, timeout: 60000, args: ["--no-first-run", "--no-default-browser-check", "--disable-gpu", "--hide-scrollbars", "--allow-file-access-from-files"] });
   const page = await browser.newPage();
+  const q = a => (a.q ? a.q + "&" : "") + `w=${a.w}&h=${a.h}`;
   for (const a of STILLS.filter(a => a.out.includes(filter))) {
-    await page.setViewport({ width: a.w, height: a.h, deviceScaleFactor: 1 });
-    await page.goto(url(a.file, a.q), { waitUntil: "load" }); await ready(page);
+    fs.mkdirSync(path.dirname(path.join(OUT, a.out)), { recursive: true });
+    await page.setViewport({ width: a.w, height: a.h, deviceScaleFactor: a.scale || 1 });
+    await page.goto(url(a.file, a.at != null ? q(a) : a.q), { waitUntil: "load" }); await ready(page);
+    if (a.at != null) await freeze(page, a.at * 1000);
     await page.screenshot({ path: path.join(OUT, a.out), type: "png" });
     console.log("png ", a.out);
   }
-  const q = a => (a.q ? a.q + "&" : "") + `w=${a.w}&h=${a.h}`;
   for (const a of ANIMS.filter(a => a.out.includes(filter))) {
     fs.mkdirSync(path.dirname(path.join(OUT, a.out)), { recursive: true });
     await page.setViewport({ width: a.w, height: a.h, deviceScaleFactor: 1 });
@@ -99,17 +116,18 @@ async function freeze(page, t) {
     fs.mkdirSync(path.dirname(path.join(OUT, out)), { recursive: true });
     await page.setViewport({ width: a.w, height: a.h, deviceScaleFactor: a.scale });
     await page.goto(url(a.file, q(a)), { waitUntil: "load" }); await ready(page);
-    const frames = Math.round(MP4_FPS * a.seconds);
+    const fps = a.vfps || MP4_FPS, frames = Math.round(fps * a.seconds);
     for (let i = 0; i < frames; i++) {
-      await freeze(page, (i / MP4_FPS) * 1000);
+      await freeze(page, (i / fps) * 1000);
       await page.screenshot({ path: path.join(tmp, `f-${String(i).padStart(4, "0")}.png`), type: "png" });
     }
     // H.264, 4:2:0, even dimensions, faststart: what WhatsApp, Instagram, Facebook and TikTok all accept.
-    execFileSync(FFMPEG, ["-y", "-loglevel", "error", "-stream_loop", String(a.loops - 1), "-framerate", String(MP4_FPS),
+    execFileSync(FFMPEG, ["-y", "-loglevel", "error", "-stream_loop", String(a.loops - 1), "-framerate", String(fps),
       "-i", path.join(tmp, "f-%04d.png"), "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p",
-      "-vf", "scale=trunc(iw/2)*2:trunc(ih/2)*2", "-r", String(MP4_FPS), "-movflags", "+faststart", "-an", path.join(OUT, out)]);
+      "-vf", "scale=trunc(iw/2)*2:trunc(ih/2)*2", "-r", String(fps), "-movflags", "+faststart", "-an", path.join(OUT, out)]);
     fs.rmSync(tmp, { recursive: true, force: true });
     console.log("mp4 ", out, (fs.statSync(path.join(OUT, out)).size / 1e6).toFixed(1) + " MB");
   }
   await browser.close();
 })().catch(e => { console.error(e); process.exit(1); });
+module.exports = { DAYS, SERVICE_DAYS };

@@ -13,8 +13,9 @@ body[data-size=cover] .frame { width:1640px; height:924px; }
 .scr small { display:block; font-family:"Barlow Condensed"; font-style:normal; font-weight:600; letter-spacing:.22em; text-transform:uppercase; font-size:20px; margin-top:14px; color:var(--gold-l); }
 .papa { right:-150px; bottom:0; width:720px; height:860px; background-size:1880px auto; background-position:-1184px -226px;
   -webkit-mask-image:radial-gradient(ellipse 46% 125% at 50% 100%, #000 45%, transparent 96%); mask-image:radial-gradient(ellipse 46% 125% at 50% 100%, #000 45%, transparent 96%); }
-.bottom { position:absolute; left:0; right:0; bottom:0; height:760px; padding:70px 80px 80px; display:flex; flex-direction:column; }
-.t2 { font-size:236px; color:var(--crimson); }
+.bottom { position:absolute; left:0; right:0; bottom:0; height:760px; padding:70px 80px 70px; display:flex; flex-direction:column; }
+.bar { position:relative; z-index:4; } .top .tag { background:rgba(58,3,9,.6); }
+.t2 { font-size:200px; color:var(--crimson); }
 .t2 span { color:var(--red); }
 .details { margin-top:auto; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }
 .dates { font-size:54px; color:var(--crimson); }
@@ -30,10 +31,10 @@ body[data-size=square] .kicker { margin-top:46px; font-size:24px; }
 body[data-size=square] .t1 { font-size:150px; }
 body[data-size=square] .scr { display:none; }
 body[data-size=square] .papa { right:-130px; bottom:0; width:560px; height:560px; background-size:1500px auto; background-position:-950px -170px; }
-body[data-size=square] .bottom { height:520px; padding:50px 70px 60px; }
-body[data-size=square] .t2 { font-size:120px; }
+body[data-size=square] .bottom { height:520px; padding:46px 70px 50px; }
+body[data-size=square] .t2 { font-size:108px; }
 body[data-size=square] .dates { font-size:40px; } body[data-size=square] .venue { font-size:21px; margin-top:8px; } body[data-size=square] .scan { font-size:17px; margin-bottom:12px; }
-body[data-size=square] .qr { width:270px; height:270px; } body[data-size=square] .seal { right:60px; top:36px; transform:scale(.75); transform-origin:top right; }
+body[data-size=square] .qr { width:230px; height:230px; } body[data-size=square] .seal { right:60px; top:30px; transform:scale(.6); transform-origin:top right; }
 /* cover: side by side */
 body[data-size=cover] .top { position:absolute; left:0; top:0; bottom:0; width:1000px; height:auto; padding:60px 70px; }
 body[data-size=cover] .glow { width:900px; height:900px; right:-200px; top:0; }
