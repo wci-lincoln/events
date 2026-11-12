@@ -34,9 +34,10 @@ body { font-family:var(--f-body); color:var(--cream); -webkit-font-smoothing:ant
 .label { font-family:var(--f-info); font-weight:600; letter-spacing:.28em; text-transform:uppercase; }
 .display { font-family:var(--f-display); text-transform:uppercase; line-height:.9; margin:0; letter-spacing:.01em; }
 .cond { font-family:var(--f-info); font-weight:800; letter-spacing:.04em; text-transform:uppercase; line-height:1; }
-/* .serif is the invitation voice: the signature script. Scripture (.scr) is set in the body italic instead, for legibility. */
-.serif { font-family:var(--f-script); font-style:normal; font-weight:400; text-transform:none; letter-spacing:0; }
-.serif.scr { font-family:var(--f-body); font-style:italic; font-weight:500; }
+/* .serif is the warm, spoken line: body italic. The brand's signature script (--f-script) is not used on screen; it failed
+   readability at phone size and on the projector, so it stays reserved for print where it can be set large. */
+.serif { font-family:var(--f-body); font-style:italic; font-weight:600; text-transform:none; letter-spacing:0; }
+.serif.scr { font-weight:500; }
 .rule { height:3px; background:var(--gold); border:0; margin:0; }
 .rule.thin { height:1px; opacity:.6; }
 .gold-t { color:var(--gold-l); } .ivory .gold-t, .gold .gold-t { color:var(--gold-d); }

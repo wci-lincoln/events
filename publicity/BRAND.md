@@ -10,7 +10,7 @@ Shiloh 2026 committee in November 2026, followed by how each rule is applied in 
 | Bebas Neue | Sunday theme | Every display headline: "Shiloh 2026", "Far Above", the countdown numbers, "Today at Shiloh", "Scan me". |
 | Bebas Kai | Sunday flyer: date, address, transport | Dates, times, addresses, pick-up points, session names, the lockup, tags and small labels. |
 | Gontserrat | Mid-week date, address, social | Body text, captions, notes and scripture (set in italic). |
-| Brother Signature | "Join us this Sunday" invitation line | One invitation line per piece: "A personal invitation", "I'll save you a seat", "Come expecting, and bring someone with you", "Clear the week", the word "days" in the number-in-words countdown. Never for times, scripture or anything longer than a sentence. |
+| Brother Signature | "Join us this Sunday" invitation line | Not used on screen. A signature script failed the readability test at phone size and on the projector in the hall, so the warm line ("I'll save you a seat", "Come expecting, and bring someone with you", "Clear the week") is set in Gontserrat bold italic instead. Reserved for print, where it can be set large. |
 | The Meziraine | Mid-week service theme | Reserved for the church's mid-week service designs. Not used in the Shiloh kit, so the campaign keeps one theme face. |
 
 Website: Playfair Display for display headings and Source Sans 3 for body text and
@@ -20,6 +20,15 @@ website text.
 Type hierarchy for a service design: invitation line first (Brother Signature), then the
 practical information (date, time, address, postcode in Bebas Kai) with enough size and
 space to read quickly.
+
+### Projection
+
+The Sunday hall at Moorland Community Centre is a daylit sports hall with white walls, and the
+screen is a projector throwing onto a pale wall. Dark grounds wash out to grey and small type
+vanishes from the back rows, so everything made for the screen follows these rules: light
+grounds (ivory or gold) with crimson or ink text; nothing under 36 px on a 1920×1080 frame
+(24 px on the 1280×720 countdowns); secondary text 40 px or more; one message a scene; no
+script face; the QR scene held for 20 to 25 seconds.
 
 ## Tone of voice
 

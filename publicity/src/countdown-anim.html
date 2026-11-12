@@ -104,7 +104,7 @@
 .v5 .tag { color:var(--cream); }
 .v5 .stack { position:absolute; left:48px; top:150px; }
 .v5 .w1 { font-size:210px; line-height:.86; color:var(--cream); animation: inL .8s cubic-bezier(.2,.8,.2,1) .2s both; }
-.v5 .w2 { font-size:150px; line-height:1; color:var(--gold-l); margin-top:-6px; animation: inR .8s cubic-bezier(.2,.8,.2,1) .6s both; }
+.v5 .w2 { font-family:var(--f-info); font-style:normal; letter-spacing:.02em; font-size:150px; line-height:1; color:var(--gold-l); margin-top:-6px; animation: inR .8s cubic-bezier(.2,.8,.2,1) .6s both; }
 .v5 .w3 { font-size:110px; color:var(--crimson2); margin-top:10px; animation: inL .8s cubic-bezier(.2,.8,.2,1) 1s both; }
 .v5 .rule { position:absolute; left:48px; right:48px; bottom:118px; height:3px; background:var(--gold-l); transform-origin:0 50%; animation: draw .8s cubic-bezier(.2,.8,.2,1) 1.3s both; }
 .v5 .num { position:absolute; right:48px; top:150px; width:230px; height:230px; border-radius:50%; background:var(--ivory); color:var(--red); display:grid; place-items:center; font-size:150px; line-height:1; animation: pop .6s cubic-bezier(.34,1.56,.64,1) 1.6s both; }
@@ -149,6 +149,31 @@
 .v5.st .note { display:block; left:32px; right:240px; bottom:150px; text-align:left; font-size:22px; max-width:none; }
 .v5.st .when { left:32px; right:32px; bottom:30px; }
 .v5.sq.zero .w3, .v5.st.zero .w3 { font-size:56px; }
+
+/* Wide (1280×720, the church screen): light grounds and larger type for a daylit hall projected on a pale wall.
+   The designs stay the same as the square and story versions; only colour and size change. */
+.wide .emblem img { width:60px; height:60px; } .wide .emblem b { font-size:24px; } .wide .emblem span { font-size:16px; }
+.wide .tag { font-size:22px; padding:10px 14px; }
+.wide .when { font-size:28px; line-height:1.25; max-width:760px; } .wide .when b { font-size:36px; }
+.wide.v1 .m span { font-size:34px; }
+.wide.v2 { background:var(--ivory); color:var(--ink); } .wide.v2 .tag, .wide.v2 .emblem span { color:var(--red); }
+.wide.v2 .c { border-color:rgba(27,6,8,.25); color:rgba(27,6,8,.55); } .wide.v2 .c small { font-size:14px; }
+.wide.v2 .c.next { border-color:var(--red); color:var(--crimson); }
+.wide.v2 .cap { font-size:22px; color:var(--ink); opacity:.75; }
+.wide.v2 .when { left:auto; right:48px; text-align:right; max-width:560px; }
+.wide.v2 .n { color:var(--crimson); } .wide.v2 .left { color:var(--red); }
+.wide.v2 .when { color:var(--ink); } .wide.v2 .when b { color:var(--red); }
+.wide.v3 { background:var(--ivory); color:var(--ink); } .wide.v3 .tag, .wide.v3 .emblem span { color:var(--red); }
+.wide.v3 .half { background:var(--crimson); } .wide.v3 .half.bot { background:var(--crimson2); } .wide.v3 .half span { color:var(--cream); }
+.wide.v3 .card { filter:drop-shadow(0 20px 30px rgba(27,6,8,.3)); } .wide.v3 .dots i { background:var(--red); }
+.wide.v3 .clock { top:120px; } .wide.v3 .card { width:260px; height:340px; } .wide.v3 .half span { height:340px; font-size:300px; line-height:340px; } .wide.v3 .half.bot span { top:-170px; }
+.wide.v3 .lbl { top:490px; font-size:32px; color:var(--crimson); } .wide.v3 .when { color:var(--ink); } .wide.v3 .when b { color:var(--red); }
+.wide.v4 h2 { font-size:34px; } .wide.v4 .h2b { font-size:44px; } .wide.v4 .mid .label { font-size:28px; }
+.wide.v5 { background:var(--ivory); color:var(--ink); } .wide.v5 .tag { color:var(--red); } .wide.v5 .emblem span { color:var(--red); }
+.wide.v5 .w1 { color:var(--crimson); } .wide.v5 .w2 { font-family:var(--f-info); color:var(--red); letter-spacing:.02em; } .wide.v5 .w3 { color:var(--crimson); }
+.wide.v5 .rule { background:var(--red); } .wide.v5 .num { background:var(--crimson); color:var(--cream); }
+.wide.v5 .w1 { font-size:190px; } .wide.v5 .when { max-width:600px; }
+.wide.v5 .note { color:var(--ink); font-size:28px; font-weight:600; max-width:480px; } .wide.v5 .when { color:var(--ink); } .wide.v5 .when b { color:var(--red); }
 </style></head><body>
 <div id="root" class="frame"></div>
 <script>

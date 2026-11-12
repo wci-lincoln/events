@@ -9,5 +9,5 @@ brackets is used.
 | `BebasNeue.*` | Bebas Neue | Theme and display headlines | Bebas Neue (Google Fonts, same font) |
 | `BebasKai.*` | Bebas Kai | Dates, times, addresses, labels, transport | Bebas Neue |
 | `Gontserrat.*`, `Gontserrat-Bold.*`, `Gontserrat-Italic.*` | Gontserrat | Body text, captions, scripture | Montserrat |
-| `BrotherSignature.*` | Brother Signature | Invitation lines ("Join us", "I'll save you a seat") | Mr Dafoe |
+| `BrotherSignature.*` | Brother Signature | Not used on screen (unreadable small and on the projector); wired up for print pieces | Mr Dafoe |
 | `TheMeziraine.*` | The Meziraine | Reserved for mid-week service themes; not used in the Shiloh kit | Playfair Display |

@@ -19,7 +19,7 @@ captions. Raw renders live in `out/`.
 Every piece shares the same grammar so the run-up reads as one campaign: the church lockup top
 left and a tag top right; type from the WCI Lincoln brand guide (see `BRAND.md`): Bebas Neue
 display headlines, Bebas Kai for dates, times, addresses and labels, Gontserrat for body text
-and Brother Signature for one invitation line; the Winners palette as solid colour blocks (crimson,
+with its italic for the one warm line; the Winners palette as solid colour blocks (crimson,
 red, gold, ivory, ink); the circular "Live in Lincoln" seal; the QR in a white panel bottom
 right; and a footer with "Shiloh 2026 · Far Above" and the opening details. The logo is the
 church's own emblem from winnerschapellincoln.org.uk, bare on light grounds and in a white
@@ -28,7 +28,16 @@ roundel on dark ones (`00-logo-colour.png`, `00-logo-white.png`).
 Times follow the guide's format (`5:00pm`, `9:20am`). The brand font files are not in the
 repository; drop them into `src/fonts/` (names in `src/fonts/README.md`) and re-render. Until
 then Google Fonts stand-ins are used: Bebas Neue for both Bebas faces, Montserrat for
-Gontserrat and Mr Dafoe for Brother Signature.
+Gontserrat. The brand's signature script, Brother Signature, is not used on screen (see `BRAND.md`).
+
+## Projection
+
+The church screen is a projector on a pale wall in a daylit sports hall, so everything made for
+it (the film and slides, the wide countdowns, the screensaver, the wide "Today at Shiloh" cards)
+follows stricter rules: light grounds with crimson or ink text, no text under 36 px on a
+1920×1080 frame (24 px on the 1280×720 countdowns), secondary text at 40 px or more, one
+message a scene, and no script face. The same day's countdown keeps its design on the screen
+and on the phone; only the colours and sizes differ.
 
 ## What is in `out/`
 

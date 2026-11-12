@@ -38,9 +38,13 @@ body[data-size=story] .foot .cta { font-size:40px; } body[data-size=story] .foot
 /* wide: the head is a left column, the day runs down the right */
 body[data-size=wide] .frame { flex-direction:row; }
 body[data-size=wide] .head { width:860px; padding:60px 80px 70px; display:flex; flex-direction:column; }
-body[data-size=wide] .head .kick { margin-top:auto; font-size:26px; } body[data-size=wide] .head h1 { font-size:150px; } body[data-size=wide] .head .date { font-size:46px; }
+body[data-size=wide] .head .kick { margin-top:auto; font-size:34px; } body[data-size=wide] .head h1 { font-size:150px; } body[data-size=wide] .head .date { font-size:54px; }
 body[data-size=wide] .body { flex:1; padding:70px 80px 60px; }
-body[data-size=wide] .row { grid-template-columns:260px 1fr; } body[data-size=wide] .row .t { font-size:68px; } body[data-size=wide] .row b { font-size:42px; } body[data-size=wide] .row span { font-size:24px; }
+body[data-size=wide] .row { grid-template-columns:300px 1fr; padding:16px 0; } body[data-size=wide] .row .t { font-size:80px; } body[data-size=wide] .row b { font-size:52px; } body[data-size=wide] .row span { font-size:36px; color:var(--ink); font-weight:500; }
+body[data-size=wide] .note { font-size:42px; color:var(--crimson); font-weight:700; margin-top:26px; max-width:900px; } body[data-size=wide] .foot .cta { font-size:44px; } body[data-size=wide] .foot .sub { font-size:32px; max-width:720px; color:var(--ink); } body[data-size=wide] .qr { width:260px; height:260px; }
+body[data-size=wide] .emblem img { width:84px; height:84px; } body[data-size=wide] .emblem b { font-size:30px; } body[data-size=wide] .emblem span { font-size:22px; }
+/* wide: no room for the tag beside the lockup, and the seal already says it */
+body[data-size=wide] .tag { display:none; }
 body[data-size=wide] .seal { right:-60px; top:200px; bottom:auto; }
 </style></head><body>
 <div class="frame ivory" id="f"><div class="grain"></div>
@@ -61,7 +65,7 @@ const DAYS = [
 ];
 const day = Math.min(6, Math.max(1, +P("day", "1"))), [date, rows, note] = DAYS[day - 1];
 document.body.dataset.size = P("size", "square");
-document.getElementById("kick").textContent = `Shiloh 2026 · Far Above · Day ${day} of 6`;
+document.getElementById("kick").textContent = document.body.dataset.size === "wide" ? `Shiloh 2026 · Day ${day} of 6` : `Shiloh 2026 · Far Above · Day ${day} of 6`;
 document.getElementById("date").textContent = date;
 document.getElementById("rows").innerHTML = rows.map(([t, ap, name, sub]) => `<div class="row"><div class="t">${t}<small>${ap}</small></div><div><b>${name}</b><span>${sub}</span></div></div>`).join("");
 document.getElementById("note").textContent = note;
