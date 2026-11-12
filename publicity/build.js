@@ -27,7 +27,7 @@ const STILLS = [
   // Shiloh week: one "Today at Shiloh" card per day, for the groups (square), status (story) and the screen (wide).
   ...[1, 2, 3, 4, 5, 6].flatMap(d => [["square", 1080, 1080], ["story", 1080, 1920], ["wide", 1920, 1080]].map(([size, w, h]) => ({ out: `today/2026-12-${String(7 + d).padStart(2, "0")}-day-${d}-${size}.png`, file: "today.html", q: `day=${d}&size=${size}`, w, h }))),
   // Projector slides: each scene of the announcement film, frozen once it has fully arrived, as a 1920×1080 PNG.
-  ...[["01-lockup", 5], ["02-theme", 12.5], ["03-dates-venue", 19], ["04-a-day-at-shiloh", 27.5], ["05-free-bus", 33.5], ["06-classes", 40.5], ["07-also-on-the-page", 45.5], ["08-scan", 52.5]]
+  ...[["01-lockup", 5.5], ["02-theme", 16.5], ["03-dates-venue", 28.5], ["04-a-day-at-shiloh", 44.5], ["05-free-bus", 56.5], ["06-classes", 71.5], ["07-also-on-the-page", 83.5], ["08-scan", 108.5]]
     .map(([name, at]) => ({ out: `slides/${name}.png`, file: "projector.html", q: "", w: 1920, h: 1080, at })),
 ];
 // Every day from tomorrow to the opening night: days left, date label, weekday, and the service if it is a Sunday or Wednesday.
@@ -49,24 +49,27 @@ for (const d of DAYS) {
 }
 // GIFs render at the template's native size for a small file. Entries with `mp4` also render the same template at
 // `scale` for a 1080px video at 30 fps, repeating the animation `loops` times, since Reels and Status like a few seconds of play.
+// `hold` keeps the finished frame on screen for that many seconds before the loop repeats, so everything can be read
+// (one long-delay frame in a GIF, repeated frames in an MP4).
 const ANIMS = [
-  { out: "20-theme-reveal.gif",  file: "anim-theme.html", w: 720, h: 720,  fps: 12, seconds: 5, mp4: true, scale: 1.5, loops: 2 },
-  { out: "21-scan-me-story.gif", file: "anim-scan.html",  w: 540, h: 960,  fps: 12, seconds: 3, paletteAt: 0.4, mp4: true, scale: 2, loops: 3 },
-  { out: "22-by-the-numbers.gif",file: "anim-stats.html", w: 720, h: 720,  fps: 12, seconds: 6, mp4: true, scale: 1.5, loops: 2 },
+  { out: "20-theme-reveal.gif",  file: "anim-theme.html", w: 720, h: 720,  fps: 12, seconds: 5, hold: 5, mp4: true, scale: 1.5, loops: 2 },
+  { out: "21-scan-me-story.gif", file: "anim-scan.html",  w: 540, h: 960,  fps: 12, seconds: 9, paletteAt: 0.4, mp4: true, scale: 2, loops: 2 },
+  { out: "22-by-the-numbers.gif",file: "anim-stats.html", w: 720, h: 720,  fps: 12, seconds: 6, hold: 6, mp4: true, scale: 1.5, loops: 2 },
 ];
 // Print: the A4 wall poster as a vector PDF, the frame scaled to the paper (print=1).
 const PDFS = [{ out: "40-poster-a4.pdf", file: "poster.html", q: "print=1", w: 1240, h: 1754 }];
 // Video only: the projector film shown in church while announcements are read.
-const VIDEOS = [{ out: "30-projector-announcement.mp4", file: "projector.html", w: 1920, h: 1080, seconds: 54, scale: 1, loops: 1 }];
-// The giant-number design loops over 8 seconds so its strip scrolls at a readable pace; the others loop every 4.
-const loop = d => d.v === 1 && d.n > 0 ? { seconds: 8, loops: 1 } : { seconds: 4, loops: 2 };
+const VIDEOS = [{ out: "30-projector-announcement.mp4", file: "projector.html", w: 1920, h: 1080, seconds: 110, scale: 1, loops: 1 }];
+// The giant-number design runs 8 seconds so its strip keeps scrolling at a readable pace; the others animate in over 4
+// seconds and then hold for 6, so every loop shows the finished card for long enough to read the details.
+const loop = d => d.v === 1 && d.n > 0 ? { seconds: 8, loops: 2 } : { seconds: 4, hold: 6, loops: 2 };
 for (const d of DAYS) {
-  ANIMS.push({ out: d.base + "-square.gif", file: "countdown-anim.html", q: d.q, w: 720, h: 720, fps: 12, seconds: loop(d).seconds, paletteAt: 3.9 });
+  ANIMS.push({ out: d.base + "-square.gif", file: "countdown-anim.html", q: d.q, w: 720, h: 720, fps: 12, paletteAt: 3.9, ...loop(d) });
   VIDEOS.push({ out: d.base + "-story.mp4", file: "countdown-anim.html", q: d.q, w: 540, h: 960, scale: 2, ...loop(d) });
 }
 for (const d of SERVICE_DAYS) {
   ANIMS.push({ out: d.base + "-wide.gif", file: "countdown-anim.html", q: d.q, w: 1280, h: 720, fps: 12, mp4: true, scale: 1.5, paletteAt: 3.9, ...loop(d) });
-  VIDEOS.push({ out: d.base + "-screensaver.mp4", file: "ambient.html", q: d.q, w: 1920, h: 1080, seconds: 32, scale: 1, loops: 1, vfps: 24 });
+  VIDEOS.push({ out: d.base + "-screensaver.mp4", file: "ambient.html", q: d.q, w: 1920, h: 1080, seconds: 60, scale: 1, loops: 1, vfps: 24 });
 }
 const MP4_FPS = 30;
 const FFMPEG = (() => { try { return require("ffmpeg-static"); } catch { return "ffmpeg"; } })();
@@ -116,6 +119,7 @@ if (require.main === module) (async () => {
       const rgba = await grab((i / a.fps) * 1000);
       gif.writeFrame(applyPalette(rgba, palette, "rgb444"), a.w, a.h, { palette, delay, repeat: 0 });
     }
+    if (a.hold) gif.writeFrame(applyPalette(await grab((a.seconds - 0.02) * 1000), palette, "rgb444"), a.w, a.h, { palette, delay: Math.round(a.hold * 1000), repeat: 0 });
     gif.finish();
     fs.writeFileSync(path.join(OUT, a.out), gif.bytes());
     console.log("gif ", a.out, (fs.statSync(path.join(OUT, a.out)).size / 1e6).toFixed(1) + " MB");
@@ -132,6 +136,7 @@ if (require.main === module) (async () => {
       await freeze(page, (i / fps) * 1000);
       await page.screenshot({ path: path.join(tmp, `f-${String(i).padStart(4, "0")}.png`), type: "png" });
     }
+    for (let i = frames; i < frames + Math.round(fps * (a.hold || 0)); i++) fs.copyFileSync(path.join(tmp, `f-${String(frames - 1).padStart(4, "0")}.png`), path.join(tmp, `f-${String(i).padStart(4, "0")}.png`));
     // H.264, 4:2:0, even dimensions, faststart: what WhatsApp, Instagram, Facebook and TikTok all accept.
     execFileSync(FFMPEG, ["-y", "-loglevel", "error", "-stream_loop", String(a.loops - 1), "-framerate", String(fps),
       "-i", path.join(tmp, "f-%04d.png"), "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p",

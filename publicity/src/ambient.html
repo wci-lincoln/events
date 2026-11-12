@@ -1,12 +1,12 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
 <style>
-/* Screensaver for the church screen: 1920×1080, a slow 32-second loop of three scenes that cross-fade, for when the
+/* Screensaver for the church screen: 1920×1080, a slow 60-second loop of three scenes that cross-fade, for when the
    Shiloh committee is up front or the screen is otherwise idle. Same scenes as the announcement film, slowed down.
    Params: n (days left), d (date, "8 November"), s (service name). */
 .grain { display:none; }
 .frame { width:1920px; height:1080px; background:var(--crimson); }
-.scene { position:absolute; inset:0; overflow:hidden; opacity:0; animation: show 32s linear infinite; }
-#s1 { animation-delay:0s; } #s2 { animation-delay:10.667s; } #s3 { animation-delay:-10.667s; }
+.scene { position:absolute; inset:0; overflow:hidden; opacity:0; animation: show 60s linear infinite; }
+#s1 { animation-delay:0s; } #s2 { animation-delay:20s; } #s3 { animation-delay:-20s; }
 @keyframes show { 0% { opacity:0; } 4% { opacity:1; } 33.33% { opacity:1; } 37.33% { opacity:0; } 100% { opacity:0; } }
 @keyframes drift { from { transform:scale(1); } to { transform:scale(1.05); } }
 @keyframes sway { from { transform:rotate(-5deg); } to { transform:rotate(5deg); } }
@@ -45,9 +45,9 @@
 #s3 .ring.b { animation-delay:1s; }
 #s3 .qr { width:680px; height:680px; padding:40px; }
 #s3 .t1 { position:absolute; left:960px; top:210px; font-size:250px; color:var(--gold-l); }
-#s3 .t2 { position:absolute; left:964px; top:490px; width:880px; font-size:72px; color:var(--cream); }
+#s3 .t2 { position:absolute; left:964px; top:490px; width:880px; font-size:54px; color:var(--cream); font-family:var(--f-body); font-weight:700; text-transform:none; letter-spacing:0; line-height:1.15; }
 #s3 .url { position:absolute; left:964px; top:720px; font-size:40px; color:var(--gold-l); font-weight:500; }
-#s3 .url small { display:block; font-size:26px; color:var(--cream); opacity:.8; margin-top:10px; font-family:"Barlow Condensed"; letter-spacing:.2em; text-transform:uppercase; }
+#s3 .url small { display:block; font-size:26px; color:var(--cream); opacity:.8; margin-top:10px; font-family:var(--f-info); letter-spacing:.2em; text-transform:uppercase; }
 #s3 .seal { right:90px; bottom:50px; }
 </style></head><body>
 <div class="frame">
@@ -64,7 +64,7 @@
     <div class="bar"><div class="emblem"><img src="logo.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><span class="tag" id="tag"></span></div>
     <div class="display n" id="n"></div>
     <div class="display togo" id="togo"></div>
-    <div class="panel"><div class="label">Shiloh 2026 · Far Above</div><b class="display">Opens Tuesday 8 December, 5:00 PM</b><span>Moorland Community Centre<br>Moorland Avenue, Lincoln LN6 7NH</span><em class="serif">Clear the week. Every session, all six days.</em></div>
+    <div class="panel"><div class="label">Shiloh 2026 · Far Above</div><b class="display">Opens Tuesday 8 December, 5:00pm</b><span>Moorland Community Centre<br>Moorland Avenue, Lincoln LN6 7NH</span><em class="serif">Clear the week. Every session, all six days.</em></div>
     <div class="seal" data-seal="200"></div>
   </div>
   <div class="scene crimson" id="s3">

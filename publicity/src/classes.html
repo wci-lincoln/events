@@ -4,9 +4,9 @@
 .cover h1 { font-size:112px; margin-top:30px; color:var(--crimson); } .cover h1 span { color:var(--red); }
 .cover .label { color:var(--red); font-size:22px; margin-top:16px; }
 .list { margin-top:18px; counter-reset:c; display:grid; grid-template-columns:1fr 1fr; gap:4px 36px; }
-.list div { counter-increment:c; font-family:"Barlow Condensed"; font-weight:600; font-size:26px; color:var(--ink); line-height:1.15; padding:10px 0 10px 54px; position:relative; border-bottom:1px solid rgba(27,6,8,.15); }
-.list div::before { content:"0" counter(c); position:absolute; left:0; top:10px; font-family:"Anton"; font-size:26px; color:var(--gold-d); }
-.num { font-family:"Anton"; font-size:200px; line-height:.9; color:var(--gold-l); margin-top:30px; }
+.list div { counter-increment:c; font-family:var(--f-info); font-weight:600; font-size:26px; color:var(--ink); line-height:1.15; padding:10px 0 10px 54px; position:relative; border-bottom:1px solid rgba(27,6,8,.15); }
+.list div::before { content:"0" counter(c); position:absolute; left:0; top:10px; font-family:var(--f-display); font-size:26px; color:var(--gold-d); }
+.num { font-family:var(--f-display); font-size:200px; line-height:.9; color:var(--gold-l); margin-top:30px; }
 .num small { font-size:.3em; color:var(--cream); opacity:.6; margin-left:10px; }
 .name { font-size:100px; margin-top:10px; color:var(--cream); padding-right:130px; }
 .about { font-size:32px; line-height:1.35; margin-top:26px; color:var(--cream); max-width:800px; }
@@ -15,7 +15,7 @@
 .foot .cta { font-size:38px; } .foot .sub { font-size:24px; margin-top:10px; line-height:1.3; opacity:.85; }
 .ivory .foot .cta { color:var(--crimson); } .ivory .foot .sub { color:rgba(27,6,8,.75); opacity:1; }
 .frame:not(.ivory) .foot .cta { color:var(--gold-l); }
-.side { position:absolute; right:70px; top:70px; font-family:"Barlow Condensed"; font-weight:600; font-size:20px; letter-spacing:.28em; text-transform:uppercase; writing-mode:vertical-rl; color:var(--gold-l); opacity:.9; }
+.side { position:absolute; right:70px; top:70px; font-family:var(--f-info); font-weight:600; font-size:20px; letter-spacing:.28em; text-transform:uppercase; writing-mode:vertical-rl; color:var(--gold-l); opacity:.9; }
 </style></head><body>
 <div class="frame" id="f"><div class="grain"></div><div class="content" id="c"></div></div>
 <script>
@@ -23,10 +23,10 @@ const CL=[["Healing, Health and Wholeness","The Word on divine health, healing a
 const i=+P("i","-1"); const bar='<div class="bar"><div class="emblem"><img src="logo.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><span class="tag">Viewing centre</span></div>';
 const foot=(cta,sub)=>'<div class="foot"><div class="qr"><img src="qr.svg" alt=""></div><div><div class="cond cta">'+cta+'</div><div class="sub">'+sub+'</div></div></div>';
 if(i<0){ document.getElementById("f").classList.add("ivory");
-  document.getElementById("c").innerHTML = bar+'<div class="cover"><h1 class="display">Seven<br>classes. <span>Pick yours.</span></h1><div class="label">Specialised Classes · 11:30 AM · Wednesday to Friday</div></div><div class="list">'+CL.map(c=>'<div>'+c[0]+'</div>').join("")+'</div>'+foot("Book your class","Same class all three days, or a different one each day. Swipe for what each class is about.");
+  document.getElementById("c").innerHTML = bar+'<div class="cover"><h1 class="display">Seven<br>classes. <span>Pick yours.</span></h1><div class="label">Specialised Classes · 11:30am · Wednesday to Friday</div></div><div class="list">'+CL.map(c=>'<div>'+c[0]+'</div>').join("")+'</div>'+foot("Book your class","Same class all three days, or a different one each day. Swipe for what each class is about.");
 } else {
   if(i%2){ document.getElementById("f").classList.add("red"); }
-  document.getElementById("c").innerHTML = bar+'<div class="side">Specialised Classes · Shiloh 2026</div><div class="num">0'+(i+1)+'<small>of 07</small></div><h1 class="display name">'+CL[i][0]+'</h1><div class="about">'+CL[i][1]+'</div>'+foot("Book your place","11:30 AM, Wednesday to Friday, at Moorland Community Centre, Lincoln.");
+  document.getElementById("c").innerHTML = bar+'<div class="side">Specialised Classes · Shiloh 2026</div><div class="num">0'+(i+1)+'<small>of 07</small></div><h1 class="display name">'+CL[i][0]+'</h1><div class="about">'+CL[i][1]+'</div>'+foot("Book your place","11:30am, Wednesday to Friday, at Moorland Community Centre, Lincoln.");
 }
 </script>
 </body></html>

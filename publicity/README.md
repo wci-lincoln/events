@@ -17,12 +17,18 @@ captions. Raw renders live in `out/`.
 ## One design system
 
 Every piece shares the same grammar so the run-up reads as one campaign: the church lockup top
-left and a tag top right; Anton display headlines with Barlow Condensed and Barlow for detail
-and Playfair italic for one warm line; the Winners palette as solid colour blocks (crimson,
+left and a tag top right; type from the WCI Lincoln brand guide (see `BRAND.md`): Bebas Neue
+display headlines, Bebas Kai for dates, times, addresses and labels, Gontserrat for body text
+and Brother Signature for one invitation line; the Winners palette as solid colour blocks (crimson,
 red, gold, ivory, ink); the circular "Live in Lincoln" seal; the QR in a white panel bottom
 right; and a footer with "Shiloh 2026 · Far Above" and the opening details. The logo is the
 church's own emblem from winnerschapellincoln.org.uk, bare on light grounds and in a white
 roundel on dark ones (`00-logo-colour.png`, `00-logo-white.png`).
+
+Times follow the guide's format (`5:00pm`, `9:20am`). The brand font files are not in the
+repository; drop them into `src/fonts/` (names in `src/fonts/README.md`) and re-render. Until
+then Google Fonts stand-ins are used: Bebas Neue for both Bebas faces, Montserrat for
+Gontserrat and Mr Dafoe for Brother Signature.
 
 ## What is in `out/`
 
@@ -36,7 +42,7 @@ roundel on dark ones (`00-logo-colour.png`, `00-logo-white.png`).
 | `10-profile-badge.png` | Profile picture for Shiloh week. |
 | `40-poster-a4.pdf`, `40-poster-a4.png` | A4 "Scan me" wall poster: vector PDF for printing (sharp at A3 too), 2480×3508 PNG for sharing. |
 | `20-theme-reveal`, `21-scan-me-story`, `22-by-the-numbers` (`.gif` + `.mp4`) | Short animations. |
-| `30-projector-announcement.mp4` | 54-second announcement film for the screen, built to loop. |
+| `30-projector-announcement.mp4` | 110-second announcement film for the screen, built to loop; the QR scene holds for 25 seconds. |
 | `slides/*.png` | The film's eight scenes as 1920×1080 stills. |
 | `countdown/<date>-<nn>-days-*` | One countdown per day, 30 days to the opening night. Every day: `-square.gif`, `-square.png`, `-story.mp4`, `-story.png`. Sundays and Wednesdays also: `-wide.gif`, `-wide.mp4`, `-screensaver.mp4`. |
 | `today/<date>-day-<n>-*.png` | "Today at Shiloh" for each of the six days, square, story and wide. |
@@ -47,11 +53,12 @@ Five designs rotate day by day so the feed never repeats two days running: giant
 running strip (ivory), calendar grid filling gold (crimson), flip clock (crimson), Papa with a
 swaying seal (gold), and the number in words (red). The opening day uses the words design with
 "It starts tonight". The design for a given date is the same in every shape, so the projector
-slide and the social post match on service days. Animations loop every four seconds and the MP4s
-play the loop twice, except the giant-number design, which runs an eight-second loop so its strip
-scrolls at a readable pace.
+slide and the social post match on service days. Each countdown animates in over four seconds
+and then holds the finished card for six, a ten-second loop, so the details can be read; the
+giant-number design runs an eight-second loop instead so its strip keeps scrolling at a readable
+pace. The MP4s play the loop twice.
 
-The screensaver is a slow 32-second loop of three scenes (theme with Papa, the day's countdown
+The screensaver is a slow 60-second loop of three scenes, 20 seconds each, (theme with Papa, the day's countdown
 with the venue, the QR) for when the screen is idle in church.
 
 ## Making changes

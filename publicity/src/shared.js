@@ -9,7 +9,7 @@
       <circle cx="100" cy="100" r="98" fill="${face}" stroke="${col}" stroke-width="3"/>
       <circle cx="100" cy="100" r="78" fill="none" stroke="${col}" stroke-width="1.5" stroke-dasharray="2 3"/>
       <defs><path id="sp" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/><clipPath id="cp"><circle cx="100" cy="100" r="46"/></clipPath></defs>
-      <text font-family="Barlow Condensed" font-weight="800" font-size="17.5" letter-spacing="2.6" fill="${col}"><textPath href="#sp">${t}</textPath></text>
+      <text font-family="Bebas Kai, Bebas Neue Brand, Bebas Neue, Impact" font-weight="400" font-size="17.5" letter-spacing="2.6" fill="${col}"><textPath href="#sp">${t}</textPath></text>
       <circle cx="100" cy="100" r="50" fill="#fff"/>
       <image href="logo.png" x="65" y="65" width="70" height="70" clip-path="url(#cp)"/>
     </svg>`;
