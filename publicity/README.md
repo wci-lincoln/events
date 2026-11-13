@@ -4,15 +4,17 @@ Graphics, animations and videos for WhatsApp, Instagram, Facebook, TikTok and th
 projector, all pointing people to the Shiloh 2026 page by QR code:
 https://wci-lincoln.github.io/events/shiloh-2026/
 
-The hand-over is two folders, built by `node pack.js` into `kit/` and zipped:
+The hand-over is two folders here in `publicity/`, built by `node pack.js` and zipped:
 
-- **Shiloh 2026 - Social Media (publicity team)**: square and story files, grouped by use, with a
-  folder for every day from 8 November to the opening night and a `post-today.txt` in each.
-- **Shiloh 2026 - Church Projection (media team)**: 16:9 files for the screen, with a folder for
-  every Sunday and Wednesday service until Shiloh.
+- **Shiloh 2026 - Social Media (publicity team)**: square and story files for phones.
+- **Shiloh 2026 - Church Projection (media team)**: 16:9 files for the church screen.
 
-Each folder has a `READ ME FIRST.md` written for that team: what to post or show, when, and the
-captions. Raw renders live in `out/`.
+Each is split the same way: `1 Reusable` holds everything without a date (announcement, programme,
+calls to action, classes, badge, poster, film and slides, logo), and `2 Day-specific` holds the
+dated material: one folder per day for the countdown (with a `post-today.txt` in each on the social
+side) and the six "Today at Shiloh" cards. Each folder has a `READ ME FIRST.md` written for that
+team: what to post or show, when, and the captions. Raw renders live in `out/`; `pack.js` rebuilds
+the two folders from them, so edit `out/` or the templates, never the folders.
 
 ## One design system
 
@@ -82,7 +84,7 @@ node build.js 05-bus        # just the files whose name contains this
 node build.js countdown     # the daily countdowns
 node build.js today         # the Shiloh-week cards
 node build.js screensaver   # the service-day screensavers
-node pack.js                # build kit/ and the two zips from out/
+node pack.js                # rebuild the two team folders and their zips from out/
 node verify-qr.js           # decode the QR in every card and check it opens the Shiloh page
 node frames.js countdown    # still frames of the countdown designs into preview/, for checking
 node frames.js projector    # the projector film at the middle of each scene
