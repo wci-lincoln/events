@@ -2,7 +2,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Sans+3:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: a phone-first event hub (max 600px column). A crimson poster band on top (top bar, hero),
    then a warm ivory body for the reading and the forms, with crimson headings and gold number badges.
@@ -25,9 +25,10 @@
   --surface: #ffffff;
   --row: rgba(138, 15, 30, 0.06);
   --ok: #1f8a55;
-  --font-display: "Anton", "Impact", "Arial Narrow Bold", sans-serif;
-  --font-cond: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --font-body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  /* Website type per the WCI Lincoln brand guide: Playfair Display for display headings, Source Sans 3 for body and navigation. */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-cond: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
   color-scheme: light;
 }
 .band, .dock { --fg: var(--ivory); --hl: var(--gold-light); --muted: rgba(251, 243, 228, 0.72); --line: rgba(243, 210, 122, 0.22); --card: rgba(24, 3, 6, 0.42); --surface: rgba(0, 0, 0, 0.25); --row: rgba(0, 0, 0, 0.22); color: var(--fg); color-scheme: dark; }
@@ -86,12 +87,13 @@ img { max-width: 100%; display: block; }
 .eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .theme {
   font-family: var(--font-display);
-  font-size: clamp(64px, 19vw, 118px);
-  line-height: 0.88;
-  letter-spacing: 0.01em;
+  font-weight: 800;
+  font-size: clamp(52px, 15vw, 104px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
   margin: 10px 0 6px;
   color: #fff;
-  text-transform: uppercase;
+  text-transform: none;
   text-wrap: balance;
   text-shadow: 0 2px 0 #e9c766, 0 4px 0 #b78a28, 0 6px 0 #7d5a10, 0 14px 30px rgba(0,0,0,.55);
 }
@@ -108,18 +110,18 @@ img { max-width: 100%; display: block; }
 .countdown .label span:last-child { font-weight: 600; letter-spacing: 0.08em; text-transform: none; font-size: 13px; opacity: .8; }
 .digits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; position: relative; }
 .unit { background: rgba(24, 3, 6, 0.92); color: var(--gold-light); border-radius: 12px; padding: 10px 4px 8px; text-align: center; box-shadow: inset 0 0 0 1px rgba(243,210,122,.18); }
-.unit b { display: block; font-family: var(--font-cond); font-weight: 800; font-size: clamp(38px, 11vw, 60px); line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: 0.01em; }
+.unit b { display: block; font-family: var(--font-display); font-weight: 700; font-size: clamp(34px, 10vw, 54px); line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: 0.01em; }
 .unit small { display: block; font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 4px; color: var(--ivory); opacity: .75; }
 .countdown .state { position: relative; margin: 10px 0 0; font-weight: 600; font-size: 14px; }
 .countdown[data-phase="live"] { background: linear-gradient(160deg, #3fbf7f, #1f8f5a); color: #fff; }
 .countdown[data-phase="live"] .unit, .countdown[data-phase="over"] .unit { display: none; }
 .countdown[data-phase="live"] .digits, .countdown[data-phase="over"] .digits { display: none; }
-.countdown .bigstate { display: none; font-family: var(--font-display); font-size: clamp(34px, 9vw, 52px); line-height: 1; text-transform: uppercase; margin-top: 8px; position: relative; }
+.countdown .bigstate { display: none; font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 8vw, 46px); line-height: 1.05; text-transform: none; margin-top: 8px; position: relative; }
 .countdown[data-phase="live"] .bigstate, .countdown[data-phase="over"] .bigstate { display: block; }
 
 /* ---- primary actions ---- */
 .primary { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; padding: 13px 14px; font-family: var(--font-cond); font-weight: 800; font-size: 17px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; min-height: 48px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; padding: 13px 14px; font-family: var(--font-cond); font-weight: 700; font-size: 16px; letter-spacing: 0.02em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; min-height: 48px; }
 .btn svg { width: 18px; height: 18px; flex: none; }
 .btn-gold { background: var(--gold); color: var(--ink); border-color: var(--gold-light); }
 .btn-gold:hover { background: var(--gold-light); }
@@ -130,7 +132,7 @@ img { max-width: 100%; display: block; }
 
 /* ---- link tiles ---- */
 .section-head { margin: 26px 0 10px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 10px; }
-.section-head h2 { font-family: var(--font-display); font-weight: 400; font-size: 23px; letter-spacing: 0.05em; text-transform: uppercase; margin: 0; color: var(--hl); line-height: 1; }
+.section-head h2 { font-family: var(--font-display); font-weight: 700; font-size: 24px; letter-spacing: 0; text-transform: none; margin: 0; color: var(--hl); line-height: 1.1; }
 .section-head p { margin: 0; font-size: 13px; color: var(--muted); white-space: nowrap; }
 .tiles { display: grid; gap: 10px; }
 .qa { margin: 0; display: grid; gap: 6px; }
@@ -182,6 +184,10 @@ label.f input::placeholder, label.f textarea::placeholder { color: var(--muted);
 .sizes { display: flex; flex-wrap: wrap; gap: 6px; }
 .size { border: 1px solid var(--line); background: var(--surface); border-radius: 9px; padding: 8px 0; min-width: 48px; text-align: center; font-family: var(--font-cond); font-weight: 800; font-size: 15px; cursor: pointer; flex: 1; }
 .size[aria-pressed="true"] { background: var(--gold); color: var(--ink); border-color: var(--gold-light); }
+.swatches { display: flex; gap: 6px; }
+.swatch { border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 9px; padding: 8px 10px; flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-cond); font-weight: 800; font-size: 15px; cursor: pointer; }
+.swatch i { width: 20px; height: 20px; border-radius: 50%; flex: none; border: 1px solid rgba(27, 6, 8, .22); box-shadow: inset 0 0 0 2px var(--surface); }
+.swatch[aria-pressed="true"] { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
 .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
 .actions .btn { font-size: 15px; padding: 11px 10px; }
 .actions .btn.wide { grid-column: 1 / -1; }
@@ -232,7 +238,7 @@ label.f input::placeholder, label.f textarea::placeholder { color: var(--muted);
 
 /* QR block */
 .qr { margin-top: 26px; border-radius: 18px; background: var(--crimson-deep); background-image: radial-gradient(400px 200px at 0% 0%, rgba(181,22,42,.8), transparent 70%); color: var(--ivory); padding: 18px; display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; }
-.qr h3 { font-family: var(--font-display); font-size: 26px; line-height: 1; margin: 0 0 6px; text-transform: uppercase; color: var(--gold-light); }
+.qr h3 { font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1.1; margin: 0 0 6px; text-transform: none; color: var(--gold-light); }
 .qr p { margin: 0; font-size: 14px; color: rgba(251,243,228,.8); }
 .qr .code { width: 124px; height: 124px; background: #fff; padding: 6px; border-radius: 10px; display: grid; place-items: center; }
 .qr .code img, .qr .code canvas { width: 112px; height: 112px; }
@@ -285,7 +291,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
 
 <div class="wrap">
   <section class="countdown" id="countdown" data-phase="before" aria-live="polite">
-    <div class="label"><span id="cdLabel">Shiloh opens in</span><span id="cdWhen">Tue 8 Dec · 5:00 PM</span></div>
+    <div class="label"><span id="cdLabel">Shiloh opens in</span><span id="cdWhen">Tue 8 Dec · 5:00pm</span></div>
     <div class="digits">
       <div class="unit"><b id="dd">--</b><small>Days</small></div>
       <div class="unit"><b id="hh">--</b><small>Hours</small></div>
@@ -336,10 +342,10 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
       <div class="panel">
         <h4>A full day at Shiloh</h4>
         <ul class="blocks">
-          <li>Shiloh Prayer Hour<span>5:00 AM</span></li>
-          <li>Morning Session · Hour of Visitation <small>(Saturday: Impartation Service, 5:00 AM)</small><span>6:15 AM</span></li>
-          <li>Specialised Classes<span>11:30 AM</span></li>
-          <li>Evening Session · Encounter Night <small>(Friday: Victory Celebration Night)</small><span>5:00 PM</span></li>
+          <li>Shiloh Prayer Hour<span>5:00am</span></li>
+          <li>Morning Session · Hour of Visitation <small>(Saturday: Impartation Service, 5:00am)</small><span>6:15am</span></li>
+          <li>Specialised Classes<span>11:30am</span></li>
+          <li>Evening Session · Encounter Night <small>(Friday: Victory Celebration Night)</small><span>5:00pm</span></li>
         </ul>
         <h4>Day by day</h4>
         <div class="days" id="days" role="tablist"></div>
@@ -387,7 +393,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
       </summary>
       <div class="panel">
         <h4>Driving?</h4>
-        <p>Parking is on site, and the Directions button at the top opens the venue in Maps. If you have a car, come in it and fill the spare seats with someone on your way, especially for the 5:00 AM sessions.</p>
+        <p>Parking is on site, and the Directions button at the top opens the venue in Maps. If you have a car, come in it and fill the spare seats with someone on your way, especially for the 5:00am sessions.</p>
         <h4>Routes we already run</h4>
         <ul class="routes">
           <li><div><b>University of Lincoln</b><span>Staff car park, beside the Library</span></div><em>Times sent on booking</em></li>
@@ -412,7 +418,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
           </div>
           <div class="grid" id="busGrid" aria-label="Pick days and sessions"></div>
           <div class="plan" id="busPlan"></div>
-          <label class="f">Suggest a pickup point<input id="busSuggest" placeholder="e.g. Tesco Wragby Road, 4:15 PM"></label>
+          <label class="f">Suggest a pickup point<input id="busSuggest" placeholder="e.g. Tesco Wragby Road, 4:15pm"></label>
           <div class="actions">
             <button class="btn btn-gold" type="submit">Send via WhatsApp</button>
             <button class="btn btn-outline" type="button" data-copy-form="bus" id="busAlt">Copy booking</button>
@@ -428,7 +434,7 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <div class="panel">
-        <p>Coming in from outside Lincoln, or want to be close for every 5:00 AM session? Tell us who is coming and for how long, and the hospitality team will come back to you with options.</p>
+        <p>Coming in from outside Lincoln, or want to be close for every 5:00am session? Tell us who is coming and for how long, and the hospitality team will come back to you with options.</p>
         <form class="form" id="campForm">
           <div class="row2">
             <label class="f">Name<input id="campName" required minlength="2" placeholder="Your full name"></label>
@@ -450,11 +456,11 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
     <details class="tile" id="classes">
       <summary>
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4-9 4z"/><path d="M7 9.5V15c0 1.5 2.5 3 5 3s5-1.5 5-3V9.5M21 7v6"/></svg></span>
-        <span class="t"><b>Which class should I take?</b><span>Specialised classes from 11:30 AM, Wed to Fri. Book yours</span></span>
+        <span class="t"><b>Which class should I take?</b><span>Specialised classes from 11:30am, Wed to Fri. Book yours</span></span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <div class="panel">
-        <p>Targeted teaching from 11:30 AM on Wednesday, Thursday and Friday. Each class takes one area of life, such as health, family, business and career, or academics, and goes deep on what the Word says about it. Pick the class that speaks to your situation.</p>
+        <p>Targeted teaching from 11:30am on Wednesday, Thursday and Friday. Each class takes one area of life, such as health, family, business and career, or academics, and goes deep on what the Word says about it. Pick the class that speaks to your situation.</p>
         <ul class="classes" id="classList" hidden></ul>
         <div id="classBook" hidden>
           <h4>Book your class</h4>
@@ -480,15 +486,25 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
     <details class="tile" id="tshirt">
       <summary>
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 4l4 2 4-2 4 3-2 4-2-1v10H8V10l-2 1-2-4z"/></svg></span>
-        <span class="t"><b>Can I get the Shiloh T-shirt?</b><span>Reserve your Far Above shirt</span></span>
+        <span class="t"><b>Can I get the Shiloh shirt?</b><span>Polo or hoodie, in white, red or wine</span></span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <div class="panel">
-        <p>Wear the theme. Reserve yours and the team will message you about payment and collection. <span class="badge" id="shirtPrice" hidden></span></p>
+        <p>Wear the theme. Polo shirt or hoodie, in white, red or wine, with the Shiloh '26 mark on the chest and Far Above across the front. Reserve yours and the team will message you about payment and collection. <span class="badge" id="shirtPrice" hidden></span></p>
         <form class="form" id="shirtForm">
           <div class="row2">
             <label class="f">Name<input id="shirtName" required minlength="2" placeholder="Your full name"></label>
             <label class="f">Phone<input id="shirtPhone" type="tel" inputmode="tel" required pattern="\s*(\+44\s?7\d{3}|07\d{3})\s?\d{3}\s?\d{3}\s*" title="A UK mobile number, e.g. 07700 900123" placeholder="Mobile, e.g. 07700 900123"></label>
+          </div>
+          <div class="row2">
+            <label class="f">Item<select id="shirtItem"><option>Polo shirt</option><option>Hoodie</option></select></label>
+            <label class="f">Fit<select id="shirtFit"><option>Men</option><option>Women</option><option>Kids</option></select></label>
+          </div>
+          <label class="f">Colour</label>
+          <div class="swatches" id="colours">
+            <button type="button" class="swatch" aria-pressed="true" data-v="White"><i style="background:#FFFFFF"></i>White</button>
+            <button type="button" class="swatch" aria-pressed="false" data-v="Red"><i style="background:#D81F26"></i>Red</button>
+            <button type="button" class="swatch" aria-pressed="false" data-v="Wine"><i style="background:#6E1423"></i>Wine</button>
           </div>
           <label class="f">Size</label>
           <div class="sizes" id="sizes">
@@ -499,9 +515,9 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
             <button type="button" class="size" aria-pressed="false">2XL</button>
             <button type="button" class="size" aria-pressed="false">3XL</button>
           </div>
-          <div class="row2">
+          <div class="row2" id="sleeveRow">
+            <label class="f" id="sleeveField">Sleeve<select id="shirtSleeve"><option>Short</option><option>Long</option></select></label>
             <label class="f">Quantity<select id="shirtQty"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
-            <label class="f">Fit<select id="shirtFit"><option>Men</option><option>Women</option><option>Kids</option></select></label>
           </div>
           <div class="actions">
             <button class="btn btn-gold" type="submit">Send via WhatsApp</button>
@@ -656,9 +672,9 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
   <footer>
     <div class="motto">Liberating the world through the preaching of the Word of Faith</div>
     <div class="times">
-      <div><b>Sundays</b> 9:20 AM &amp; 11:15 AM · Moorland Community Centre</div>
-      <div><b>Wednesdays</b> 6:30 PM Communion Service · Bud Robinson Community Centre</div>
-      <div><b>Covenant Hour of Prayer</b> Mon – Sat 6:00 AM</div>
+      <div><b>Sundays</b> 9:20am &amp; 11:15am · Moorland Community Centre</div>
+      <div><b>Wednesdays</b> 6:30pm Communion Service · Bud Robinson Community Centre</div>
+      <div><b>Covenant Hour of Prayer</b> Mon – Sat 6:00am</div>
     </div>
     <div class="social" id="social"></div>
     <p>Winners Chapel International Lincoln · a branch of Living Faith Church Worldwide</p>
@@ -687,7 +703,7 @@ const CONFIG = {
   eventKey: "Shiloh 2026",                       // sent with every booking (used in email alerts)
   sheetUrl: "https://script.google.com/macros/s/AKfycbyaVz2ssEPCLdOksNEKumxVo6UOapD2tq68MbL256ToyMK1KtvtMblmqO6pVSZ2PHCN/exec", // this event's bookings workbook: Apps Script web app URL (see backend/SETUP.md). Empty = WhatsApp only
   giveUrl: "",                                   // church online giving page (the Give card stays hidden until this is set)
-  tshirtPrice: "",                               // e.g. "£12" (shown on the T-shirt card once set)
+  tshirtPrice: "",                               // e.g. "£12" (shown on the polo and hoodie card once set)
   classes: [                                      // this year's specialised classes: name, and one line on who it is for
     { name: "Healing, Health and Wholeness", about: "The Word on divine health, healing and living whole." },
     { name: "Breaking Generational Curses", about: "Breaking free from patterns that have followed your family line." },
@@ -708,33 +724,33 @@ const CONFIG = {
   contacts: [
     { role: "Transport · call or text", value: "07732 200430" },      // bus seats, pickups, lifts
     { role: "Hospitality · call or text", value: "07732 200430" },    // stay, first-timers, arriving
-    { role: "Everything else · call or text", value: "07732 200430" },// T-shirts, volunteering, general
+    { role: "Everything else · call or text", value: "07732 200430" },// shirts, volunteering, general
     { role: "Email", value: "lincoln@winners-chapel.org.uk" }
   ],
   // Lincoln programme, UK time. `block` ties an item to one of the four daily blocks (prayer, morning, classes, evening).
   days: [
     { key: "tue", label: "Tue", date: "8 Dec", items: [
-      { t: "5:00 PM", what: "Evening Session · Encounter Night", sub: "Opening night", block: "evening" } ] },
+      { t: "5:00pm", what: "Evening Session · Encounter Night", sub: "Opening night", block: "evening" } ] },
     { key: "wed", label: "Wed", date: "9 Dec", items: [
-      { t: "5:00 AM", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
-      { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
-            { t: "11:30 AM", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
-      { t: "5:00 PM", what: "Evening Session · Encounter Night", sub: "Main evening session", block: "evening" } ] },
+      { t: "5:00am", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
+      { t: "6:15am", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
+            { t: "11:30am", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
+      { t: "5:00pm", what: "Evening Session · Encounter Night", sub: "Main evening session", block: "evening" } ] },
     { key: "thu", label: "Thu", date: "10 Dec", items: [
-      { t: "5:00 AM", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
-      { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
-            { t: "11:30 AM", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
-      { t: "5:00 PM", what: "Evening Session · Encounter Night", sub: "Main evening session", block: "evening" } ] },
+      { t: "5:00am", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
+      { t: "6:15am", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
+            { t: "11:30am", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
+      { t: "5:00pm", what: "Evening Session · Encounter Night", sub: "Main evening session", block: "evening" } ] },
     { key: "fri", label: "Fri", date: "11 Dec", items: [
-      { t: "5:00 AM", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
-      { t: "6:15 AM", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
-            { t: "11:30 AM", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
-      { t: "5:00 PM", what: "Victory Celebration Night", sub: "Friday evening session. Come to celebrate", block: "evening" } ] },
+      { t: "5:00am", what: "Shiloh Prayer Hour", sub: "Intercession, one hour", block: "prayer" },
+      { t: "6:15am", what: "Morning Session · Hour of Visitation", sub: "Four teaching sessions", block: "morning" },
+            { t: "11:30am", what: "Specialised Classes", sub: "Pick one class", block: "classes" },
+      { t: "5:00pm", what: "Victory Celebration Night", sub: "Friday evening session. Come to celebrate", block: "evening" } ] },
     { key: "sat", label: "Sat", date: "12 Dec", items: [
-      { t: "5:00 AM", what: "Impartation Service", sub: "Saturday morning session, 5:00 AM UK time", block: "morning" } ] },
+      { t: "5:00am", what: "Impartation Service", sub: "Saturday morning session, 5:00am UK time", block: "morning" } ] },
     { key: "sun", label: "Sun", date: "13 Dec", items: [
-      { t: "9:20 AM", what: "Shiloh Thanksgiving Service 1", sub: "Bring your invitees and new converts" },
-      { t: "11:15 AM", what: "Shiloh Thanksgiving Service 2", sub: "Bring your invitees and new converts" } ] }
+      { t: "9:20am", what: "Shiloh Thanksgiving Service 1", sub: "Bring your invitees and new converts" },
+      { t: "11:15am", what: "Shiloh Thanksgiving Service 2", sub: "Bring your invitees and new converts" } ] }
   ]
 };
 
@@ -785,7 +801,7 @@ const shareText = [
   "📍 " + CONFIG.venue.address,
   "✨ Theme: Far Above (Ephesians 1:21)",
   "",
-  "Everything you need is on one page: the programme and times, free transport, specialised classes, T-shirts and more:",
+  "Everything you need is on one page: the programme and times, free transport, specialised classes, Shiloh shirts and more:",
   (CONFIG.pageUrl || CONFIG.website),
   "",
   "Come expecting. I will save you a seat."
@@ -836,10 +852,10 @@ tick(); setInterval(tick, 1000);
 
 /* ---------- programme ---------- */
 const SESSIONS = [
-  { n: 1, key: "prayer",  name: "Prayer Hour",     short: "Prayer Hour", time: "5:00 AM" },
-  { n: 2, key: "morning", name: "Morning Session", short: "Morning",     time: "6:15 AM" },
-  { n: 3, key: "classes", name: "Specialised Classes", short: "Specialised Classes", time: "11:30 AM" },
-  { n: 4, key: "evening", name: "Evening Session", short: "Evening",     time: "5:00 PM" }
+  { n: 1, key: "prayer",  name: "Prayer Hour",     short: "Prayer Hour", time: "5:00am" },
+  { n: 2, key: "morning", name: "Morning Session", short: "Morning",     time: "6:15am" },
+  { n: 3, key: "classes", name: "Specialised Classes", short: "Specialised Classes", time: "11:30am" },
+  { n: 4, key: "evening", name: "Evening Session", short: "Evening",     time: "5:00pm" }
 ];
 // Some sessions have their own name on a given day.
 function sessionName(d, sn, short) {
@@ -896,13 +912,15 @@ function showPlan(id) {
   el.innerHTML = rows || "<span>Nothing picked yet. Tap Every session, or the boxes.</span>";
 }
 buildGrid("busGrid", ["1", "2", "3", "4"]);
+// a hoodie has long sleeves, so the sleeve choice only shows for the polo
+$("#shirtItem").addEventListener("change", e => { const hoodie = e.target.value === "Hoodie"; $("#sleeveField").style.display = hoodie ? "none" : ""; $("#sleeveRow").style.gridTemplateColumns = hoodie ? "1fr" : ""; $("#shirtSleeve").value = hoodie ? "Long" : "Short"; });
 buildGrid("volGrid", []);
 
 /* ---------- forms → WhatsApp / copy ---------- */
 function checked(sel) { return $$(sel).filter(c => c.checked).map(c => c.value); }
 const builders = {
   bus: () => `SHILOH 2026 BUS BOOKING\nName: ${$("#busName").value}\nPhone: ${$("#busPhone").value}\nPickup: ${$("#busRoute").value}\nSeats: ${$("#busSeats").value}\nSessions:\n${gridSummary("busGrid")}\nSuggested pickup: ${$("#busSuggest").value || "none"}`,
-  shirt: () => `SHILOH 2026 T-SHIRT ORDER\nName: ${$("#shirtName").value}\nPhone: ${$("#shirtPhone").value}\nSize: ${$("#sizes [aria-pressed=true]").textContent}\nQty: ${$("#shirtQty").value}\nFit: ${$("#shirtFit").value}`,
+  shirt: () => `SHILOH 2026 SHIRT ORDER\nName: ${$("#shirtName").value}\nPhone: ${$("#shirtPhone").value}\nItem: ${$("#shirtItem").value}\nColour: ${$("#colours [aria-pressed=true]").dataset.v}\nSleeve: ${$("#shirtSleeve").value}\nSize: ${$("#sizes [aria-pressed=true]").textContent}\nFit: ${$("#shirtFit").value}\nQty: ${$("#shirtQty").value}`,
   camp: () => `SHILOH 2026 STAY REQUEST\nName: ${$("#campName").value}\nPhone: ${$("#campPhone").value}\nPeople: ${$("#campPeople").value}\nNights: ${$("#campNights").value}\nNotes: ${$("#campNote").value || "none"}`,
   vol: () => `SHILOH 2026 VOLUNTEER\nName: ${$("#volName").value}\nPhone: ${$("#volPhone").value}\nUnits: ${checked("#volForm .units input").join(", ") || "anywhere needed"}\nAvailable:\n${gridSummary("volGrid")}\nSunday Thanksgiving: ${$("#volSun").checked ? "yes" : "no"}`,
   test: () => `SHILOH TESTIMONY\nFrom: ${$("#testName").value}\nOK to share: ${$("#testShare").checked ? "yes" : "no"}\n\n${$("#testBody").value}`,
@@ -916,7 +934,7 @@ function gridDays(id) {
 }
 const records = {
   bus:   () => ({ form: "bus",   fields: { Name: $("#busName").value, Phone: $("#busPhone").value, Pickup: $("#busRoute").value, Seats: $("#busSeats").value, ...gridDays("busGrid"), Summary: gridCompact("busGrid"), "Suggested pickup": $("#busSuggest").value } }),
-  shirt: () => ({ form: "shirt", fields: { Name: $("#shirtName").value, Phone: $("#shirtPhone").value, Size: $("#sizes [aria-pressed=true]").textContent, Qty: $("#shirtQty").value, Fit: $("#shirtFit").value } }),
+  shirt: () => ({ form: "shirt", fields: { Name: $("#shirtName").value, Phone: $("#shirtPhone").value, Size: $("#sizes [aria-pressed=true]").textContent, Qty: $("#shirtQty").value, Fit: $("#shirtFit").value, Item: $("#shirtItem").value, Colour: $("#colours [aria-pressed=true]").dataset.v, Sleeve: $("#shirtSleeve").value } }),
   camp:  () => ({ form: "camp",  fields: { Name: $("#campName").value, Phone: $("#campPhone").value, People: $("#campPeople").value, Nights: $("#campNights").value, Notes: $("#campNote").value } }),
   vol:   () => ({ form: "vol",   fields: { Name: $("#volName").value, Phone: $("#volPhone").value, Units: checked("#volForm .units input").join(", "), ...gridDays("volGrid"), Summary: gridCompact("volGrid"), "Sunday Thanksgiving": $("#volSun").checked ? "yes" : "no" } }),
   test:  () => ({ form: "test",  fields: { Name: $("#testName").value, "OK to share": $("#testShare").checked ? "yes" : "no", Testimony: $("#testBody").value } }),
@@ -929,7 +947,7 @@ const DONE = {
   camp: "Request received. The hospitality team will come back to you.",
   vol: "Thank you. The team will put you on the rota and message you.",
   test: "Thank you. Your testimony has been received.",
-  cls: "Booked. Your class starts at 11:30 AM on Wednesday.",
+  cls: "Booked. Your class starts at 11:30am on Wednesday.",
   del: "Thank you. More details will be communicated to you soon."
 };
 const PRIMARY = { bus: "Book my seat", shirt: "Reserve my shirt", camp: "Send request", vol: "Sign me up", test: "Share testimony", cls: "Book my class", del: "Register my interest" };
@@ -1016,6 +1034,8 @@ document.addEventListener("click", async e => {
   if (pr) { const id = pr.closest("[data-grid]").dataset.grid; const set = pr.dataset.preset; $$(`#${id} input`).forEach(i => i.checked = set.includes(i.dataset.n)); showPlan(id); return; }
   const sz = e.target.closest(".size");
   if (sz) { $$(".size").forEach(b => b.setAttribute("aria-pressed", "false")); sz.setAttribute("aria-pressed", "true"); return; }
+  const sw = e.target.closest(".swatch");
+  if (sw) { $$(".swatch").forEach(b => b.setAttribute("aria-pressed", "false")); sw.setAttribute("aria-pressed", "true"); return; }
   const dock = e.target.closest("[data-open]");
   if (dock) {
     const d = document.getElementById(dock.dataset.open);

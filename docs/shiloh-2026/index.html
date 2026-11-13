@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#3a0309">
-<meta name="description" content="Shiloh 2026 — Far Above. Everything about Shiloh at Winners Chapel International Lincoln: programme, bus seats, T-shirts, camping, volunteering, testimonies.">
+<meta name="description" content="Shiloh 2026 — Far Above. Everything about Shiloh at Winners Chapel International Lincoln: programme, bus seats, Shiloh shirts, camping, volunteering, testimonies.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Winners Chapel International Lincoln">
 <meta property="og:url" content="https://wci-lincoln.github.io/events/shiloh-2026/">
 <meta property="og:title" content="Shiloh 2026 - WCI Lincoln">
-<meta property="og:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, T-shirts and more. One link for everything.">
+<meta property="og:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, Shiloh shirts and more. One link for everything.">
 <meta property="og:image" content="https://wci-lincoln.github.io/events/shiloh-2026/og-image.jpg">
 <meta property="og:image:secure_url" content="https://wci-lincoln.github.io/events/shiloh-2026/og-image.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="Shiloh 2026 poster: Bishop David Oyedepo beside the gold Shiloh lettering">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Shiloh 2026 - WCI Lincoln">
-<meta name="twitter:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, T-shirts and more.">
+<meta name="twitter:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, Shiloh shirts and more.">
 <meta name="twitter:image" content="https://wci-lincoln.github.io/events/shiloh-2026/og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -212,6 +212,10 @@ label.f input::placeholder, label.f textarea::placeholder { color: var(--muted);
 .sizes { display: flex; flex-wrap: wrap; gap: 6px; }
 .size { border: 1px solid var(--line); background: var(--surface); border-radius: 9px; padding: 8px 0; min-width: 48px; text-align: center; font-family: var(--font-cond); font-weight: 800; font-size: 15px; cursor: pointer; flex: 1; }
 .size[aria-pressed="true"] { background: var(--gold); color: var(--ink); border-color: var(--gold-light); }
+.swatches { display: flex; gap: 6px; }
+.swatch { border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 9px; padding: 8px 10px; flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-cond); font-weight: 800; font-size: 15px; cursor: pointer; }
+.swatch i { width: 20px; height: 20px; border-radius: 50%; flex: none; border: 1px solid rgba(27, 6, 8, .22); box-shadow: inset 0 0 0 2px var(--surface); }
+.swatch[aria-pressed="true"] { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
 .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
 .actions .btn { font-size: 15px; padding: 11px 10px; }
 .actions .btn.wide { grid-column: 1 / -1; }
@@ -510,15 +514,25 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
     <details class="tile" id="tshirt">
       <summary>
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 4l4 2 4-2 4 3-2 4-2-1v10H8V10l-2 1-2-4z"/></svg></span>
-        <span class="t"><b>Can I get the Shiloh T-shirt?</b><span>Reserve your Far Above shirt</span></span>
+        <span class="t"><b>Can I get the Shiloh shirt?</b><span>Polo or hoodie, in white, red or wine</span></span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <div class="panel">
-        <p>Wear the theme. Reserve yours and the team will message you about payment and collection. <span class="badge" id="shirtPrice" hidden></span></p>
+        <p>Wear the theme. Polo shirt or hoodie, in white, red or wine, with the Shiloh '26 mark on the chest and Far Above across the front. Reserve yours and the team will message you about payment and collection. <span class="badge" id="shirtPrice" hidden></span></p>
         <form class="form" id="shirtForm">
           <div class="row2">
             <label class="f">Name<input id="shirtName" required minlength="2" placeholder="Your full name"></label>
             <label class="f">Phone<input id="shirtPhone" type="tel" inputmode="tel" required pattern="\s*(\+44\s?7\d{3}|07\d{3})\s?\d{3}\s?\d{3}\s*" title="A UK mobile number, e.g. 07700 900123" placeholder="Mobile, e.g. 07700 900123"></label>
+          </div>
+          <div class="row2">
+            <label class="f">Item<select id="shirtItem"><option>Polo shirt</option><option>Hoodie</option></select></label>
+            <label class="f">Fit<select id="shirtFit"><option>Men</option><option>Women</option><option>Kids</option></select></label>
+          </div>
+          <label class="f">Colour</label>
+          <div class="swatches" id="colours">
+            <button type="button" class="swatch" aria-pressed="true" data-v="White"><i style="background:#FFFFFF"></i>White</button>
+            <button type="button" class="swatch" aria-pressed="false" data-v="Red"><i style="background:#D81F26"></i>Red</button>
+            <button type="button" class="swatch" aria-pressed="false" data-v="Wine"><i style="background:#6E1423"></i>Wine</button>
           </div>
           <label class="f">Size</label>
           <div class="sizes" id="sizes">
@@ -529,9 +543,9 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
             <button type="button" class="size" aria-pressed="false">2XL</button>
             <button type="button" class="size" aria-pressed="false">3XL</button>
           </div>
-          <div class="row2">
+          <div class="row2" id="sleeveRow">
+            <label class="f" id="sleeveField">Sleeve<select id="shirtSleeve"><option>Short</option><option>Long</option></select></label>
             <label class="f">Quantity<select id="shirtQty"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
-            <label class="f">Fit<select id="shirtFit"><option>Men</option><option>Women</option><option>Kids</option></select></label>
           </div>
           <div class="actions">
             <button class="btn btn-gold" type="submit">Send via WhatsApp</button>
@@ -717,7 +731,7 @@ const CONFIG = {
   eventKey: "Shiloh 2026",                       // sent with every booking (used in email alerts)
   sheetUrl: "https://script.google.com/macros/s/AKfycbyaVz2ssEPCLdOksNEKumxVo6UOapD2tq68MbL256ToyMK1KtvtMblmqO6pVSZ2PHCN/exec", // this event's bookings workbook: Apps Script web app URL (see backend/SETUP.md). Empty = WhatsApp only
   giveUrl: "",                                   // church online giving page (the Give card stays hidden until this is set)
-  tshirtPrice: "",                               // e.g. "£12" (shown on the T-shirt card once set)
+  tshirtPrice: "",                               // e.g. "£12" (shown on the polo and hoodie card once set)
   classes: [                                      // this year's specialised classes: name, and one line on who it is for
     { name: "Healing, Health and Wholeness", about: "The Word on divine health, healing and living whole." },
     { name: "Breaking Generational Curses", about: "Breaking free from patterns that have followed your family line." },
@@ -738,7 +752,7 @@ const CONFIG = {
   contacts: [
     { role: "Transport · call or text", value: "07732 200430" },      // bus seats, pickups, lifts
     { role: "Hospitality · call or text", value: "07732 200430" },    // stay, first-timers, arriving
-    { role: "Everything else · call or text", value: "07732 200430" },// T-shirts, volunteering, general
+    { role: "Everything else · call or text", value: "07732 200430" },// shirts, volunteering, general
     { role: "Email", value: "lincoln@winners-chapel.org.uk" }
   ],
   // Lincoln programme, UK time. `block` ties an item to one of the four daily blocks (prayer, morning, classes, evening).
@@ -815,7 +829,7 @@ const shareText = [
   "📍 " + CONFIG.venue.address,
   "✨ Theme: Far Above (Ephesians 1:21)",
   "",
-  "Everything you need is on one page: the programme and times, free transport, specialised classes, T-shirts and more:",
+  "Everything you need is on one page: the programme and times, free transport, specialised classes, Shiloh shirts and more:",
   (CONFIG.pageUrl || CONFIG.website),
   "",
   "Come expecting. I will save you a seat."
@@ -926,13 +940,15 @@ function showPlan(id) {
   el.innerHTML = rows || "<span>Nothing picked yet. Tap Every session, or the boxes.</span>";
 }
 buildGrid("busGrid", ["1", "2", "3", "4"]);
+// a hoodie has long sleeves, so the sleeve choice only shows for the polo
+$("#shirtItem").addEventListener("change", e => { const hoodie = e.target.value === "Hoodie"; $("#sleeveField").style.display = hoodie ? "none" : ""; $("#sleeveRow").style.gridTemplateColumns = hoodie ? "1fr" : ""; $("#shirtSleeve").value = hoodie ? "Long" : "Short"; });
 buildGrid("volGrid", []);
 
 /* ---------- forms → WhatsApp / copy ---------- */
 function checked(sel) { return $$(sel).filter(c => c.checked).map(c => c.value); }
 const builders = {
   bus: () => `SHILOH 2026 BUS BOOKING\nName: ${$("#busName").value}\nPhone: ${$("#busPhone").value}\nPickup: ${$("#busRoute").value}\nSeats: ${$("#busSeats").value}\nSessions:\n${gridSummary("busGrid")}\nSuggested pickup: ${$("#busSuggest").value || "none"}`,
-  shirt: () => `SHILOH 2026 T-SHIRT ORDER\nName: ${$("#shirtName").value}\nPhone: ${$("#shirtPhone").value}\nSize: ${$("#sizes [aria-pressed=true]").textContent}\nQty: ${$("#shirtQty").value}\nFit: ${$("#shirtFit").value}`,
+  shirt: () => `SHILOH 2026 SHIRT ORDER\nName: ${$("#shirtName").value}\nPhone: ${$("#shirtPhone").value}\nItem: ${$("#shirtItem").value}\nColour: ${$("#colours [aria-pressed=true]").dataset.v}\nSleeve: ${$("#shirtSleeve").value}\nSize: ${$("#sizes [aria-pressed=true]").textContent}\nFit: ${$("#shirtFit").value}\nQty: ${$("#shirtQty").value}`,
   camp: () => `SHILOH 2026 STAY REQUEST\nName: ${$("#campName").value}\nPhone: ${$("#campPhone").value}\nPeople: ${$("#campPeople").value}\nNights: ${$("#campNights").value}\nNotes: ${$("#campNote").value || "none"}`,
   vol: () => `SHILOH 2026 VOLUNTEER\nName: ${$("#volName").value}\nPhone: ${$("#volPhone").value}\nUnits: ${checked("#volForm .units input").join(", ") || "anywhere needed"}\nAvailable:\n${gridSummary("volGrid")}\nSunday Thanksgiving: ${$("#volSun").checked ? "yes" : "no"}`,
   test: () => `SHILOH TESTIMONY\nFrom: ${$("#testName").value}\nOK to share: ${$("#testShare").checked ? "yes" : "no"}\n\n${$("#testBody").value}`,
@@ -946,7 +962,7 @@ function gridDays(id) {
 }
 const records = {
   bus:   () => ({ form: "bus",   fields: { Name: $("#busName").value, Phone: $("#busPhone").value, Pickup: $("#busRoute").value, Seats: $("#busSeats").value, ...gridDays("busGrid"), Summary: gridCompact("busGrid"), "Suggested pickup": $("#busSuggest").value } }),
-  shirt: () => ({ form: "shirt", fields: { Name: $("#shirtName").value, Phone: $("#shirtPhone").value, Size: $("#sizes [aria-pressed=true]").textContent, Qty: $("#shirtQty").value, Fit: $("#shirtFit").value } }),
+  shirt: () => ({ form: "shirt", fields: { Name: $("#shirtName").value, Phone: $("#shirtPhone").value, Size: $("#sizes [aria-pressed=true]").textContent, Qty: $("#shirtQty").value, Fit: $("#shirtFit").value, Item: $("#shirtItem").value, Colour: $("#colours [aria-pressed=true]").dataset.v, Sleeve: $("#shirtSleeve").value } }),
   camp:  () => ({ form: "camp",  fields: { Name: $("#campName").value, Phone: $("#campPhone").value, People: $("#campPeople").value, Nights: $("#campNights").value, Notes: $("#campNote").value } }),
   vol:   () => ({ form: "vol",   fields: { Name: $("#volName").value, Phone: $("#volPhone").value, Units: checked("#volForm .units input").join(", "), ...gridDays("volGrid"), Summary: gridCompact("volGrid"), "Sunday Thanksgiving": $("#volSun").checked ? "yes" : "no" } }),
   test:  () => ({ form: "test",  fields: { Name: $("#testName").value, "OK to share": $("#testShare").checked ? "yes" : "no", Testimony: $("#testBody").value } }),
@@ -1046,6 +1062,8 @@ document.addEventListener("click", async e => {
   if (pr) { const id = pr.closest("[data-grid]").dataset.grid; const set = pr.dataset.preset; $$(`#${id} input`).forEach(i => i.checked = set.includes(i.dataset.n)); showPlan(id); return; }
   const sz = e.target.closest(".size");
   if (sz) { $$(".size").forEach(b => b.setAttribute("aria-pressed", "false")); sz.setAttribute("aria-pressed", "true"); return; }
+  const sw = e.target.closest(".swatch");
+  if (sw) { $$(".swatch").forEach(b => b.setAttribute("aria-pressed", "false")); sw.setAttribute("aria-pressed", "true"); return; }
   const dock = e.target.closest("[data-open]");
   if (dock) {
     const d = document.getElementById(dock.dataset.open);

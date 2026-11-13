@@ -23,7 +23,7 @@ Each area owner, please reply with corrections to your card and your form.
 - UK Foreign Delegates: "Go to Canaanland" collects name, phone and an optional question into the Delegates tab; the page promises only that details will follow. Send the dates, cost and deadline when fixed.
 
 ## Finance / Welfare
-- T-shirt price, sizes and fits offered, collection arrangement
+- Shirt price, and which colours the hoodie comes in (the polo mock-ups are white, red and wine), collection arrangement
 - Do we want to take any giving through the page at all? If yes, the online giving link
 
 ## Publicity

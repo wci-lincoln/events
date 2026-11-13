@@ -16,7 +16,7 @@ The root address redirects to the current event.
 - Programme by day. For Shiloh, the four daily blocks: Shiloh Prayer Hour, Morning Session
   (Hour of Visitation), Specialised Classes and Evening Session (Encounter Night); Friday evening
   is the Victory Celebration Night and Saturday morning the Impartation Service.
-- Bookings: bus seats (day-by-session grid), specialised class per day, T-shirts, stay, volunteering,
+- Bookings: bus seats (day-by-session grid), specialised class per day, polo shirts and hoodies, stay, volunteering,
   testimonies, UK Foreign Delegate interest.
   Submissions go to a Google Sheet; WhatsApp is the fallback.
 - Venue and directions, giving, share links and a scan-to-open QR block.
@@ -33,7 +33,7 @@ current event is at http://localhost:4173/qr.
 ## Edit an event
 
 Everything the committee changes lives in the `CONFIG` block near the bottom of the event's page
-file: page link, dates, venue, WhatsApp numbers, contacts, programme, links, T-shirt price,
+file: page link, dates, venue, WhatsApp numbers, contacts, programme, links, shirt price,
 Sheet URL. Run `node build.js` after editing, then commit and push. The site updates within a
 minute or two.
 

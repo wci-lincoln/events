@@ -8,7 +8,7 @@
 // Columns per form. The page sends fields with exactly these names.
 const FORMS = {
   bus:   ["Name", "Phone", "Pickup", "Seats", "Tue", "Wed", "Thu", "Fri", "Sat", "Summary", "Suggested pickup"],
-  shirt: ["Name", "Phone", "Size", "Qty", "Fit"],
+  shirt: ["Name", "Phone", "Size", "Qty", "Fit", "Item", "Colour", "Sleeve"],
   camp:  ["Name", "Phone", "People", "Nights", "Notes"],
   vol:   ["Name", "Phone", "Units", "Tue", "Wed", "Thu", "Fri", "Sat", "Summary", "Sunday Thanksgiving"],
   test:  ["Name", "OK to share", "Testimony"],
@@ -42,6 +42,9 @@ function doPost(e) {
         sh.setFrozenRows(1);
         sh.getRange(1, 1, 1, cols.length + 1).setFontWeight("bold");
       }
+      // a form that gained columns since the tab was made: add the missing headers on the right
+      const have = sh.getLastColumn();
+      if (have < cols.length + 1) sh.getRange(1, have + 1, 1, cols.length + 1 - have).setValues([["Submitted"].concat(cols).slice(have)]).setFontWeight("bold");
       const fields = data.fields || {};
       sh.appendRow([new Date()].concat(cols.map(c => fields[c] == null ? "" : String(fields[c]).slice(0, 2000))));
     } finally {

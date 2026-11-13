@@ -18,12 +18,12 @@ const doc = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#3a0309">
-<meta name="description" content="Shiloh 2026 — Far Above. Everything about Shiloh at Winners Chapel International Lincoln: programme, bus seats, T-shirts, camping, volunteering, testimonies.">
+<meta name="description" content="Shiloh 2026 — Far Above. Everything about Shiloh at Winners Chapel International Lincoln: programme, bus seats, Shiloh shirts, camping, volunteering, testimonies.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Winners Chapel International Lincoln">
 <meta property="og:url" content="${pageUrl}">
 <meta property="og:title" content="Shiloh 2026 - WCI Lincoln">
-<meta property="og:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, T-shirts and more. One link for everything.">
+<meta property="og:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, Shiloh shirts and more. One link for everything.">
 <meta property="og:image" content="${pageUrl}og-image.jpg">
 <meta property="og:image:secure_url" content="${pageUrl}og-image.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -32,7 +32,7 @@ const doc = `<!doctype html>
 <meta property="og:image:alt" content="Shiloh 2026 poster: Bishop David Oyedepo beside the gold Shiloh lettering">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Shiloh 2026 - WCI Lincoln">
-<meta name="twitter:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, T-shirts and more.">
+<meta name="twitter:description" content="Far Above · Tue 8 – Sun 13 Dec 2026 at Winners Chapel Lincoln. Programme, bus seats, Shiloh shirts and more.">
 <meta name="twitter:image" content="${pageUrl}og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
