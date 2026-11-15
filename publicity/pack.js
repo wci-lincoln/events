@@ -30,7 +30,7 @@ const LAUNCH = "01 Launch - announcement and theme", PROG = "02 Programme and in
 const CAPTIONS = {
   announce: `Join us for Shiloh 2026 in Lincoln. 🔥 Far Above: Tuesday 8 to Sunday 13 December, every session live at Moorland Community Centre, LN6 7NH. Programme, free transport, specialised classes and more on one page. Scan or tap the link in bio. Come expecting, and bring someone with you.`,
   programme: `A day at Shiloh in Lincoln: 5:00am Shiloh Prayer Hour, 6:15am Hour of Visitation, 11:30am Specialised Classes, 5:00pm Encounter Night. Friday is Victory Celebration Night. Saturday 5:00am is the Impartation Service. Sunday, two Thanksgiving Services. Be in every one.`,
-  bus: `Nobody should miss Shiloh because of a lift. Free buses to every session from the University of Lincoln, Newark, Gainsborough and Grimsby. Book your seat on the page. Got a car? Fill it on the way.`,
+  bus: `Nobody should miss Shiloh because of a lift. Free buses to every session from Lincoln, Newark, Gainsborough and Grimsby. Book your seat on the page. Got a car? Fill it on the way.`,
   classes: `Seven specialised classes, 11:30am Wednesday to Friday. Pick the one you need, or a different one each day. Swipe for what each class is about, then book your place.`,
   invite: `I'm going to Shiloh 2026, and I'd love you to come with me. Six days of prayer, the Word and real encounters with God, right here in Lincoln. Everything you need is one scan away. I'll save you a seat. 🙏`,
   delegates: `Want to be at Shiloh on ground at Canaanland this year? A delegation from the UK goes every year. Register your interest on the page and the team will be in touch with all the details.`,
