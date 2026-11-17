@@ -34,6 +34,6 @@ Each area owner, please reply with corrections to your card and your form.
 - Confirm the midweek service is Wednesday and the service-day countdown dates match the church calendar (8, 11, 15, 18, 22, 25, 29 November; 2 and 6 December). The daily social countdown runs every day from 8 November to 8 December
 
 ## Everyone
-- Theme text is Ephesians 1:17-21 (confirmed by Ibukunoluwa); the hero quotes verse 21.
+- Theme text is Ephesians 2:6-8, as on the approved banner; the hero quotes it in full.
 - The page does not mention streaming or children's church, so that we promise nothing we have not planned.
 - Anything on the page that is not how we say it at WCI Lincoln

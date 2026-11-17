@@ -409,7 +409,7 @@ Image: `countdown/2026-12-06-02-days-square.png`
 ```text
 *2 days to Shiloh 2026: Far Above.* ✨
 
-“And hath raised us up together, and made us sit together in heavenly places in Christ Jesus.” Ephesians 2:6
+“And hath raised us up together, and made us sit together in heavenly places in Christ Jesus: that in the ages to come he might shew the exceeding riches of his grace in his kindness toward us through Christ Jesus. For by grace are ye saved through faith; and that not of yourselves: it is the gift of God.” Ephesians 2:6-8
 
 Far Above is the theme of Shiloh 2026. Winners Chapel Lincoln invites you to come for all six days, and to bring someone with you.
 
