@@ -86,10 +86,10 @@ Wear the theme, Far Above, with Winners Chapel Lincoln. Choose a polo shirt or h
 • Men, women or kids (S to 4XL)
 
 *Prices:*
-• Hoodie £15
-• Polo, long sleeve £12
-• Polo, short sleeve £10
-• Children (0-9yrs) £7
+• Hoodie - £15
+• Polo, long sleeve - £12
+• Polo, short sleeve - £10
+• Children (0-9yrs) - £7
 
 Reserve yours at https://wci-lincoln.github.io/events/shiloh-2026/#tshirt
 ```
@@ -189,10 +189,10 @@ The Winners Chapel Lincoln Shiloh '26 hoodie has Far Above across the front and 
 Reserve yours and the team will message you about payment and collection.
 
 *Prices:*
-• Hoodie £15
-• Polo, long sleeve £12
-• Polo, short sleeve £10
-• Children (0-9yrs) £7
+• Hoodie - £15
+• Polo, long sleeve - £12
+• Polo, short sleeve - £10
+• Children (0-9yrs) - £7
 
 Reserve yours at https://wci-lincoln.github.io/events/shiloh-2026/#tshirt
 ```
@@ -303,10 +303,10 @@ Image: `11-shirt-square.png`
 Polo shirt or hoodie, in white, red or wine, for men, women and kids. Reserve yours with Winners Chapel Lincoln and the team will message you about payment and collection.
 
 *Prices:*
-• Hoodie £15
-• Polo, long sleeve £12
-• Polo, short sleeve £10
-• Children (0-9yrs) £7
+• Hoodie - £15
+• Polo, long sleeve - £12
+• Polo, short sleeve - £10
+• Children (0-9yrs) - £7
 
 Reserve yours at https://wci-lincoln.github.io/events/shiloh-2026/#tshirt
 ```

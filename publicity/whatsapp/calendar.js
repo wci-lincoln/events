@@ -41,7 +41,7 @@ const VENUE = "*Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 
 // A list is a label and bullets, so it reads as a list: *Prices:* then one "• item" per line.
 const list = (label, items, colon = true) => `*${label}${colon ? ":" : ""}*\n` + items.map(i => "• " + i).join("\n");
 const CHOOSE = list("Choose", ["Polo shirt or hoodie", "White, red or wine", "Men, women or kids (S to 4XL)"]);
-const PRICES = list("Prices", ["Hoodie £15", "Polo, long sleeve £12", "Polo, short sleeve £10", "Children (0-9yrs) £7"]);
+const PRICES = list("Prices", ["Hoodie - £15", "Polo, long sleeve - £12", "Polo, short sleeve - £10", "Children (0-9yrs) - £7"]);
 const PICKUPS = list("Pick-up points", ["Lincoln", "Newark", "Gainsborough", "Grimsby"]);
 const BUS_RUNS = "*Runs:* every session, Tuesday 8 to Sunday 13 December";
 const BUS_TO = "*Takes you to:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH";
