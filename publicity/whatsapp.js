@@ -32,6 +32,11 @@ for (const p of POSTS) {
   }
   if (/\b\d{1,2}(:\d\d)? ?(AM|PM)\b/.test(p.caption)) problems.push(`${p.date}: time not in the 9:20am style`);
   if (/\bwatch live|stream|livestream|to be confirmed|tbc|draft\b/i.test(p.caption)) problems.push(`${p.date}: banned wording`);
+  // Every message must say who is inviting, label its facts, and end on a plain sentence before the link (no pointing hand).
+  if (!/Winners Chapel/.test(p.caption)) problems.push(`${p.date}: never names Winners Chapel Lincoln`);
+  if (!/\*Venue:\*/.test(p.caption) && !p.caption.includes("*Where:*") && p.link !== "testimonies") problems.push(`${p.date}: no labelled venue`);
+  if (/👉/.test(p.caption)) problems.push(`${p.date}: pointing hand`);
+  if (!new RegExp("\\n\\n[A-Z][^\\n]* at " + p.url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "$").test(p.caption)) problems.push(`${p.date}: last line is not "<words> at <link>"`);
 }
 if (problems.length) { console.error("Problems:\n  " + problems.join("\n  ")); process.exit(1); }
 
@@ -64,8 +69,12 @@ The same messages are listed below if you would rather copy from here. The calen
 
 ## How it runs
 
-- **Round countdown days** (20, 15, 10, 7, 5, 3 and 1 days to go) use the countdown card. The days between mix the topics:
-  classes, free bus, shirts, volunteering, UK Foreign Delegates, the programme, the theme, invitations.
+- **Actions first.** Until the last week, the days between the countdowns are the things people have to do, so they can plan:
+  Shiloh shirts first (time sensitive, three posts), then free bus booking, classes, volunteering, UK Foreign Delegates and
+  staying nearby. The softer posts (programme, invitation, theme) come in the last week.
+- **Round countdown days** (20, 15, 10, 7, 5, 3 and 1 days to go) use the countdown card.
+- **Every message** says who is inviting (Winners Chapel Lincoln), labels its facts (Date, Venue, Opens, Time) and ends with a
+  plain line such as "Learn more at" or "Book your seat at" and the link.
 - **Send at 8:00pm** each evening, except opening day. Shiloh week is different: the 5:00am sessions need a night's notice,
   so each day's "Tomorrow at Shiloh" card goes out at 8:00pm the evening before. Tuesday 8 December has two posts: the opening
   night in the morning, and Wednesday's card at 8:00pm.
@@ -96,8 +105,9 @@ ${p.caption}
 `).join("\n")}
 ## Spare cards, for any quiet day
 
+- \`02-announce-square.png\`: the launch card (Papa, theme, dates, venue), for a general "what is Shiloh" post.
 - \`10-profile-badge.png\`: members' profile picture for Shiloh week.
-- \`21-scan-me-story.gif\`: animated scan-me, for status.
+- \`21-scan-me-story.gif\`: animated scan-me, for status. \`22-by-the-numbers.gif\`: 6 days, 4 sessions, 7 classes.
 - \`06-classes-01.png\` to \`06-classes-07.png\`: one card per class, if you want to give a class its own day (the two spotlight
   slots can be swapped for any of these).
 - \`40-poster-a4.png\`: the wall poster, for sending to someone who will print it.

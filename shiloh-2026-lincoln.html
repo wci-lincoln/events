@@ -486,11 +486,13 @@ footer .social a { text-decoration: none; font-family: var(--font-cond); font-we
     <details class="tile" id="tshirt">
       <summary>
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 4l4 2 4-2 4 3-2 4-2-1v10H8V10l-2 1-2-4z"/></svg></span>
-        <span class="t"><b>Can I get the Shiloh shirt?</b><span>Polo or hoodie, in white, red or wine</span></span>
+        <span class="t"><b>Can I get the Shiloh shirt?</b><span>Polo or hoodie, in white, red or wine, from £7</span></span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <div class="panel">
-        <p>Wear the theme. Polo shirt or hoodie, in white, red or wine, with the Shiloh '26 mark on the chest and Far Above across the front. Reserve yours and the team will message you about payment and collection. <span class="badge" id="shirtPrice" hidden></span></p>
+        <p>Wear the theme. Polo shirt or hoodie, in white, red or wine, with the Shiloh '26 mark on the chest and Far Above across the front. Reserve yours and the team will message you about payment and collection.</p>
+        <h4>Prices</h4>
+        <ul class="routes" id="shirtPrices"></ul>
         <form class="form" id="shirtForm">
           <div class="row2">
             <label class="f">Name<input id="shirtName" required minlength="2" placeholder="Your full name"></label>
@@ -704,7 +706,12 @@ const CONFIG = {
   eventKey: "Shiloh 2026",                       // sent with every booking (used in email alerts)
   sheetUrl: "https://script.google.com/macros/s/AKfycbyaVz2ssEPCLdOksNEKumxVo6UOapD2tq68MbL256ToyMK1KtvtMblmqO6pVSZ2PHCN/exec", // this event's bookings workbook: Apps Script web app URL (see backend/SETUP.md). Empty = WhatsApp only
   giveUrl: "",                                   // church online giving page (the Give card stays hidden until this is set)
-  tshirtPrice: "",                               // e.g. "£12" (shown on the polo and hoodie card once set)
+  tshirtPrices: [                                 // shown as the price list on the shirt card
+    { item: "Hoodie", price: "£15" },
+    { item: "Polo, long sleeve", price: "£12" },
+    { item: "Polo, short sleeve", price: "£10" },
+    { item: "Children (0-9yrs)", price: "£7" },
+  ],
   classes: [                                      // this year's specialised classes: name, and one line on who it is for
     { name: "Healing, Health and Wholeness", about: "The Word on divine health, healing and living whole." },
     { name: "Breaking Generational Curses", about: "Breaking free from patterns that have followed your family line." },
@@ -785,7 +792,7 @@ if (CONFIG.classes.length) {
   CLASS_DAYS.forEach(d => $("#cls" + d.key).addEventListener("change", showClassPlan));
   $("#classBook").hidden = false; showClassPlan();
 }
-if (CONFIG.tshirtPrice) { $("#shirtPrice").textContent = CONFIG.tshirtPrice; $("#shirtPrice").hidden = false; }
+$("#shirtPrices").innerHTML = CONFIG.tshirtPrices.map(p => `<li><div><b>${p.item}</b>${p.note ? `<span>${p.note}</span>` : ""}</div><em>${p.price}</em></li>`).join("");
 setLink($("#testWatch"), CONFIG.testimoniesUrl);
 setLink($("#shareIg"), CONFIG.instagram);
 $("#factVenue").textContent = CONFIG.venue.name + ", Lincoln";
