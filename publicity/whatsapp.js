@@ -108,7 +108,6 @@ ${p.caption}
 `).join("\n")}
 ## Spare cards, for any quiet day
 
-- \`02-announce-square.png\`: the launch card (Papa, theme, dates, venue), for a general "what is Shiloh" post.
 - \`10-profile-badge.png\`: members' profile picture for Shiloh week.
 - \`21-scan-me-story.gif\`: animated scan-me, for status. \`22-by-the-numbers.gif\`: 6 days, 4 sessions, 7 classes.
 - \`06-classes-01.png\` to \`06-classes-07.png\`: one card per class, if you want to give a class its own day (the two spotlight

@@ -57,7 +57,7 @@ The same messages are listed below if you would rather copy from here. The calen
 | Thu, 3 Dec | 8:00pm | Countdown · 5 days | countdown/2026-12-03-05-days-square.png | home |
 | Fri, 4 Dec | 8:00pm | Invite someone | 07-invite-story.png | home |
 | Sat, 5 Dec | 8:00pm | Countdown · 3 days | countdown/2026-12-05-03-days-square.png | programme |
-| Sun, 6 Dec | 8:00pm | Theme · Far Above | 20-theme-reveal.gif | home |
+| Sun, 6 Dec | 8:00pm | Theme · Far Above | countdown/2026-12-06-02-days-square.png | home |
 | Mon, 7 Dec | 8:00pm | Countdown · 1 day | countdown/2026-12-07-01-days-square.png | arrive |
 | Tue, 8 Dec | 8:00am | Opening day | today/2026-12-08-day-1-square.png | home |
 | Tue, 8 Dec | 8:00pm | Tomorrow · Wednesday | tomorrow/2026-12-09-day-2-square.png | programme |
@@ -78,7 +78,7 @@ Image: `11-shirt-square.png`
 ```text
 *Reserve your Shiloh 2026 shirt.* 👕
 
-Wear the theme, Far Above, with Winners Chapel Lincoln. Choose a polo shirt or hoodie and the team will message you about payment and collection.
+Winners Chapel Lincoln has polo shirts and hoodies for Shiloh 2026, carrying this year's theme, Far Above. Reserve yours on the page and the team will message you about payment and collection.
 
 *Choose:*
 • Polo shirt or hoodie
@@ -101,7 +101,7 @@ Image: `countdown/2026-11-18-20-days-square.png`
 ```text
 *20 days to Shiloh 2026.* 🙏
 
-Winners Chapel Lincoln invites you to six days of prayer, the Word and real encounters with God. Clear your week and plan to be in every session.
+Shiloh is six days of prayer, the Word and encounters with God, and Winners Chapel Lincoln invites you to all of it. Clear your week now so you can be in every session.
 
 *Opens:* Tuesday 8 December, 5:00pm
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
@@ -116,7 +116,7 @@ Image: `05-bus-square.png`
 ```text
 *Nobody should miss Shiloh because of a lift.* 🚌
 
-Winners Chapel Lincoln is running a free bus to every Shiloh session, the 5:00am ones too. Choose your pick-up point and sessions, then book your seat.
+Winners Chapel Lincoln is running a free bus to every session, including the 5:00am ones. Choose your pick-up point and the sessions you are coming to, then book your seat.
 
 *Pick-up points:*
 • Lincoln
@@ -135,9 +135,9 @@ Book your seat at https://wci-lincoln.github.io/events/shiloh-2026/#transport
 Image: `06-classes-00-cover.png`
 
 ```text
-*Which class is yours?* 🎓
+*Which Shiloh class is yours?* 🎓
 
-Winners Chapel Lincoln's Shiloh has seven specialised classes, each going deeper into one area of life with the Word. Pick the one that speaks to your situation and book your place for Wednesday, Thursday and Friday.
+Shiloh 2026 at Winners Chapel Lincoln has seven specialised classes. Each one takes one area of life and goes deep on what the Word says about it. Pick the class that fits your situation and book your place.
 
 *Classes:*
 • Healing, Health and Wholeness
@@ -161,7 +161,7 @@ Image: `09-volunteer-square.png`
 ```text
 *Shiloh in Lincoln runs on people like you.* 🙌
 
-Winners Chapel Lincoln needs willing hands for Shiloh. Pick the unit where you can help and the days and sessions you can cover, and we will build the rota around you.
+Winners Chapel Lincoln needs volunteers for Shiloh 2026. Choose the unit you want to serve in and the days and sessions you can cover, and we will build the rota around you.
 
 *Units:*
 • Driving
@@ -182,11 +182,9 @@ Sign up at https://wci-lincoln.github.io/events/shiloh-2026/#volunteer
 Image: `11-shirt-square.png`
 
 ```text
-*December mornings in Lincoln call for the hoodie.* 🧥
+*December mornings in Lincoln call for a hoodie.* 🧥
 
-The Winners Chapel Lincoln Shiloh '26 hoodie has Far Above across the front and comes in white, red or wine.
-
-Reserve yours and the team will message you about payment and collection.
+The Shiloh 2026 hoodie from Winners Chapel Lincoln has Far Above across the front and comes in white, red or wine. Reserve yours on the page and the team will message you about payment and collection.
 
 *Prices:*
 • Hoodie - £15
@@ -202,9 +200,9 @@ Reserve yours at https://wci-lincoln.github.io/events/shiloh-2026/#tshirt
 Image: `countdown/2026-11-23-15-days-square.png`
 
 ```text
-*15 days to go.* 🔥
+*15 days to Shiloh 2026.* 🔥
 
-Shiloh is the biggest week of the year at Winners Chapel Lincoln: six days, every session, together in one room. Have you told one person yet?
+Shiloh is the biggest week of the year at Winners Chapel Lincoln: six days, with the whole church together in one room. Who are you bringing with you?
 
 *Opens:* Tuesday 8 December, 5:00pm
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
@@ -217,11 +215,11 @@ Learn more at https://wci-lincoln.github.io/events/shiloh-2026/
 Image: `08-delegates-square.png`
 
 ```text
-*Want to be at Shiloh in person at Canaanland?* ✈️
+*Want to attend Shiloh 2026 in person at Canaanland?* ✈️
 
-Every year a delegation from the UK attends Shiloh on ground. Register your interest with Winners Chapel Lincoln and the team will be in touch with everything you need to know.
+Every year a delegation from the UK travels to Canaanland, Ota, for Shiloh. If you would like to go as a UK Foreign Delegate, register your interest with Winners Chapel Lincoln and the team will be in touch with everything you need to know.
 
-*Where:* Canaanland, Ota
+
 
 Register your interest at https://wci-lincoln.github.io/events/shiloh-2026/#delegate
 ```
@@ -231,10 +229,11 @@ Register your interest at https://wci-lincoln.github.io/events/shiloh-2026/#dele
 Image: none
 
 ```text
-*Coming from out of town for Shiloh?* 🏠
+*Travelling to Lincoln for Shiloh 2026?* 🏠
 
-Whether you are travelling in or want to be close for the 5:00am sessions, tell Winners Chapel Lincoln who is coming and for how long, and the hospitality team will come back to you with options.
+If you are coming from out of town, or want to stay close for the 5:00am sessions, the hospitality team at Winners Chapel Lincoln can help. Tell us who is coming and for how long, and the team will come back to you with options.
 
+*Date:* Tuesday 8 to Sunday 13 December 2026
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
 
 Tell us at https://wci-lincoln.github.io/events/shiloh-2026/#camping
@@ -247,9 +246,7 @@ Image: `06-classes-05.png`
 ```text
 *Class spotlight: Business and Career Breakthrough.* 💼
 
-At Winners Chapel Lincoln's Shiloh, this class is for entrepreneurs, professionals and job seekers believing God for a turnaround.
-
-Know someone who needs this one? Send it on.
+Winners Chapel Lincoln is running seven specialised classes at Shiloh 2026, and this is one of them. It is for entrepreneurs, professionals and job seekers believing God for a turnaround. If that is you, or someone you know, book a place.
 
 *Time:* 11:30am, Wednesday 9 to Friday 11 December
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
@@ -262,9 +259,9 @@ Book your class at https://wci-lincoln.github.io/events/shiloh-2026/#classes
 Image: `05-bus-square.png`
 
 ```text
-*Book your free bus seat for Shiloh.* 🚌
+*Have you booked your free bus seat for Shiloh?* 🚌
 
-Whether you are in Lincoln, Newark, Gainsborough or Grimsby, Winners Chapel Lincoln has a free bus to every session. Booking helps us plan the buses, so choose your pick-up point and sessions today.
+The free bus from Winners Chapel Lincoln runs to every session from four pick-up points. Booking tells us how many seats to plan for, so choose your pick-up point and sessions today.
 
 *Pick-up points:*
 • Lincoln
@@ -285,7 +282,7 @@ Image: `countdown/2026-11-28-10-days-square.png`
 ```text
 *10 days to Shiloh 2026.* 🔥
 
-Winners Chapel Lincoln is almost ready. Everything you need to plan your week is on one page.
+Winners Chapel Lincoln is getting ready to welcome you. The programme, the bookings and the directions are all on one page, so you can plan your week now.
 
 *Opens:* Tuesday 8 December, 5:00pm
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
@@ -300,7 +297,7 @@ Image: `11-shirt-square.png`
 ```text
 *Shiloh is 9 days away. Have you reserved your shirt?* 👕
 
-Polo shirt or hoodie, in white, red or wine, for men, women and kids. Reserve yours with Winners Chapel Lincoln and the team will message you about payment and collection.
+The Shiloh 2026 polo shirts and hoodies from Winners Chapel Lincoln come in white, red or wine, for men, women and kids. Reserve yours on the page and the team will message you about payment and collection.
 
 *Prices:*
 • Hoodie - £15
@@ -316,9 +313,9 @@ Reserve yours at https://wci-lincoln.github.io/events/shiloh-2026/#tshirt
 Image: `09-volunteer-square.png`
 
 ```text
-*Will you serve at Shiloh?* 🙌
+*Will you serve at Shiloh 2026?* 🙌
 
-Shiloh runs on volunteers, from driving and welcome to media, kitchen and first aid. Tell Winners Chapel Lincoln the days and sessions you can cover and we will put you on a rota that fits your week.
+Winners Chapel Lincoln needs volunteers in every unit, from driving and welcome to media, kitchen and first aid. Tell us the days and sessions you can cover and we will put you on a rota that fits your week.
 
 *When:* any of the six days, Tuesday 8 to Sunday 13 December, up to four sessions a day
 
@@ -330,9 +327,9 @@ Sign up at https://wci-lincoln.github.io/events/shiloh-2026/#volunteer
 Image: `countdown/2026-12-01-07-days-square.png`
 
 ```text
-*One week to Shiloh.* 🙏
+*One week to Shiloh 2026.* 🙏
 
-Next Tuesday, Winners Chapel Lincoln begins six days of prayer and the Word. Seven days to clear your diary and invite the people you love.
+Next Tuesday, Winners Chapel Lincoln begins six days of prayer and the Word. Use this week to clear your diary and invite the people you love.
 
 *Opens:* Tuesday 8 December, 5:00pm
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
@@ -347,9 +344,9 @@ Image: `04-programme-story.png`
 ```text
 *Plan your Shiloh week.*
 
-Each day at Winners Chapel Lincoln's Shiloh builds on the one before, so plan to be in every session. The page has a button that adds the whole week to your calendar.
+Shiloh 2026 at Winners Chapel Lincoln runs from Tuesday 8 to Sunday 13 December, and each day builds on the one before. This is what a full day looks like, so you can plan to be in every session.
 
-*Each day:*
+*A full day:*
 • Prayer Hour: 5:00am
 • Morning Session: 6:15am
 • Specialised Classes: 11:30am
@@ -365,9 +362,9 @@ See the full programme at https://wci-lincoln.github.io/events/shiloh-2026/#prog
 Image: `countdown/2026-12-03-05-days-square.png`
 
 ```text
-*5 days to go.* 🔥
+*5 days to Shiloh 2026.* 🔥
 
-Winners Chapel Lincoln is ready to welcome you. Whatever you still need to sort for Shiloh is on one page.
+Winners Chapel Lincoln is ready to welcome you. If there is anything you still need to sort out before Tuesday, you will find it on one page.
 
 *Opens:* Tuesday 8 December, 5:00pm
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
@@ -380,9 +377,9 @@ Learn more at https://wci-lincoln.github.io/events/shiloh-2026/
 Image: `07-invite-story.png`
 
 ```text
-*Who will you bring to Shiloh?* 🙏
+*Who are you bringing to Shiloh 2026?* 🙏
 
-Think of one person who needs this and send them this message. Shiloh at Winners Chapel Lincoln is free and open to everyone: family, friends, colleagues and neighbours.
+Shiloh at Winners Chapel Lincoln is free and open to everyone: family, friends, colleagues and neighbours. Think of one person who needs it and forward this message to them.
 
 *Date:* Tuesday 8 to Sunday 13 December 2026
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
@@ -395,9 +392,9 @@ Learn more at https://wci-lincoln.github.io/events/shiloh-2026/
 Image: `countdown/2026-12-05-03-days-square.png`
 
 ```text
-*3 days to Shiloh.* 🙏
+*3 days to Shiloh 2026.* 🙏
 
-Put the dates in your calendar now so no session of Winners Chapel Lincoln's Shiloh slips by. The page has a button that adds the whole week for you.
+Put Shiloh in your calendar now so you do not miss a session. The Winners Chapel Lincoln Shiloh page has a button that adds the whole week for you.
 
 *Date:* Tuesday 8 to Sunday 13 December 2026
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
@@ -407,14 +404,14 @@ Add the week to your calendar at https://wci-lincoln.github.io/events/shiloh-202
 
 ### Sun, 6 Dec · 8:00pm · Theme · Far Above · 2 days to go
 
-Image: `20-theme-reveal.gif`
+Image: `countdown/2026-12-06-02-days-square.png`
 
 ```text
-*Far Above.* ✨
+*2 days to Shiloh 2026: Far Above.* ✨
 
-“…far above all principality, and power, and might, and dominion, and every name that is named…” Ephesians 1:21 (KJV)
+“And hath raised us up together, and made us sit together in heavenly places in Christ Jesus.” Ephesians 2:6
 
-This is the word Winners Chapel Lincoln is carrying into Shiloh 2026. Come for all of it, and bring someone with you.
+Far Above is the theme of Shiloh 2026. Winners Chapel Lincoln invites you to come for all six days, and to bring someone with you.
 
 *Opens:* Tuesday 8 December, 5:00pm
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
@@ -427,16 +424,14 @@ Learn more at https://wci-lincoln.github.io/events/shiloh-2026/
 Image: `countdown/2026-12-07-01-days-square.png`
 
 ```text
-*Tomorrow evening we begin.* 🔥
+*Shiloh 2026 opens tomorrow evening.* 🔥
 
-First time at Winners Chapel Lincoln? Come to the welcome desk at the entrance and someone will show you where to sit.
-
-Bring your Bible, notebook and pen, a warm layer for the early mornings, and someone with you.
+If this is your first time at Winners Chapel Lincoln, come to the welcome desk at the entrance and someone will show you where to sit. Bring your Bible, a notebook and pen, and a warm layer for the early mornings.
 
 *Opens:* Tuesday 8 December, 5:00pm
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
 
-Know what to expect at https://wci-lincoln.github.io/events/shiloh-2026/#arrive
+See what to expect at https://wci-lincoln.github.io/events/shiloh-2026/#arrive
 ```
 
 ### Tue, 8 Dec · 8:00am · Opening day
@@ -444,11 +439,10 @@ Know what to expect at https://wci-lincoln.github.io/events/shiloh-2026/#arrive
 Image: `today/2026-12-08-day-1-square.png`
 
 ```text
-*Today is the day. Shiloh opens at 5:00pm.* 🔥
+*Shiloh 2026 opens today at 5:00pm.* 🔥
 
-Winners Chapel Lincoln opens six days of Shiloh with the Opening Encounter Night. Arrive before we start, come expecting, and bring someone with you.
+Winners Chapel Lincoln begins six days of Shiloh this evening with the Opening Encounter Night. Arrive before 5:00pm, come expecting, and bring someone with you.
 
-*Time:* 5:00pm
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
 
 Learn more at https://wci-lincoln.github.io/events/shiloh-2026/
@@ -461,7 +455,7 @@ Image: `tomorrow/2026-12-09-day-2-square.png`
 ```text
 *Tomorrow at Shiloh: the first full day.*
 
-Winners Chapel Lincoln begins the day at 5:00am. Set your alarm tonight. 🙏
+Tomorrow is the first full day of Shiloh at Winners Chapel Lincoln, and it starts at 5:00am. Set your alarm tonight. 🙏
 
 *Wednesday 9 December*
 • Prayer Hour: 5:00am
@@ -479,9 +473,9 @@ See the full programme at https://wci-lincoln.github.io/events/shiloh-2026/#prog
 Image: `tomorrow/2026-12-10-day-3-square.png`
 
 ```text
-*Tomorrow, Thursday: day 3 of 6.*
+*Tomorrow at Shiloh: Thursday, day 3 of 6.*
 
-Every session at Winners Chapel Lincoln counts and builds on the one before.
+Shiloh continues at Winners Chapel Lincoln tomorrow. Each session builds on the one before, so plan to be in all four.
 
 *Thursday 10 December*
 • Prayer Hour: 5:00am
@@ -499,9 +493,9 @@ See the full programme at https://wci-lincoln.github.io/events/shiloh-2026/#prog
 Image: `tomorrow/2026-12-11-day-4-square.png`
 
 ```text
-*Tomorrow, Friday: Victory Celebration Night.* 🎉
+*Tomorrow at Shiloh: Victory Celebration Night.* 🎉
 
-Winners Chapel Lincoln ends the day celebrating what God is doing. Come to celebrate.
+Friday at Winners Chapel Lincoln follows the full-day programme and ends with the Victory Celebration Night at 5:00pm. Come ready to celebrate.
 
 *Friday 11 December*
 • Prayer Hour: 5:00am
@@ -519,11 +513,12 @@ See the full programme at https://wci-lincoln.github.io/events/shiloh-2026/#prog
 Image: `tomorrow/2026-12-12-day-5-square.png`
 
 ```text
-*Tomorrow, Saturday: the Impartation Service.*
+*Tomorrow at Shiloh: the Impartation Service.*
 
-One session with Winners Chapel Lincoln, early. Set your alarm tonight and come ready to receive. 🙏
+Saturday has one session at Winners Chapel Lincoln, the Impartation Service, and it starts early. Set your alarm tonight and come ready to receive. 🙏
 
-*Impartation Service:* 5:00am UK time
+*Date:* Saturday 12 December
+*Time:* 5:00am UK time
 *Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH
 
 See the full programme at https://wci-lincoln.github.io/events/shiloh-2026/#programme
@@ -534,9 +529,9 @@ See the full programme at https://wci-lincoln.github.io/events/shiloh-2026/#prog
 Image: `tomorrow/2026-12-13-day-6-square.png`
 
 ```text
-*Tomorrow is Thanksgiving Sunday.* 🙏
+*Tomorrow at Shiloh: Thanksgiving Sunday.* 🙏
 
-Winners Chapel Lincoln gives thanks together. Bring your invitees and new converts. A warm welcome waits for everyone here for the first time.
+Shiloh 2026 closes at Winners Chapel Lincoln with two Thanksgiving Services. Bring your invitees and new converts. Everyone coming for the first time will be warmly welcomed.
 
 *Sunday 13 December*
 • Shiloh Thanksgiving Service 1: 9:20am
@@ -554,7 +549,7 @@ Image: none
 ```text
 *Thank you, Lord, for Shiloh 2026.* 🙌
 
-What did God do for you this week? Share your testimony with Winners Chapel Lincoln. It could be the word that encourages someone else.
+What did God do for you this week? Winners Chapel Lincoln would love to hear it. Share your testimony on the page; it could be the word that encourages someone else.
 
 
 
@@ -563,7 +558,6 @@ Share your testimony at https://wci-lincoln.github.io/events/shiloh-2026/#testim
 
 ## Spare cards, for any quiet day
 
-- `02-announce-square.png`: the launch card (Papa, theme, dates, venue), for a general "what is Shiloh" post.
 - `10-profile-badge.png`: members' profile picture for Shiloh week.
 - `21-scan-me-story.gif`: animated scan-me, for status. `22-by-the-numbers.gif`: 6 days, 4 sessions, 7 classes.
 - `06-classes-01.png` to `06-classes-07.png`: one card per class, if you want to give a class its own day (the two spotlight
