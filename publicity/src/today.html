@@ -67,7 +67,8 @@ const day = Math.min(6, Math.max(1, +P("day", "1"))), [date, rows, note] = DAYS[
 document.body.dataset.size = P("size", "square");
 document.getElementById("kick").textContent = document.body.dataset.size === "wide" ? `Shiloh 2026 · Day ${day} of 6` : `Shiloh 2026 · Far Above · Day ${day} of 6`;
 document.getElementById("date").textContent = date;
+if (P("when", "today") === "tomorrow") document.querySelector(".head h1").firstChild.textContent = "Tomorrow at ";
 document.getElementById("rows").innerHTML = rows.map(([t, ap, name, sub]) => `<div class="row"><div class="t">${t}<small>${ap}</small></div><div><b>${name}</b><span>${sub}</span></div></div>`).join("");
-document.getElementById("note").textContent = note;
+document.getElementById("note").textContent = P("when", "today") === "tomorrow" ? note.replace("tonight", "tomorrow").replace("today", "tomorrow") : note;
 </script>
 </body></html>

@@ -23,6 +23,9 @@ const STILLS = [
   { out: "08-delegates-square.png",    file: "delegates.html", q: "",            w: 1080, h: 1080 },
   { out: "09-volunteer-square.png",    file: "volunteer.html", q: "",            w: 1080, h: 1080 },
   { out: "10-profile-badge.png",       file: "dp.html",        q: "",            w: 1080, h: 1080 },
+  { out: "11-shirt-square.png",        file: "shirt.html",     q: "",            w: 1080, h: 1080 },
+  // "Tomorrow at Shiloh" for the evening before days 2 to 6 (the 5:00am sessions need a night's notice): square, for the groups.
+  ...[2, 3, 4, 5, 6].map(d => ({ out: `tomorrow/2026-12-${String(7 + d).padStart(2, "0")}-day-${d}-square.png`, file: "today.html", q: `day=${d}&size=square&when=tomorrow`, w: 1080, h: 1080 })),
   { out: "40-poster-a4.png",           file: "poster.html",    q: "",            w: 1240, h: 1754, scale: 2 },
   // Shiloh week: one "Today at Shiloh" card per day, for the groups (square), status (story) and the screen (wide).
   ...[1, 2, 3, 4, 5, 6].flatMap(d => [["square", 1080, 1080], ["story", 1080, 1920], ["wide", 1920, 1080]].map(([size, w, h]) => ({ out: `today/2026-12-${String(7 + d).padStart(2, "0")}-day-${d}-${size}.png`, file: "today.html", q: `day=${d}&size=${size}`, w, h }))),

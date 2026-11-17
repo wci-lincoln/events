@@ -50,6 +50,9 @@ for (const f of ["shiloh-2026-flyer.webp", "shiloh-2026-qr.png", "shiloh-2026-qr
   const from = path.join(root, "assets", f);
   if (fs.existsSync(from)) fs.copyFileSync(from, path.join(out, f));
 }
+// The WhatsApp "today's post" page (built by publicity/whatsapp.js) is served at /shiloh-2026/share/.
+const share = path.join(root, "publicity", "whatsapp", "web");
+if (fs.existsSync(share)) fs.cpSync(share, path.join(out, "share"), { recursive: true });
 fs.writeFileSync(path.join(site, ".nojekyll"), "");
 fs.writeFileSync(path.join(site, "index.html"), `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>Winners Chapel International Lincoln · Events</title><meta http-equiv="refresh" content="0; url=shiloh-2026/"><link rel="canonical" href="shiloh-2026/"></head><body><p>Redirecting to <a href="shiloh-2026/">Shiloh 2026</a>…</p></body></html>\n`);
 console.log("Built docs/shiloh-2026/index.html (" + (doc.length / 1024).toFixed(0) + " KB) and copied assets.");

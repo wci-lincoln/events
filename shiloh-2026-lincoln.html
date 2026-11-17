@@ -1044,9 +1044,22 @@ document.addEventListener("click", async e => {
   }
 });
 
-/* open the tile named in the link's #hash */
-function openHash() { const id = location.hash.replace("#", ""); const d = id && document.getElementById(id); if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView({ block: "start" }); } }
-openHash(); window.addEventListener("hashchange", openHash);
+/* open the tile named in the link's #hash and land on it. On a fresh load the jump is instant (the page's smooth scrolling is
+   dropped while it is still loading) and is repeated once images and fonts have settled, unless the visitor has scrolled already */
+let touched = false;
+["wheel", "touchstart", "keydown", "mousedown"].forEach(ev => addEventListener(ev, () => { touched = true; }, { once: true, passive: true }));
+function jumpTo(d) { const root = document.documentElement, prev = root.style.scrollBehavior; root.style.scrollBehavior = "auto"; d.scrollIntoView({ block: "start" }); root.style.scrollBehavior = prev; }
+function openHash(initial) {
+  const id = location.hash.replace("#", ""); const d = id && document.getElementById(id);
+  if (!d || d.tagName !== "DETAILS") return;
+  d.open = true;
+  if (!initial) { d.scrollIntoView({ block: "start" }); return; }
+  jumpTo(d);
+  const again = () => { if (!touched) jumpTo(d); };
+  addEventListener("load", again);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(again);
+}
+openHash(true); window.addEventListener("hashchange", () => openHash(false));
 
 /* ---------- gold sparkle on the hero (quiet, respects reduced motion) ---------- */
 (function () {

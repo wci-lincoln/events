@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+/* Shiloh shirt card, square. Same grammar as the bus and classes cards: lockup bar, one big headline, QR panel and footer.
+   The shirt itself is not photographed yet, so the three colours are shown as plain silhouettes. */
+.frame { width:1080px; height:1080px; padding:70px; }
+.kick { font-size:24px; color:var(--red); margin-top:30px; }
+.t1 { font-size:132px; margin-top:12px; color:var(--crimson2); line-height:.88; }
+.t1 span { color:var(--red); }
+.t2 { font-size:36px; margin-top:20px; color:var(--crimson); max-width:760px; line-height:1.08; }
+.shirts { display:flex; gap:26px; margin-top:26px; }
+.shirt { width:150px; text-align:center; }
+.shirt svg { width:150px; height:150px; display:block; filter:drop-shadow(0 12px 14px rgba(27,6,8,.22)); }
+.shirt b { display:block; margin-top:6px; font-family:var(--f-info); font-weight:800; font-size:28px; letter-spacing:.08em; text-transform:uppercase; color:var(--crimson2); }
+.fits { align-self:center; margin-left:18px; font-family:var(--f-info); font-weight:800; font-size:34px; letter-spacing:.04em; text-transform:uppercase; color:var(--crimson); line-height:1.15; }
+.fits small { display:block; font-family:var(--f-body); font-weight:500; text-transform:none; letter-spacing:0; font-size:25px; color:rgba(27,6,8,.75); margin-top:10px; line-height:1.3; }
+.foot { margin-top:auto; display:flex; align-items:center; gap:30px; }
+.qr { width:230px; height:230px; flex:none; }
+.foot .cta { font-size:40px; color:var(--crimson2); }
+.foot .sub { font-size:25px; color:rgba(27,6,8,.78); margin-top:10px; line-height:1.3; max-width:560px; font-weight:500; }
+.bar .tag { color:var(--crimson); }
+.seal { right:70px; top:250px; }
+</style></head><body>
+<div class="frame ivory">
+  <div class="grain"></div>
+  <div class="content">
+    <div class="bar"><div class="emblem"><img src="logo.png" alt=""><div><b>Winners Chapel International</b><span>Lincoln</span></div></div><span class="tag">Viewing centre</span></div>
+    <div class="label kick">Shiloh 2026 · Far Above</div>
+    <h1 class="display t1">Wear the<br><span>theme</span></h1>
+    <div class="cond t2">Polo shirt or hoodie, with Shiloh '26 on the chest and Far Above across the front.</div>
+    <div class="shirts">
+      <div class="shirt"><svg viewBox="0 0 24 24"><path d="M8 4l4 2 4-2 4 3-2 4-2-1v10H8V10l-2 1-2-4z" fill="#FFFFFF" stroke="#1B0608" stroke-opacity=".35" stroke-width=".35" stroke-linejoin="round"/></svg><b>White</b></div>
+      <div class="shirt"><svg viewBox="0 0 24 24"><path d="M8 4l4 2 4-2 4 3-2 4-2-1v10H8V10l-2 1-2-4z" fill="#D81F26" stroke-linejoin="round"/></svg><b>Red</b></div>
+      <div class="shirt"><svg viewBox="0 0 24 24"><path d="M8 4l4 2 4-2 4 3-2 4-2-1v10H8V10l-2 1-2-4z" fill="#6E1423" stroke-linejoin="round"/></svg><b>Wine</b></div>
+      <div class="fits">Men, women and kids<small>Sizes S to 4XL</small></div>
+    </div>
+    <div class="foot"><div class="qr"><img src="qr.svg" alt=""></div><div><div class="cond cta">Reserve yours</div><div class="sub">Pick your item, colour and size on the page. The team will message you about payment and collection.</div></div></div>
+    <div class="seal" data-seal="150" data-text="SHILOH 2026 · LINCOLN · 8 TO 13 DEC · "></div>
+  </div>
+</div>
+</body></html>

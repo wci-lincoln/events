@@ -16,6 +16,17 @@ side) and the six "Today at Shiloh" cards. Each folder has a `READ ME FIRST.md` 
 team: what to post or show, when, and the captions. Raw renders live in `out/`; `pack.js` rebuilds
 the two folders from them, so edit `out/` or the templates, never the folders.
 
+## WhatsApp content calendar
+
+`whatsapp/CALENDAR.md` plans one post a day from 17 November to 13 December (28 posts): a card from `out/`, a short message
+written to be forwarded, and one link. Links open the part of the hub the post is about (`#transport`, `#tshirt`, `#classes`,
+`#programme`, `#volunteer`, `#delegate`, `#camping`, `#arrive`, `#testimonies`); posts about Shiloh in general open the landing
+page. Countdown cards are used on the round days (20, 15, 10, 7, 5, 3, 1 to go) and the days between mix the topics. The plan
+lives in `whatsapp/calendar.js`; `node whatsapp.js` checks it (images exist, countdown numbers match the date, transport and
+shirt posts carry their own link) and rebuilds `CALENDAR.md` and `whatsapp/web/`, a phone page that opens on today's post with a
+one-tap *Send on WhatsApp*. The root `node build.js` publishes it at `/shiloh-2026/share/`. It adds two cards to the kit:
+`11-shirt-square.png` and `tomorrow/` ("Tomorrow at Shiloh", the evening-before cards for days 2 to 6).
+
 ## One design system
 
 Every piece shares the same grammar so the run-up reads as one campaign: the church lockup top
