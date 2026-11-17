@@ -34,7 +34,10 @@ for (const p of POSTS) {
   if (/\bwatch live|stream|livestream|to be confirmed|tbc|draft\b/i.test(p.caption)) problems.push(`${p.date}: banned wording`);
   // Every message must say who is inviting, label its facts, and end on a plain sentence before the link (no pointing hand).
   if (!/Winners Chapel/.test(p.caption)) problems.push(`${p.date}: never names Winners Chapel Lincoln`);
-  if (!/\*Venue:\*/.test(p.caption) && !p.caption.includes("*Where:*") && p.link !== "testimonies") problems.push(`${p.date}: no labelled venue`);
+  // A venue line belongs only where the venue is part of the subject; a post that opts out (shirts, delegates, thanks) must not carry one.
+  const hasPlace = /\*(Venue|Takes you to|Where):\*/.test(p.caption);
+  if (!p.noVenue && !hasPlace) problems.push(`${p.date}: no labelled venue`);
+  if (p.noVenue && /\*Venue:\*/.test(p.caption)) problems.push(`${p.date}: venue line on a post that opts out`);
   if (/👉/.test(p.caption)) problems.push(`${p.date}: pointing hand`);
   if (!new RegExp("\\n\\n[A-Z][^\\n]* at " + p.url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "$").test(p.caption)) problems.push(`${p.date}: last line is not "<words> at <link>"`);
 }

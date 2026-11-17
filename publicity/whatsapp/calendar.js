@@ -38,64 +38,74 @@ const LINK_NAMES = {
 const DATE = "*Date:* Tuesday 8 to Sunday 13 December 2026";
 const OPENS = "*Opens:* Tuesday 8 December, 5:00pm";
 const VENUE = "*Venue:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH";
-const SHIRT = "*Choose:* polo shirt or hoodie, in white, red or wine, for men, women and kids (sizes S to 4XL)";
-const PRICES = "*Prices:*\nHoodie £15\nPolo, long sleeve £12\nPolo, short sleeve £10\nChildren (0-9yrs) £7";
+// A list is a label and bullets, so it reads as a list: *Prices:* then one "• item" per line.
+const list = (label, items, colon = true) => `*${label}${colon ? ":" : ""}*\n` + items.map(i => "• " + i).join("\n");
+const CHOOSE = list("Choose", ["Polo shirt or hoodie", "White, red or wine", "Men, women or kids (S to 4XL)"]);
+const PRICES = list("Prices", ["Hoodie £15", "Polo, long sleeve £12", "Polo, short sleeve £10", "Children (0-9yrs) £7"]);
+const PICKUPS = list("Pick-up points", ["Lincoln", "Newark", "Gainsborough", "Grimsby"]);
+const BUS_RUNS = "*Runs:* every session, Tuesday 8 to Sunday 13 December";
+const BUS_TO = "*Takes you to:* Moorland Community Centre, Moorland Avenue, Lincoln LN6 7NH";
+const SERVE_WHEN = "*When:* any of the six days, Tuesday 8 to Sunday 13 December, up to four sessions a day";
+const UNITS = list("Units", ["Driving", "Welcome", "Media", "Kitchen", "Set-up", "Intercession", "First aid"]);
+const CLASSES = list("Classes", ["Healing, Health and Wholeness", "Breaking Generational Curses", "Breaking Marital Siege", "Successful Christian Family", "Business and Career Breakthrough", "Keys to Academic Success", "Fathers and Mothers of Nations"]);
 const CLASS_TIME = "*Time:* 11:30am, Wednesday 9 to Friday 11 December";
-const DAY_TIMES = ["*Prayer Hour:* 5:00am", "*Morning Session:* 6:15am", "*Specialised Classes:* 11:30am"];
+const DAY_ITEMS = ["Prayer Hour: 5:00am", "Morning Session: 6:15am", "Specialised Classes: 11:30am"];
 
+// A post only carries facts that belong to its subject. A shirt post has items and prices, not an address. The venue goes
+// on posts about the event days themselves (countdowns, classes, the programme, the invitation, Shiloh week) and on the bus,
+// which needs to say where it goes.
+//
 // date: the day it is sent. send: time to send. type: what kind of post. image: file in out/ (omit for text only).
 // link: key in LINKS. verb: the words before the link. hook: the first line. body: short paragraphs.
-// facts: labelled lines before Date and Venue. opens: add the opening time. noDate / noVenue: leave that line out.
+// facts: labelled lines. opens: add the opening time. noDate / noVenue: leave that line out.
+// when / where: say the date or place in the post's own words.
 const POSTS = [
   // Actions first. Shirts lead because they are time sensitive.
   { date: "2026-11-17", send: "8:00pm", type: "Shiloh shirt", image: "11-shirt-square.png", link: "tshirt", verb: "Reserve yours at",
-    hook: "*Wear the theme to Shiloh 2026.* 👕",
-    body: ["Winners Chapel Lincoln is gathering for Shiloh under the theme Far Above, and we would love to walk in together as one family.",
-      "Come in the Shiloh '26 polo shirt or hoodie. Reserve yours now and the team will message you about payment and collection."],
-    facts: [SHIRT, PRICES] },
+    hook: "*Reserve your Shiloh 2026 shirt.* 👕",
+    body: ["Wear the theme, Far Above, with Winners Chapel Lincoln. Choose a polo shirt or hoodie and the team will message you about payment and collection."],
+    facts: [CHOOSE, PRICES], noDate: true, noVenue: true },
 
   { date: "2026-11-18", send: "8:00pm", type: "Countdown · 20 days", image: "countdown/2026-11-18-20-days-square.png", link: "home", verb: "Learn more at",
     hook: "*20 days to Shiloh 2026.* 🙏",
-    body: ["Winners Chapel Lincoln invites you to six days of prayer, the Word and real encounters with God, under the theme Far Above.",
-      "Clear your week now and plan to be in every session."],
-    opens: true },
+    body: ["Winners Chapel Lincoln invites you to six days of prayer, the Word and real encounters with God. Clear your week and plan to be in every session."],
+    opens: true, noDate: true },
 
   { date: "2026-11-19", send: "8:00pm", type: "Free bus", image: "05-bus-square.png", link: "transport", verb: "Book your seat at",
     hook: "*Nobody should miss Shiloh because of a lift.* 🚌",
-    body: ["Winners Chapel Lincoln is running a free bus to every Shiloh session, the 5:00am ones too. Choose your pick-up point and the sessions you are coming to, then book your seat.",
-      "Got a car? Fill the spare seats on your way."],
-    facts: ["*Pick-up points:* Lincoln, Newark, Gainsborough and Grimsby"] },
+    body: ["Winners Chapel Lincoln is running a free bus to every Shiloh session, the 5:00am ones too. Choose your pick-up point and sessions, then book your seat."],
+    facts: [PICKUPS], when: BUS_RUNS, where: BUS_TO },
 
   { date: "2026-11-20", send: "8:00pm", type: "Classes", image: "06-classes-00-cover.png", link: "classes", verb: "Choose your class at",
     hook: "*Which class is yours?* 🎓",
-    body: ["Every day at Winners Chapel Lincoln's Shiloh, from 11:30am, we go deeper into one area of life with the Word. There are seven specialised classes, so pick the one that speaks to your situation and book your place for Wednesday, Thursday and Friday."],
-    facts: ["*Classes:* healing and health, family, marriage, business and career, academics and more", CLASS_TIME], noDate: true },
+    body: ["Winners Chapel Lincoln's Shiloh has seven specialised classes, each going deeper into one area of life with the Word. Pick the one that speaks to your situation and book your place for Wednesday, Thursday and Friday."],
+    facts: [CLASSES, CLASS_TIME], noDate: true },
 
   { date: "2026-11-21", send: "8:00pm", type: "Volunteer", image: "09-volunteer-square.png", link: "volunteer", verb: "Sign up at",
     hook: "*Shiloh in Lincoln runs on people like you.* 🙌",
-    body: ["Winners Chapel Lincoln needs willing hands for six days of Shiloh. Pick the unit where you can help and the days and sessions you can cover, and we will build the rota around you."],
-    facts: ["*Units:* driving, welcome, media, kitchen, set-up, intercession, first aid and more"] },
+    body: ["Winners Chapel Lincoln needs willing hands for Shiloh. Pick the unit where you can help and the days and sessions you can cover, and we will build the rota around you."],
+    facts: [UNITS], when: SERVE_WHEN, noVenue: true },
 
   { date: "2026-11-22", send: "8:00pm", type: "Shiloh shirt", image: "11-shirt-square.png", link: "tshirt", verb: "Reserve yours at",
-    hook: "*December in Lincoln calls for the hoodie.* 🧥",
-    body: ["Stay warm for the early mornings and wear Far Above while you are at it. Winners Chapel Lincoln's Shiloh '26 hoodie and polo shirt both carry Shiloh '26 on the chest and Far Above across the front.",
-      "Reserve yours now and the team will message you about payment and collection."],
-    facts: [SHIRT, PRICES] },
+    hook: "*December mornings in Lincoln call for the hoodie.* 🧥",
+    body: ["The Winners Chapel Lincoln Shiloh '26 hoodie has Far Above across the front and comes in white, red or wine.",
+      "Reserve yours and the team will message you about payment and collection."],
+    facts: [PRICES], noDate: true, noVenue: true },
 
   { date: "2026-11-23", send: "8:00pm", type: "Countdown · 15 days", image: "countdown/2026-11-23-15-days-square.png", link: "home", verb: "Learn more at",
     hook: "*15 days to go.* 🔥",
-    body: ["Shiloh is the biggest week of the year at Winners Chapel Lincoln: six days, every session, together in one room.",
-      "Have you told one person yet?"],
-    opens: true },
+    body: ["Shiloh is the biggest week of the year at Winners Chapel Lincoln: six days, every session, together in one room. Have you told one person yet?"],
+    opens: true, noDate: true },
 
   { date: "2026-11-24", send: "8:00pm", type: "UK Foreign Delegates", image: "08-delegates-square.png", link: "delegate", verb: "Register your interest at",
     hook: "*Want to be at Shiloh in person at Canaanland?* ✈️",
-    body: ["Every year a delegation from the UK attends Shiloh on ground. If you would like to be part of the UK Foreign Delegates for Shiloh 2026, register your interest with Winners Chapel Lincoln and the team will be in touch with everything you need to know."],
+    body: ["Every year a delegation from the UK attends Shiloh on ground. Register your interest with Winners Chapel Lincoln and the team will be in touch with everything you need to know."],
     facts: ["*Where:* Canaanland, Ota"], noDate: true, noVenue: true },
 
   { date: "2026-11-25", send: "8:00pm", type: "Stay nearby (text only)", image: null, link: "camping", verb: "Tell us at",
     hook: "*Coming from out of town for Shiloh?* 🏠",
-    body: ["If you are travelling to Lincoln for Shiloh, or want to be close for every 5:00am session, tell Winners Chapel Lincoln who is coming and for how long. The hospitality team will come back to you with options."] },
+    body: ["Whether you are travelling in or want to be close for the 5:00am sessions, tell Winners Chapel Lincoln who is coming and for how long, and the hospitality team will come back to you with options."],
+    noDate: true },
 
   { date: "2026-11-26", send: "8:00pm", type: "Class spotlight", image: "06-classes-05.png", link: "classes", verb: "Book your class at",
     hook: "*Class spotlight: Business and Career Breakthrough.* 💼",
@@ -106,59 +116,58 @@ const POSTS = [
   { date: "2026-11-27", send: "8:00pm", type: "Free bus", image: "05-bus-square.png", link: "transport", verb: "Book your seat at",
     hook: "*Book your free bus seat for Shiloh.* 🚌",
     body: ["Whether you are in Lincoln, Newark, Gainsborough or Grimsby, Winners Chapel Lincoln has a free bus to every session. Booking helps us plan the buses, so choose your pick-up point and sessions today."],
-    facts: ["*Pick-up points:* Lincoln, Newark, Gainsborough and Grimsby"] },
+    facts: [PICKUPS], when: BUS_RUNS, where: BUS_TO },
 
   { date: "2026-11-28", send: "8:00pm", type: "Countdown · 10 days", image: "countdown/2026-11-28-10-days-square.png", link: "home", verb: "Learn more at",
     hook: "*10 days to Shiloh 2026.* 🔥",
-    body: ["Winners Chapel Lincoln is almost ready. Everything you need to plan your week is on one page: the programme, your bookings and directions."],
-    opens: true },
+    body: ["Winners Chapel Lincoln is almost ready. Everything you need to plan your week is on one page."],
+    opens: true, noDate: true },
 
   { date: "2026-11-29", send: "8:00pm", type: "Shiloh shirt", image: "11-shirt-square.png", link: "tshirt", verb: "Reserve yours at",
     hook: "*Shiloh is 9 days away. Have you reserved your shirt?* 👕",
-    body: ["Wear the theme with Winners Chapel Lincoln. Reserve your Shiloh '26 polo shirt or hoodie now and the team will message you about payment and collection."],
-    facts: [SHIRT, PRICES] },
+    body: ["Polo shirt or hoodie, in white, red or wine, for men, women and kids. Reserve yours with Winners Chapel Lincoln and the team will message you about payment and collection."],
+    facts: [PRICES], noDate: true, noVenue: true },
 
   { date: "2026-11-30", send: "8:00pm", type: "Volunteer", image: "09-volunteer-square.png", link: "volunteer", verb: "Sign up at",
     hook: "*Will you serve at Shiloh?* 🙌",
-    body: ["Shiloh in Lincoln runs on volunteers, from driving and welcome to media, kitchen and first aid. Tell Winners Chapel Lincoln the days and sessions you can cover and we will put you on a rota that fits your week."] },
+    body: ["Shiloh runs on volunteers, from driving and welcome to media, kitchen and first aid. Tell Winners Chapel Lincoln the days and sessions you can cover and we will put you on a rota that fits your week."],
+    when: SERVE_WHEN, noVenue: true },
 
   { date: "2026-12-01", send: "8:00pm", type: "Countdown · 7 days", image: "countdown/2026-12-01-07-days-square.png", link: "home", verb: "Learn more at",
     hook: "*One week to Shiloh.* 🙏",
-    body: ["Next Tuesday, Winners Chapel Lincoln begins six days of prayer and the Word. Seven days to clear your diary, finish your bookings and invite the people you love."],
-    opens: true },
+    body: ["Next Tuesday, Winners Chapel Lincoln begins six days of prayer and the Word. Seven days to clear your diary and invite the people you love."],
+    opens: true, noDate: true },
 
   // The softer posts, once the things to book have had their turn.
   { date: "2026-12-02", send: "8:00pm", type: "Programme", image: "04-programme-story.png", link: "programme", verb: "See the full programme at",
     hook: "*Plan your Shiloh week.*",
     body: ["Each day at Winners Chapel Lincoln's Shiloh builds on the one before, so plan to be in every session. The page has a button that adds the whole week to your calendar."],
-    facts: [...DAY_TIMES, "*Encounter Night:* 5:00pm"] },
+    facts: [list("Each day", [...DAY_ITEMS, "Encounter Night: 5:00pm"])], noDate: true },
 
   { date: "2026-12-03", send: "8:00pm", type: "Countdown · 5 days", image: "countdown/2026-12-03-05-days-square.png", link: "home", verb: "Learn more at",
     hook: "*5 days to go.* 🔥",
     body: ["Winners Chapel Lincoln is ready to welcome you. Whatever you still need to sort for Shiloh is on one page."],
-    opens: true },
+    opens: true, noDate: true },
 
   { date: "2026-12-04", send: "8:00pm", type: "Invite someone", image: "07-invite-story.png", link: "home", verb: "Learn more at",
     hook: "*Who will you bring to Shiloh?* 🙏",
-    body: ["Think of one person who needs this and send them this message. Shiloh at Winners Chapel Lincoln is free and open to everyone: family, friends, colleagues and neighbours.",
-      "Tell them you will save them a seat."] },
+    body: ["Think of one person who needs this and send them this message. Shiloh at Winners Chapel Lincoln is free and open to everyone: family, friends, colleagues and neighbours."] },
 
   { date: "2026-12-05", send: "8:00pm", type: "Countdown · 3 days", image: "countdown/2026-12-05-03-days-square.png", link: "programme", verb: "Add the week to your calendar at",
     hook: "*3 days to Shiloh.* 🙏",
-    body: ["Put the dates in your calendar now so no session of Winners Chapel Lincoln's Shiloh slips by. The page has a button that adds the whole week for you."],
-    opens: true },
+    body: ["Put the dates in your calendar now so no session of Winners Chapel Lincoln's Shiloh slips by. The page has a button that adds the whole week for you."] },
 
   { date: "2026-12-06", send: "8:00pm", type: "Theme · Far Above", image: "20-theme-reveal.gif", link: "home", verb: "Learn more at",
     hook: "*Far Above.* ✨",
     body: ["“…far above all principality, and power, and might, and dominion, and every name that is named…” Ephesians 1:21 (KJV)",
       "This is the word Winners Chapel Lincoln is carrying into Shiloh 2026. Come for all of it, and bring someone with you."],
-    opens: true },
+    opens: true, noDate: true },
 
   { date: "2026-12-07", send: "8:00pm", type: "Countdown · 1 day", image: "countdown/2026-12-07-01-days-square.png", link: "arrive", verb: "Know what to expect at",
     hook: "*Tomorrow evening we begin.* 🔥",
     body: ["First time at Winners Chapel Lincoln? Come to the welcome desk at the entrance and someone will show you where to sit.",
       "Bring your Bible, notebook and pen, a warm layer for the early mornings, and someone with you."],
-    facts: ["*Opens:* Tuesday 8 December, 5:00pm"], noDate: true },
+    opens: true, noDate: true },
 
   // Shiloh week. The opening night is a morning post; every other day's card goes out the evening before.
   { date: "2026-12-08", send: "8:00am", type: "Opening day", image: "today/2026-12-08-day-1-square.png", link: "home", verb: "Learn more at",
@@ -169,27 +178,27 @@ const POSTS = [
   { date: "2026-12-08", send: "8:00pm", type: "Tomorrow · Wednesday", image: "tomorrow/2026-12-09-day-2-square.png", link: "programme", verb: "See the full programme at",
     hook: "*Tomorrow at Shiloh: the first full day.*",
     body: ["Winners Chapel Lincoln begins the day at 5:00am. Set your alarm tonight. 🙏"],
-    facts: ["*Wednesday 9 December*", ...DAY_TIMES, "*Encounter Night:* 5:00pm"], noDate: true },
+    facts: [list("Wednesday 9 December", [...DAY_ITEMS, "Encounter Night: 5:00pm"], false)], noDate: true },
 
   { date: "2026-12-09", send: "8:00pm", type: "Tomorrow · Thursday", image: "tomorrow/2026-12-10-day-3-square.png", link: "programme", verb: "See the full programme at",
     hook: "*Tomorrow, Thursday: day 3 of 6.*",
     body: ["Every session at Winners Chapel Lincoln counts and builds on the one before."],
-    facts: ["*Thursday 10 December*", ...DAY_TIMES, "*Encounter Night:* 5:00pm"], noDate: true },
+    facts: [list("Thursday 10 December", [...DAY_ITEMS, "Encounter Night: 5:00pm"], false)], noDate: true },
 
   { date: "2026-12-10", send: "8:00pm", type: "Tomorrow · Friday", image: "tomorrow/2026-12-11-day-4-square.png", link: "programme", verb: "See the full programme at",
     hook: "*Tomorrow, Friday: Victory Celebration Night.* 🎉",
     body: ["Winners Chapel Lincoln ends the day celebrating what God is doing. Come to celebrate."],
-    facts: ["*Friday 11 December*", ...DAY_TIMES, "*Victory Celebration Night:* 5:00pm"], noDate: true },
+    facts: [list("Friday 11 December", [...DAY_ITEMS, "Victory Celebration Night: 5:00pm"], false)], noDate: true },
 
   { date: "2026-12-11", send: "8:00pm", type: "Tomorrow · Saturday", image: "tomorrow/2026-12-12-day-5-square.png", link: "programme", verb: "See the full programme at",
     hook: "*Tomorrow, Saturday: the Impartation Service.*",
     body: ["One session with Winners Chapel Lincoln, early. Set your alarm tonight and come ready to receive. 🙏"],
-    facts: ["*Saturday 12 December*", "*Impartation Service:* 5:00am UK time"], noDate: true },
+    facts: ["*Impartation Service:* 5:00am UK time"], noDate: true },
 
   { date: "2026-12-12", send: "8:00pm", type: "Tomorrow · Sunday", image: "tomorrow/2026-12-13-day-6-square.png", link: "home", verb: "Learn more at",
     hook: "*Tomorrow is Thanksgiving Sunday.* 🙏",
     body: ["Winners Chapel Lincoln gives thanks together. Bring your invitees and new converts. A warm welcome waits for everyone here for the first time."],
-    facts: ["*Sunday 13 December*", "*Shiloh Thanksgiving Service 1:* 9:20am", "*Shiloh Thanksgiving Service 2:* 11:15am"], noDate: true },
+    facts: [list("Sunday 13 December", ["Shiloh Thanksgiving Service 1: 9:20am", "Shiloh Thanksgiving Service 2: 11:15am"], false)], noDate: true },
 
   { date: "2026-12-13", send: "3:00pm", type: "Thank you · testimonies (text only)", image: null, link: "testimonies", verb: "Share your testimony at",
     hook: "*Thank you, Lord, for Shiloh 2026.* 🙌",
@@ -199,11 +208,13 @@ const POSTS = [
 
 for (const p of POSTS) {
   const facts = [...(p.facts || [])];
-  if (!p.noDate) facts.push(DATE);
+  if (p.when) facts.push(p.when); else if (!p.noDate) facts.push(DATE);
   if (p.opens) facts.push(OPENS);
-  if (!p.noVenue) facts.push(VENUE);
+  if (p.where) facts.push(p.where); else if (!p.noVenue) facts.push(VENUE);
   p.url = LINKS[p.link];
-  p.caption = [p.hook, ...p.body, facts.join("\n"), p.verb + " " + p.url].join("\n\n");
+  // Single-line facts sit together; a list gets a blank line before and after it.
+  const factText = facts.reduce((out, f, i) => i === 0 ? f : out + (f.includes("\n") || facts[i - 1].includes("\n") ? "\n\n" : "\n") + f, "");
+  p.caption = [p.hook, ...p.body, factText, p.verb + " " + p.url].join("\n\n");
 }
 
 module.exports = { BASE, LINKS, LINK_NAMES, POSTS };
